@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Dashboard | Sica Creative</title>
+    <meta name="description" content="Dashboard para pré-visualizar e testar alterações de imagens, cores e copy em todas as páginas do projeto.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dashboard-bg: #f5f3fa;
+            --dashboard-surface: rgba(255, 255, 255, 0.92);
+            --dashboard-panel: #ffffff;
+            --dashboard-border: rgba(111, 90, 163, 0.18);
+            --dashboard-shadow: 0 26px 80px rgba(52, 34, 77, 0.14);
+            --dashboard-text: #1f1b2d;
+            --dashboard-muted: #66617b;
+            --dashboard-primary: #34224D;
+            --dashboard-secondary: #6F5AA3;
+            --dashboard-accent: #c6db5b;
+            --dashboard-radius: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(198, 219, 91, 0.16), transparent 26%),
+                radial-gradient(circle at top right, rgba(111, 90, 163, 0.16), transparent 24%),
+                var(--dashboard-bg);
+            color: var(--dashboard-text);
+        }
+
+        body {
+            padding: 24px;
+        }
+
+        body.is-locked {
+            overflow: hidden;
+        }
+
+        .dashboard-lock {
+            position: fixed;
+            inset: 0;
+            z-index: 1400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background:
+                radial-gradient(circle at top left, rgba(198, 219, 91, 0.15), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(111, 90, 163, 0.2), transparent 30%),
+                rgba(16, 12, 24, 0.72);
+            backdrop-filter: blur(10px);
+        }
+
+        .dashboard-lock[hidden] {
+            display: none;
+        }
+
+        .dashboard-lock-card {
+            width: min(520px, 100%);
+            border-radius: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 34px 110px rgba(17, 12, 29, 0.35);
+            padding: 24px;
+        }
+
+        .dashboard-lock-card h2 {
+            margin: 0 0 10px;
+            font-size: 1.42rem;
+        }
+
+        .dashboard-lock-card p {
+            margin: 0 0 16px;
+            color: var(--dashboard-muted);
+            line-height: 1.65;
+            font-size: 0.9rem;
+        }
+
+        .dashboard-lock-card label {
+            display: block;
+            margin: 0 0 6px;
+            color: var(--dashboard-secondary);
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .dashboard-lock-card input {
+            width: 100%;
+            border: 1px solid #d9d1ea;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font: inherit;
+            margin-bottom: 12px;
+        }
+
+        .dashboard-lock-error {
+            min-height: 1.2em;
+            font-size: 0.82rem;
+            color: #9b2d3f;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-shell {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 20px;
+            min-height: calc(100vh - 48px);
+        }
+
+        .dashboard-sidebar,
+        .dashboard-main {
+            min-height: 0;
+        }
+
+        .dashboard-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding: 22px;
+            border: 1px solid var(--dashboard-border);
+            border-radius: var(--dashboard-radius);
+            background: var(--dashboard-surface);
+            box-shadow: var(--dashboard-shadow);
+            backdrop-filter: blur(18px);
+        }
+
+        .dashboard-kicker {
+            display: inline-flex;
+            width: fit-content;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(111, 90, 163, 0.1);
+            color: var(--dashboard-secondary);
+            font-size: 0.73rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .dashboard-sidebar h1 {
+            margin: 0;
+            font-size: 1.55rem;
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+        }
+
+        .dashboard-sidebar p {
+            margin: 0;
+            color: var(--dashboard-muted);
+            line-height: 1.65;
+            font-size: 0.92rem;
+        }
+
+        .dashboard-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .dashboard-stat {
+            padding: 14px;
+            border-radius: 18px;
+            background: #faf8fd;
+            border: 1px solid #ece7f6;
+        }
+
+        .dashboard-stat strong {
+            display: block;
+            font-size: 1.15rem;
+            margin-bottom: 4px;
+        }
+
+        .dashboard-stat span {
+            color: var(--dashboard-muted);
+            font-size: 0.82rem;
+        }
+
+        .dashboard-page-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: auto;
+            padding-right: 4px;
+        }
+
+        .dashboard-page-button {
+            width: 100%;
+            text-align: left;
+            border: 1px solid transparent;
+            border-radius: 18px;
+            padding: 14px 16px;
+            background: #ffffff;
+            color: var(--dashboard-text);
+            cursor: pointer;
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .dashboard-page-button:hover,
+        .dashboard-page-button.is-active {
+            transform: translateY(-1px);
+            border-color: rgba(111, 90, 163, 0.22);
+            box-shadow: 0 14px 28px rgba(52, 34, 77, 0.08);
+        }
+
+        .dashboard-page-button strong,
+        .dashboard-page-button span {
+            display: block;
+        }
+
+        .dashboard-page-button strong {
+            font-size: 0.93rem;
+            margin-bottom: 4px;
+        }
+
+        .dashboard-page-button span {
+            color: var(--dashboard-muted);
+            font-size: 0.79rem;
+            word-break: break-word;
+        }
+
+        .dashboard-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .dashboard-warning {
+            border: 1px solid rgba(198, 219, 91, 0.45);
+            background: #f8fce8;
+            color: #293116;
+            border-radius: 16px;
+            padding: 12px 14px;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+        .dashboard-endpoint-box {
+            border: 1px solid #ebe4f4;
+            border-radius: 18px;
+            padding: 14px;
+            background: #fcfbfe;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .dashboard-endpoint-box h3 {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--dashboard-primary);
+        }
+
+        .dashboard-endpoint-box label {
+            margin-top: 6px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--dashboard-secondary);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .dashboard-endpoint-box input {
+            width: 100%;
+            border: 1px solid #dcd3ec;
+            border-radius: 12px;
+            padding: 10px 12px;
+            font: inherit;
+            font-size: 0.84rem;
+        }
+
+        .dashboard-endpoint-status {
+            min-height: 1.2em;
+            margin-top: 6px;
+            color: var(--dashboard-muted);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .dashboard-button {
+            border: 0;
+            border-radius: 16px;
+            padding: 14px 18px;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .dashboard-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .dashboard-button--primary {
+            background: var(--dashboard-accent);
+            color: #1d1829;
+            box-shadow: 0 20px 38px rgba(198, 219, 91, 0.28);
+        }
+
+        .dashboard-button--secondary {
+            background: #f0ecf8;
+            color: var(--dashboard-primary);
+        }
+
+        .dashboard-main {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .dashboard-workspace {
+            display: none;
+            grid-template-columns: minmax(0, 1.2fr) 400px;
+            gap: 18px;
+            min-height: calc(100vh - 48px);
+        }
+
+        .dashboard-workspace.is-active {
+            display: grid;
+        }
+
+        .dashboard-preview-card,
+        .dashboard-panel {
+            border: 1px solid var(--dashboard-border);
+            border-radius: var(--dashboard-radius);
+            background: var(--dashboard-panel);
+            box-shadow: var(--dashboard-shadow);
+            overflow: hidden;
+        }
+
+        .dashboard-preview-header,
+        .dashboard-panel-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 20px 22px;
+            border-bottom: 1px solid #eee8f6;
+        }
+
+        .dashboard-preview-header h2,
+        .dashboard-panel-header h2 {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+            line-height: 1.2;
+        }
+
+        .dashboard-preview-header p,
+        .dashboard-panel-header p {
+            margin: 0;
+            color: var(--dashboard-muted);
+            font-size: 0.83rem;
+            line-height: 1.55;
+        }
+
+        .dashboard-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: #f6f2fc;
+            color: var(--dashboard-secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .dashboard-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: currentColor;
+        }
+
+        .dashboard-iframe-wrap {
+            padding: 18px;
+            background: linear-gradient(135deg, #f7f4fb 0%, #fefeff 100%);
+            min-height: calc(100vh - 160px);
+        }
+
+        .dashboard-iframe {
+            width: 100%;
+            height: calc(100vh - 196px);
+            border: 1px solid #e7e2f0;
+            border-radius: 20px;
+            background: #ffffff;
+        }
+
+        .dashboard-panel {
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 48px);
+        }
+
+        .dashboard-panel-body {
+            padding: 18px;
+            overflow: auto;
+        }
+
+        .dashboard-empty {
+            padding: 18px;
+            border-radius: 18px;
+            border: 1px dashed #dbd3eb;
+            background: #faf8fd;
+            color: var(--dashboard-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .dashboard-control-group {
+            margin-bottom: 18px;
+            border: 1px solid #ede8f5;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fcfbfe;
+        }
+
+        .dashboard-control-group summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 16px 18px;
+            font-weight: 800;
+            color: var(--dashboard-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dashboard-control-group summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .dashboard-control-group summary span {
+            color: var(--dashboard-muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .dashboard-control-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 0 14px 14px;
+        }
+
+        .dashboard-control-card {
+            padding: 14px;
+            border-radius: 18px;
+            background: #ffffff;
+            border: 1px solid #ece7f3;
+        }
+
+        .dashboard-control-card h3 {
+            margin: 0 0 6px;
+            font-size: 0.92rem;
+            line-height: 1.35;
+        }
+
+        .dashboard-control-card p {
+            margin: 0 0 8px;
+            color: var(--dashboard-muted);
+            font-size: 0.79rem;
+            line-height: 1.55;
+            word-break: break-word;
+        }
+
+        .dashboard-control-card label {
+            display: block;
+            margin: 10px 0 6px;
+            color: var(--dashboard-secondary);
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .dashboard-control-card input[type="text"],
+        .dashboard-control-card textarea {
+            width: 100%;
+            border: 1px solid #dbd3eb;
+            border-radius: 14px;
+            padding: 11px 12px;
+            font: inherit;
+            color: var(--dashboard-text);
+            background: #ffffff;
+        }
+
+        .dashboard-control-card textarea {
+            min-height: 92px;
+            resize: vertical;
+        }
+
+        .dashboard-control-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .dashboard-control-card input[type="file"],
+        .dashboard-control-card input[type="color"] {
+            width: 100%;
+            border: 1px solid #dbd3eb;
+            border-radius: 14px;
+            background: #ffffff;
+            min-height: 46px;
+            padding: 6px;
+        }
+
+        .dashboard-jump-button {
+            border: 0;
+            background: #f2eef8;
+            color: var(--dashboard-primary);
+            border-radius: 12px;
+            padding: 10px 12px;
+            font: inherit;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .dashboard-report {
+            position: fixed;
+            inset: 24px;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(27, 20, 40, 0.52);
+            backdrop-filter: blur(10px);
+        }
+
+        .dashboard-report.is-open {
+            display: flex;
+        }
+
+        .dashboard-report-card {
+            width: min(980px, 100%);
+            max-height: calc(100vh - 80px);
+            overflow: auto;
+            border-radius: 26px;
+            background: #ffffff;
+            box-shadow: 0 34px 120px rgba(17, 12, 29, 0.28);
+        }
+
+        .dashboard-report-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px 24px;
+            border-bottom: 1px solid #eee8f6;
+        }
+
+        .dashboard-report-header h2 {
+            margin: 0 0 6px;
+        }
+
+        .dashboard-report-header p {
+            margin: 0;
+            color: var(--dashboard-muted);
+            line-height: 1.6;
+        }
+
+        .dashboard-report-body {
+            padding: 24px;
+        }
+
+        .dashboard-report-body pre {
+            margin: 0;
+            padding: 18px;
+            border-radius: 20px;
+            background: #1f1b2d;
+            color: #ecf1ce;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: Consolas, 'Courier New', monospace;
+            line-height: 1.6;
+            font-size: 0.85rem;
+        }
+
+        .dashboard-highlight-outline {
+            outline: 3px solid #c6db5b !important;
+            outline-offset: 3px !important;
+            transition: outline 0.2s ease;
+        }
+
+        @media (max-width: 1280px) {
+            .dashboard-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-workspace,
+            .dashboard-workspace.is-active {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-panel,
+            .dashboard-preview-card {
+                min-height: auto;
+            }
+
+            .dashboard-iframe {
+                height: 72vh;
+            }
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: 12px;
+            }
+
+            .dashboard-report {
+                inset: 0;
+                padding: 12px;
+            }
+
+            .dashboard-meta,
+            .dashboard-control-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-shell">
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-kicker">Preview engine</div>
+            <div>
+                <h1 data-edit-id="preview-dashboard-h1-001">Dashboard global de edição</h1>
+                <p data-edit-id="preview-dashboard-p-001">Carrega cada página do projeto numa iframe, gera controlos laterais por DOM e agrega tudo num único relatório de alterações.</p>
+            </div>
+
+            <div class="dashboard-meta">
+                <div class="dashboard-stat">
+                    <strong data-edit-id="preview-dashboard-strong-001" id="pageCount">0</strong>
+                    <span data-edit-id="preview-dashboard-span-001">Páginas carregadas</span>
+                </div>
+                <div class="dashboard-stat">
+                    <strong data-edit-id="preview-dashboard-strong-002" id="changeCount">0</strong>
+                    <span data-edit-id="preview-dashboard-span-002">Alterações detetadas</span>
+                </div>
+            </div>
+
+            <div class="dashboard-page-list" id="pageList"></div>
+
+            <div class="dashboard-actions">
+                <div class="dashboard-warning">Uso interno: este painel permite preparar alterações globais para produção.</div>
+                <div class="dashboard-endpoint-box">
+                    <h3 data-edit-id="preview-dashboard-h3-001">Integração servidor</h3>
+                    <label for="uploadEndpointInput">Endpoint upload imagem</label>
+                    <input id="uploadEndpointInput" type="text" placeholder="https://teu-dominio.com/api/upload-image">
+                    <label for="saveEndpointInput">Endpoint guardar alterações</label>
+                    <input id="saveEndpointInput" type="text" placeholder="https://teu-dominio.com/api/save-dashboard-changes">
+                    <label for="apiTokenInput">Token (opcional)</label>
+                    <input id="apiTokenInput" type="password" placeholder="Bearer token opcional">
+                    <button data-edit-id="preview-dashboard-button-001" type="button" class="dashboard-button dashboard-button--secondary" id="sendToServerButton">Enviar para servidor</button>
+                    <div class="dashboard-endpoint-status" id="endpointStatus"></div>
+                </div>
+                <button data-edit-id="preview-dashboard-button-002" type="button" class="dashboard-button dashboard-button--primary" id="exportChangesButton">Exportar alterações</button>
+                <button data-edit-id="preview-dashboard-button-003" type="button" class="dashboard-button dashboard-button--secondary" id="refreshAllButton">Recarregar páginas</button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main" id="workspaceHost"></main>
+    </div>
+
+    <div class="dashboard-report" id="reportModal" aria-hidden="true">
+        <div class="dashboard-report-card">
+            <div class="dashboard-report-header">
+                <div>
+                    <h2 data-edit-id="preview-dashboard-h2-001">Relatório global de alterações</h2>
+                    <p data-edit-id="preview-dashboard-p-002">JSON estruturado com alterações por página. O browser só expõe o nome do ficheiro local escolhido nas imagens.</p>
+                </div>
+                <div>
+                    <button data-edit-id="preview-dashboard-button-004" type="button" class="dashboard-button dashboard-button--secondary" id="copyJsonButton">Copiar JSON</button>
+                    <button data-edit-id="preview-dashboard-button-005" type="button" class="dashboard-button dashboard-button--secondary" id="closeReportButton">Fechar</button>
+                </div>
+            </div>
+            <div class="dashboard-report-body">
+                <pre id="reportOutput"></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-lock" id="lockScreen">
+        <div class="dashboard-lock-card">
+            <h2 data-edit-id="preview-dashboard-h2-002">Acesso Interno</h2>
+            <p data-edit-id="preview-dashboard-p-003">Este dashboard é para uso interno da equipa Sica Creative. Introduz o código de acesso para continuar.</p>
+            <label for="lockCodeInput">Código interno</label>
+            <input id="lockCodeInput" type="password" autocomplete="off" placeholder="Código de acesso">
+            <div class="dashboard-lock-error" id="lockError"></div>
+            <button data-edit-id="preview-dashboard-button-006" type="button" class="dashboard-button dashboard-button--primary" id="unlockButton">Entrar no dashboard</button>
+        </div>
+    </div>
+
+    <script>
+        const pageConfigs = [
+            { path: 'index.html', label: 'Home PT' },
+            { path: 'index-en.html', label: 'Home EN' },
+            { path: 'sobre.html', label: 'Sobre' },
+            { path: 'sobre-preview.html', label: 'Sobre Preview' },
+            { path: 'clientes.html', label: 'Clientes' },
+            { path: 'ferramentas.html', label: 'Ferramentas' },
+            { path: 'blog.html', label: 'Blog' },
+            { path: 'artigo.html', label: 'Artigo' },
+            { path: 'acelerador-reviews.html', label: 'Acelerador Reviews' },
+            { path: 'marketing-digital-clinicas-dentarias.html', label: 'Clínicas Dentárias' },
+            { path: 'pt/quiz/index.html', label: 'Quiz PT' },
+            { path: 'en/quiz/index.html', label: 'Quiz EN' }
+        ];
+
+        const dashboardState = new Map();
+        const INTERNAL_ACCESS_CODE = 'SICA-INTERNO-2026';
+        const AUTH_STORAGE_KEY = 'sica_preview_dashboard_auth';
+        const workspaceHost = document.getElementById('workspaceHost');
+        const pageList = document.getElementById('pageList');
+        const pageCount = document.getElementById('pageCount');
+        const changeCount = document.getElementById('changeCount');
+        const exportChangesButton = document.getElementById('exportChangesButton');
+        const refreshAllButton = document.getElementById('refreshAllButton');
+        const sendToServerButton = document.getElementById('sendToServerButton');
+        const uploadEndpointInput = document.getElementById('uploadEndpointInput');
+        const saveEndpointInput = document.getElementById('saveEndpointInput');
+        const apiTokenInput = document.getElementById('apiTokenInput');
+        const endpointStatus = document.getElementById('endpointStatus');
+        const reportModal = document.getElementById('reportModal');
+        const closeReportButton = document.getElementById('closeReportButton');
+        const copyJsonButton = document.getElementById('copyJsonButton');
+        const reportOutput = document.getElementById('reportOutput');
+        const lockScreen = document.getElementById('lockScreen');
+        const lockCodeInput = document.getElementById('lockCodeInput');
+        const lockError = document.getElementById('lockError');
+        const unlockButton = document.getElementById('unlockButton');
+
+        let latestReportJSON = '';
+
+        pageCount.textContent = String(pageConfigs.length);
+
+        function normalizeText(text) {
+            return (text || '').replace(/\s+/g, ' ').trim();
+        }
+
+        function truncate(text, maxLength = 72) {
+            if (text.length <= maxLength) {
+                return text;
+            }
+            return text.slice(0, maxLength - 1).trimEnd() + '…';
+        }
+
+        function escapeHTML(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function setEndpointStatus(message, isError) {
+            endpointStatus.textContent = message;
+            endpointStatus.style.color = isError ? '#9b2d3f' : '';
+        }
+
+        function applyLockState() {
+            const isAuthenticated = localStorage.getItem(AUTH_STORAGE_KEY) === '1';
+            document.body.classList.toggle('is-locked', !isAuthenticated);
+            lockScreen.hidden = isAuthenticated;
+            if (!isAuthenticated) {
+                lockCodeInput.focus();
+            }
+        }
+
+        function unlockDashboard() {
+            if (lockCodeInput.value.trim() !== INTERNAL_ACCESS_CODE) {
+                lockError.textContent = 'Código inválido. Tenta novamente.';
+                return;
+            }
+
+            localStorage.setItem(AUTH_STORAGE_KEY, '1');
+            lockError.textContent = '';
+            lockCodeInput.value = '';
+            applyLockState();
+        }
+
+        function isVisibleElement(win, element) {
+            const style = win.getComputedStyle(element);
+            if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
+                return false;
+            }
+            const rect = element.getBoundingClientRect();
+            return rect.width > 0 && rect.height > 0;
+        }
+
+        function getElementSignature(element) {
+            const tag = element.tagName.toLowerCase();
+            const id = element.id ? '#' + element.id : '';
+            const classes = Array.from(element.classList || []).slice(0, 2).map((item) => '.' + item).join('');
+            return tag + id + classes;
+        }
+
+        function getElementPath(element) {
+            const segments = [];
+            let current = element;
+
+            while (current && current.nodeType === 1 && current.tagName.toLowerCase() !== 'html') {
+                let segment = current.tagName.toLowerCase();
+                if (current.id) {
+                    segment += '#' + current.id;
+                    segments.unshift(segment);
+                    break;
+                }
+
+                const classNames = Array.from(current.classList || []).slice(0, 2);
+                if (classNames.length) {
+                    segment += '.' + classNames.join('.');
+                }
+
+                const parent = current.parentElement;
+                if (parent) {
+                    const siblings = Array.from(parent.children).filter((item) => item.tagName === current.tagName);
+                    if (siblings.length > 1) {
+                        segment += ':nth-of-type(' + (siblings.indexOf(current) + 1) + ')';
+                    }
+                }
+
+                segments.unshift(segment);
+                current = current.parentElement;
+            }
+
+            return segments.join(' > ');
+        }
+
+        function getSectionLabel(element) {
+            const section = element.closest('section, header, footer, nav, main, aside, article');
+            if (!section) {
+                return 'Área sem secção';
+            }
+
+            if (section.id) {
+                return '#' + section.id;
+            }
+
+            const heading = section.querySelector('h1, h2, h3, h4, h5, h6');
+            if (heading) {
+                const text = normalizeText(heading.textContent);
+                if (text) {
+                    return truncate(text, 56);
+                }
+            }
+
+            return getElementSignature(section);
+        }
+
+        function buildLabel(element, prefix) {
+            return prefix + ' · ' + getSectionLabel(element) + ' · ' + getElementSignature(element);
+        }
+
+        function rgbaToHex(color) {
+            if (!color || color === 'transparent') {
+                return null;
+            }
+
+            if (color.startsWith('#')) {
+                if (color.length === 4) {
+                    return '#' + color[1] + color[1] + color[2] + color[2] + color[3] + color[3];
+                }
+                return color.slice(0, 7);
+            }
+
+            const match = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+            if (!match) {
+                return null;
+            }
+
+            const toHex = (value) => Number(value).toString(16).padStart(2, '0');
+            return '#' + toHex(match[1]) + toHex(match[2]) + toHex(match[3]);
+        }
+
+        function parseUrlFromBackground(backgroundImage) {
+            const match = backgroundImage && backgroundImage.match(/url\(["']?(.*?)["']?\)/i);
+            return match ? match[1] : '';
+        }
+
+        function extractGradientColor(backgroundImage) {
+            const match = backgroundImage && backgroundImage.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+            if (!match) {
+                return null;
+            }
+            return rgbaToHex('rgb(' + match[1] + ', ' + match[2] + ', ' + match[3] + ')');
+        }
+
+        function flashElement(pageEntry, element) {
+            if (!pageEntry || !element) {
+                return;
+            }
+
+            try {
+                element.classList.add('dashboard-highlight-outline');
+                element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                pageEntry.iframe.contentWindow.setTimeout(() => {
+                    element.classList.remove('dashboard-highlight-outline');
+                }, 1400);
+            } catch (error) {
+                console.warn('Não foi possível destacar o elemento.', error);
+            }
+        }
+
+        function buildSuggestedPath(originalPath, fileName) {
+            if (!originalPath) {
+                return fileName;
+            }
+
+            const parts = originalPath.split('/');
+            parts[parts.length - 1] = fileName;
+            return parts.join('/');
+        }
+
+        function updateGlobalChangeCount() {
+            let total = 0;
+
+            dashboardState.forEach((pageEntry) => {
+                total += pageEntry.items.images.filter((item) => item.changed).length;
+                total += pageEntry.items.copy.filter((item) => item.changed).length;
+                total += pageEntry.items.colors.filter((item) => item.changed).length;
+            });
+
+            changeCount.textContent = String(total);
+        }
+
+        function renderEmptyPanel(pageEntry, message) {
+            pageEntry.panelBody.innerHTML = '<div class="dashboard-empty">' + message + '</div>';
+        }
+
+        function scanImages(pageEntry, doc, win) {
+            const imageItems = [];
+            const imgElements = Array.from(doc.querySelectorAll('img')).filter((element) => {
+                return isVisibleElement(win, element) && normalizeText(element.getAttribute('src') || element.currentSrc || '') !== '';
+            });
+
+            imgElements.forEach((element, index) => {
+                const originalSrc = element.getAttribute('src') || element.currentSrc || '';
+                imageItems.push({
+                    id: 'img-' + index,
+                    type: 'img',
+                    element,
+                    label: buildLabel(element, 'Imagem'),
+                    selector: getElementPath(element),
+                    originalSrc,
+                    currentSrc: originalSrc,
+                    classes: element.className || '(sem classes)',
+                    dimensions: Math.round(element.getBoundingClientRect().width) + 'x' + Math.round(element.getBoundingClientRect().height),
+                    file: null,
+                    fileName: '',
+                    finalPath: '',
+                    previewUrl: '',
+                    changed: false
+                });
+            });
+
+            const backgroundElements = Array.from(doc.querySelectorAll('body *')).filter((element) => {
+                if (element.tagName.toLowerCase() === 'img' || element.namespaceURI !== 'http://www.w3.org/1999/xhtml') {
+                    return false;
+                }
+
+                if (!isVisibleElement(win, element)) {
+                    return false;
+                }
+
+                const backgroundImage = win.getComputedStyle(element).backgroundImage;
+                return backgroundImage && backgroundImage !== 'none' && backgroundImage.includes('url(');
+            });
+
+            backgroundElements.forEach((element, index) => {
+                const backgroundImage = win.getComputedStyle(element).backgroundImage;
+                const originalSrc = parseUrlFromBackground(backgroundImage);
+
+                imageItems.push({
+                    id: 'bg-' + index,
+                    type: 'background-image',
+                    element,
+                    label: buildLabel(element, 'Background image'),
+                    selector: getElementPath(element),
+                    originalSrc,
+                    currentSrc: originalSrc,
+                    classes: element.className || '(sem classes)',
+                    dimensions: Math.round(element.getBoundingClientRect().width) + 'x' + Math.round(element.getBoundingClientRect().height),
+                    file: null,
+                    fileName: '',
+                    finalPath: '',
+                    previewUrl: '',
+                    changed: false
+                });
+            });
+
+            return imageItems;
+        }
+
+        function scanCopy(pageEntry, doc, win) {
+            const selector = 'h1, h2, h3, h4, h5, h6, p, blockquote, a.btn, button, .btn, li';
+            const seen = new Set();
+
+            return Array.from(doc.querySelectorAll(selector)).filter((element) => {
+                if (seen.has(element)) {
+                    return false;
+                }
+                seen.add(element);
+                return isVisibleElement(win, element) && normalizeText(element.textContent).length > 0;
+            }).map((element, index) => {
+                const originalText = normalizeText(element.textContent);
+                return {
+                    id: 'copy-' + index,
+                    element,
+                    label: buildLabel(element, 'Copy'),
+                    selector: getElementPath(element),
+                    originalText,
+                    currentText: originalText,
+                    changed: false
+                };
+            });
+        }
+
+        function scanColors(pageEntry, doc, win, copyItems) {
+            const colorItems = [];
+            const seen = new Set();
+
+            copyItems.forEach((copyItem, index) => {
+                const element = copyItem.element;
+                const colorHex = rgbaToHex(win.getComputedStyle(element).color);
+                if (!colorHex) {
+                    return;
+                }
+
+                seen.add(element);
+                colorItems.push({
+                    id: 'color-text-' + index,
+                    element,
+                    label: buildLabel(element, 'Cor de texto'),
+                    selector: getElementPath(element),
+                    property: 'color',
+                    originalValue: colorHex,
+                    currentValue: colorHex,
+                    changed: false
+                });
+            });
+
+            const blockSelector = 'body, nav, header, footer, section, article, aside, button, a.btn, .btn, [class*="card"], [class*="hero"], [class*="cta"]';
+
+            Array.from(doc.querySelectorAll(blockSelector)).forEach((element, index) => {
+                if (seen.has(element) || !isVisibleElement(win, element)) {
+                    return;
+                }
+
+                const style = win.getComputedStyle(element);
+                const backgroundColor = rgbaToHex(style.backgroundColor);
+                const gradientColor = extractGradientColor(style.backgroundImage);
+                const initial = backgroundColor || gradientColor;
+
+                if (!initial) {
+                    return;
+                }
+
+                colorItems.push({
+                    id: 'color-bg-' + index,
+                    element,
+                    label: buildLabel(element, 'Background'),
+                    selector: getElementPath(element),
+                    property: 'background',
+                    originalValue: initial,
+                    currentValue: initial,
+                    originalBackgroundImage: style.backgroundImage,
+                    changed: false
+                });
+            });
+
+            return colorItems;
+        }
+
+        function renderImageControls(pageEntry) {
+            if (!pageEntry.items.images.length) {
+                return '<div class="dashboard-empty">Esta página não expôs imagens ou backgrounds com ficheiros acessíveis via DOM.</div>';
+            }
+
+            return pageEntry.items.images.map((item) => {
+                return [
+                    '<article class="dashboard-control-card">',
+                    '<h3 data-edit-id="preview-dashboard-h3-002">' + escapeHTML(item.label) + '</h3>',
+                    '<p><strong data-edit-id="preview-dashboard-strong-003">Atual:</strong> ' + escapeHTML(item.originalSrc || '(sem origem)') + '</p>',
+                    '<p><strong data-edit-id="preview-dashboard-strong-004">Classes:</strong> ' + escapeHTML(item.classes) + '</p>',
+                    '<p><strong data-edit-id="preview-dashboard-strong-005">Dimensões:</strong> ' + escapeHTML(item.dimensions) + '</p>',
+                    '<label for="file-' + pageEntry.slug + '-' + item.id + '">Imagem local</label>',
+                    '<input type="file" accept="image/*" id="file-' + pageEntry.slug + '-' + item.id + '" data-role="image-file" data-id="' + item.id + '">',
+                    '<label for="path-' + pageEntry.slug + '-' + item.id + '">Caminho final para exportação</label>',
+                    '<input type="text" id="path-' + pageEntry.slug + '-' + item.id + '" value="' + escapeHTML(item.finalPath || '') + '" data-role="image-path" data-id="' + item.id + '" placeholder="assets/.../ficheiro.jpg">',
+                    '<button data-edit-id="preview-dashboard-button-007" type="button" class="dashboard-jump-button" data-role="jump" data-target="' + item.id + '">Ver no preview</button>',
+                    '</article>'
+                ].join('');
+            }).join('');
+        }
+
+        function renderCopyControls(pageEntry) {
+            if (!pageEntry.items.copy.length) {
+                return '<div class="dashboard-empty">Esta página não expôs blocos de copy compatíveis com a análise automática.</div>';
+            }
+
+            return pageEntry.items.copy.map((item) => {
+                return [
+                    '<article class="dashboard-control-card">',
+                    '<h3 data-edit-id="preview-dashboard-h3-003">' + escapeHTML(item.label) + '</h3>',
+                    '<p><strong data-edit-id="preview-dashboard-strong-006">Original:</strong> ' + escapeHTML(item.originalText) + '</p>',
+                    '<label for="copy-' + pageEntry.slug + '-' + item.id + '">Novo texto</label>',
+                    '<textarea id="copy-' + pageEntry.slug + '-' + item.id + '" data-role="copy-text" data-id="' + item.id + '">' + escapeHTML(item.currentText) + '</textarea>',
+                    '<button data-edit-id="preview-dashboard-button-008" type="button" class="dashboard-jump-button" data-role="jump" data-target="' + item.id + '">Ver no preview</button>',
+                    '</article>'
+                ].join('');
+            }).join('');
+        }
+
+        function renderColorControls(pageEntry) {
+            if (!pageEntry.items.colors.length) {
+                return '<div class="dashboard-empty">Esta página não expôs cores editáveis via análise automática.</div>';
+            }
+
+            return pageEntry.items.colors.map((item) => {
+                return [
+                    '<article class="dashboard-control-card">',
+                    '<h3 data-edit-id="preview-dashboard-h3-004">' + escapeHTML(item.label) + '</h3>',
+                    '<p><strong data-edit-id="preview-dashboard-strong-007">Selector:</strong> ' + escapeHTML(item.selector) + '</p>',
+                    '<label for="color-' + pageEntry.slug + '-' + item.id + '">' + (item.property === 'color' ? 'Cor do texto' : 'Cor/base do background') + '</label>',
+                    '<input type="color" id="color-' + pageEntry.slug + '-' + item.id + '" value="' + item.currentValue + '" data-role="color-picker" data-id="' + item.id + '">',
+                    '<button data-edit-id="preview-dashboard-button-009" type="button" class="dashboard-jump-button" data-role="jump" data-target="' + item.id + '">Ver no preview</button>',
+                    '</article>'
+                ].join('');
+            }).join('');
+        }
+
+        function attachPanelEvents(pageEntry) {
+            pageEntry.panelBody.querySelectorAll('[data-role="jump"]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const item = pageEntry.itemIndex.get(targetId);
+                    if (item) {
+                        flashElement(pageEntry, item.element);
+                    }
+                });
+            });
+
+            pageEntry.panelBody.querySelectorAll('[data-role="image-file"]').forEach((input) => {
+                input.addEventListener('change', (event) => {
+                    const item = pageEntry.itemIndex.get(event.target.getAttribute('data-id'));
+                    const file = event.target.files && event.target.files[0];
+
+                    if (!item || !file) {
+                        return;
+                    }
+
+                    if (item.previewUrl) {
+                        URL.revokeObjectURL(item.previewUrl);
+                    }
+
+                    item.file = file;
+                    item.fileName = file.name;
+                    item.previewUrl = URL.createObjectURL(file);
+                    item.finalPath = buildSuggestedPath(item.originalSrc || item.currentSrc, file.name);
+                    item.changed = true;
+
+                    if (item.type === 'img') {
+                        item.element.src = item.previewUrl;
+                    } else {
+                        item.element.style.backgroundImage = 'url("' + item.previewUrl + '")';
+                    }
+
+                    const pathInput = pageEntry.panelBody.querySelector('[data-role="image-path"][data-id="' + item.id + '"]');
+                    if (pathInput) {
+                        pathInput.value = item.finalPath;
+                    }
+
+                    updateGlobalChangeCount();
+                });
+            });
+
+            pageEntry.panelBody.querySelectorAll('[data-role="image-path"]').forEach((input) => {
+                input.addEventListener('input', (event) => {
+                    const item = pageEntry.itemIndex.get(event.target.getAttribute('data-id'));
+                    if (!item) {
+                        return;
+                    }
+
+                    item.finalPath = event.target.value.trim();
+                    item.changed = Boolean(item.fileName || item.finalPath !== item.originalSrc);
+                    updateGlobalChangeCount();
+                });
+            });
+
+            pageEntry.panelBody.querySelectorAll('[data-role="copy-text"]').forEach((textarea) => {
+                textarea.addEventListener('input', (event) => {
+                    const item = pageEntry.itemIndex.get(event.target.getAttribute('data-id'));
+                    if (!item) {
+                        return;
+                    }
+
+                    item.currentText = event.target.value;
+                    item.element.textContent = event.target.value;
+                    item.changed = item.currentText !== item.originalText;
+                    updateGlobalChangeCount();
+                });
+            });
+
+            pageEntry.panelBody.querySelectorAll('[data-role="color-picker"]').forEach((input) => {
+                input.addEventListener('input', (event) => {
+                    const item = pageEntry.itemIndex.get(event.target.getAttribute('data-id'));
+                    if (!item) {
+                        return;
+                    }
+
+                    item.currentValue = event.target.value;
+
+                    if (item.property === 'color') {
+                        item.element.style.color = item.currentValue;
+                    } else {
+                        item.element.style.backgroundImage = 'none';
+                        item.element.style.backgroundColor = item.currentValue;
+                    }
+
+                    item.changed = item.currentValue.toLowerCase() !== item.originalValue.toLowerCase();
+                    updateGlobalChangeCount();
+                });
+            });
+        }
+
+        function renderControls(pageEntry) {
+            pageEntry.itemIndex = new Map();
+            pageEntry.items.images.forEach((item) => pageEntry.itemIndex.set(item.id, item));
+            pageEntry.items.copy.forEach((item) => pageEntry.itemIndex.set(item.id, item));
+            pageEntry.items.colors.forEach((item) => pageEntry.itemIndex.set(item.id, item));
+
+            pageEntry.panelBody.innerHTML = [
+                '<details class="dashboard-control-group" open>',
+                '<summary>Imagens <span data-edit-id="preview-dashboard-span-003">' + pageEntry.items.images.length + ' itens</span></summary>',
+                '<div class="dashboard-control-list">' + renderImageControls(pageEntry) + '</div>',
+                '</details>',
+                '<details class="dashboard-control-group" open>',
+                '<summary>Copy <span data-edit-id="preview-dashboard-span-004">' + pageEntry.items.copy.length + ' itens</span></summary>',
+                '<div class="dashboard-control-list">' + renderCopyControls(pageEntry) + '</div>',
+                '</details>',
+                '<details class="dashboard-control-group">',
+                '<summary>Cores e backgrounds <span data-edit-id="preview-dashboard-span-005">' + pageEntry.items.colors.length + ' itens</span></summary>',
+                '<div class="dashboard-control-list">' + renderColorControls(pageEntry) + '</div>',
+                '</details>'
+            ].join('');
+
+            attachPanelEvents(pageEntry);
+        }
+
+        function analyzePage(pageEntry) {
+            let doc;
+            let win;
+
+            try {
+                win = pageEntry.iframe.contentWindow;
+                doc = pageEntry.iframe.contentDocument || win.document;
+            } catch (error) {
+                pageEntry.status.textContent = 'Sem acesso ao iframe';
+                renderEmptyPanel(pageEntry, 'O browser bloqueou o acesso ao conteúdo da iframe. Abra este dashboard através de um servidor local para ativar a edição em tempo real.');
+                return;
+            }
+
+            if (!doc || !doc.body) {
+                pageEntry.status.textContent = 'Página sem DOM';
+                renderEmptyPanel(pageEntry, 'Não foi possível analisar esta página.');
+                return;
+            }
+
+            try {
+                pageEntry.items.images = scanImages(pageEntry, doc, win);
+                pageEntry.items.copy = scanCopy(pageEntry, doc, win);
+                pageEntry.items.colors = scanColors(pageEntry, doc, win, pageEntry.items.copy);
+
+                const styleTag = doc.createElement('style');
+                styleTag.textContent = '.dashboard-highlight-outline{outline:3px solid #c6db5b!important;outline-offset:3px!important;}';
+                doc.head.appendChild(styleTag);
+
+                renderControls(pageEntry);
+                pageEntry.status.textContent = 'Pronto para editar';
+                updateGlobalChangeCount();
+            } catch (error) {
+                console.error('Erro a analisar a página', pageEntry.config.path, error);
+                pageEntry.status.textContent = 'Erro na análise';
+                renderEmptyPanel(pageEntry, 'A página carregou, mas a análise automática falhou. Verifique a consola do browser para mais detalhe.');
+            }
+        }
+
+        function activateWorkspace(path) {
+            dashboardState.forEach((pageEntry) => {
+                const isActive = pageEntry.config.path === path;
+                pageEntry.workspace.classList.toggle('is-active', isActive);
+                pageEntry.button.classList.toggle('is-active', isActive);
+            });
+        }
+
+        function slugify(path) {
+            return path.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
+        }
+
+        function createWorkspace(config, index) {
+            const slug = slugify(config.path);
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'dashboard-page-button' + (index === 0 ? ' is-active' : '');
+            button.innerHTML = '<strong data-edit-id="preview-dashboard-strong-008">' + config.label + '</strong><span data-edit-id="preview-dashboard-span-006">' + config.path + '</span>';
+            pageList.appendChild(button);
+
+            const workspace = document.createElement('section');
+            workspace.className = 'dashboard-workspace' + (index === 0 ? ' is-active' : '');
+            workspace.dataset.pagePath = config.path;
+            workspace.innerHTML = [
+                '<article class="dashboard-preview-card">',
+                '<div class="dashboard-preview-header">',
+                '<div><h2 data-edit-id="preview-dashboard-h2-003">' + config.label + '</h2><p data-edit-id="preview-dashboard-p-004">' + config.path + '</p></div>',
+                '<div class="dashboard-status" data-role="status">A carregar</div>',
+                '</div>',
+                '<div class="dashboard-iframe-wrap">',
+                '<iframe class="dashboard-iframe" src="' + config.path + '" data-role="iframe"></iframe>',
+                '</div>',
+                '</article>',
+                '<aside class="dashboard-panel">',
+                '<div class="dashboard-panel-header">',
+                '<div><h2 data-edit-id="preview-dashboard-h2-004">Controlos da página</h2><p data-edit-id="preview-dashboard-p-005">Imagens, copy e cores detetadas automaticamente no DOM carregado.</p></div>',
+                '<div class="dashboard-status">Auto-scan</div>',
+                '</div>',
+                '<div class="dashboard-panel-body"><div class="dashboard-empty">A carregar análise da página…</div></div>',
+                '</aside>'
+            ].join('');
+
+            workspaceHost.appendChild(workspace);
+
+            const pageEntry = {
+                config,
+                slug,
+                button,
+                workspace,
+                iframe: workspace.querySelector('[data-role="iframe"]'),
+                status: workspace.querySelector('[data-role="status"]'),
+                panelBody: workspace.querySelector('.dashboard-panel-body'),
+                items: {
+                    images: [],
+                    copy: [],
+                    colors: []
+                },
+                itemIndex: new Map()
+            };
+
+            dashboardState.set(config.path, pageEntry);
+
+            button.addEventListener('click', () => {
+                activateWorkspace(config.path);
+            });
+
+            pageEntry.iframe.addEventListener('load', () => {
+                analyzePage(pageEntry);
+            });
+        }
+
+        function buildReportData() {
+            const pages = [];
+
+            dashboardState.forEach((pageEntry) => {
+                const imageChanges = pageEntry.items.images.filter((item) => item.changed).map((item) => {
+                    return {
+                        id: item.id,
+                        type: item.type,
+                        label: item.label,
+                        selector: item.selector,
+                        classes: item.classes,
+                        dimensions: item.dimensions,
+                        originalSrc: item.originalSrc,
+                        fileName: item.fileName || null,
+                        finalPath: item.finalPath || null
+                    };
+                });
+
+                const copyChanges = pageEntry.items.copy.filter((item) => item.changed).map((item) => {
+                    return {
+                        id: item.id,
+                        label: item.label,
+                        selector: item.selector,
+                        originalText: item.originalText,
+                        currentText: item.currentText
+                    };
+                });
+
+                const colorChanges = pageEntry.items.colors.filter((item) => item.changed).map((item) => {
+                    return {
+                        id: item.id,
+                        label: item.label,
+                        selector: item.selector,
+                        property: item.property,
+                        originalValue: item.originalValue,
+                        currentValue: item.currentValue
+                    };
+                });
+
+                if (!imageChanges.length && !copyChanges.length && !colorChanges.length) {
+                    return;
+                }
+
+                pages.push({
+                    pageLabel: pageEntry.config.label,
+                    pagePath: pageEntry.config.path,
+                    changes: {
+                        images: imageChanges,
+                        copy: copyChanges,
+                        colors: colorChanges
+                    }
+                });
+            });
+
+            const totals = pages.reduce((acc, page) => {
+                acc.pages += 1;
+                acc.images += page.changes.images.length;
+                acc.copy += page.changes.copy.length;
+                acc.colors += page.changes.colors.length;
+                return acc;
+            }, { pages: 0, images: 0, copy: 0, colors: 0 });
+
+            return {
+                generatedAt: new Date().toISOString(),
+                project: 'SICA WEBSITE',
+                totals,
+                pages
+            };
+        }
+
+        function buildReportJSON() {
+            const reportData = buildReportData();
+            if (!reportData.pages.length) {
+                return JSON.stringify({
+                    generatedAt: reportData.generatedAt,
+                    project: reportData.project,
+                    message: 'Nenhuma alteração foi feita ainda.',
+                    totals: reportData.totals,
+                    pages: []
+                }, null, 2);
+            }
+            return JSON.stringify(reportData, null, 2);
+        }
+
+        async function uploadChangedImages(uploadEndpoint, authToken) {
+            const uploads = [];
+
+            dashboardState.forEach((pageEntry) => {
+                pageEntry.items.images.filter((item) => item.changed && item.file).forEach((item) => {
+                    uploads.push({ pageEntry, item });
+                });
+            });
+
+            if (!uploads.length) {
+                return [];
+            }
+
+            const results = [];
+
+            for (const upload of uploads) {
+                const formData = new FormData();
+                formData.append('file', upload.item.file, upload.item.fileName || upload.item.file.name);
+                formData.append('pagePath', upload.pageEntry.config.path);
+                formData.append('pageLabel', upload.pageEntry.config.label);
+                formData.append('itemId', upload.item.id);
+                formData.append('selector', upload.item.selector);
+                formData.append('originalSrc', upload.item.originalSrc || '');
+                formData.append('finalPath', upload.item.finalPath || '');
+
+                const headers = {};
+                if (authToken) {
+                    headers.Authorization = 'Bearer ' + authToken;
+                }
+
+                const response = await fetch(uploadEndpoint, {
+                    method: 'POST',
+                    headers,
+                    body: formData
+                });
+
+                const responseText = await response.text();
+                let responseBody = responseText;
+                try {
+                    responseBody = JSON.parse(responseText);
+                } catch (error) {
+                    responseBody = responseText;
+                }
+
+                if (!response.ok) {
+                    throw new Error('Upload falhou para ' + upload.item.fileName + ': HTTP ' + response.status + ' - ' + responseText);
+                }
+
+                results.push({
+                    pagePath: upload.pageEntry.config.path,
+                    itemId: upload.item.id,
+                    fileName: upload.item.fileName,
+                    requestedFinalPath: upload.item.finalPath || null,
+                    serverResponse: responseBody
+                });
+            }
+
+            return results;
+        }
+
+        async function sendChangesToServer() {
+            const uploadEndpoint = uploadEndpointInput.value.trim();
+            const saveEndpoint = saveEndpointInput.value.trim();
+            const authToken = apiTokenInput.value.trim();
+
+            if (!uploadEndpoint && !saveEndpoint) {
+                setEndpointStatus('Define pelo menos um endpoint (upload e/ou guardar alterações).', true);
+                return;
+            }
+
+            const reportData = buildReportData();
+            if (!reportData.pages.length) {
+                setEndpointStatus('Não há alterações para enviar.', true);
+                return;
+            }
+
+            sendToServerButton.disabled = true;
+            setEndpointStatus('A enviar alterações para o servidor...', false);
+
+            try {
+                let uploads = [];
+
+                if (uploadEndpoint) {
+                    uploads = await uploadChangedImages(uploadEndpoint, authToken);
+                }
+
+                const payload = {
+                    report: reportData,
+                    uploads
+                };
+
+                if (saveEndpoint) {
+                    const headers = {
+                        'Content-Type': 'application/json'
+                    };
+                    if (authToken) {
+                        headers.Authorization = 'Bearer ' + authToken;
+                    }
+
+                    const response = await fetch(saveEndpoint, {
+                        method: 'POST',
+                        headers,
+                        body: JSON.stringify(payload)
+                    });
+
+                    const responseText = await response.text();
+                    if (!response.ok) {
+                        throw new Error('Guardar alterações falhou: HTTP ' + response.status + ' - ' + responseText);
+                    }
+                }
+
+                setEndpointStatus('Alterações enviadas com sucesso. Uploads: ' + uploads.length + '.', false);
+            } catch (error) {
+                setEndpointStatus(error.message || 'Erro ao enviar alterações.', true);
+            } finally {
+                sendToServerButton.disabled = false;
+            }
+        }
+
+        function reloadAllPages() {
+            dashboardState.forEach((pageEntry) => {
+                pageEntry.status.textContent = 'A recarregar';
+                pageEntry.items.images.forEach((item) => {
+                    if (item.previewUrl) {
+                        URL.revokeObjectURL(item.previewUrl);
+                    }
+                });
+                pageEntry.items = {
+                    images: [],
+                    copy: [],
+                    colors: []
+                };
+                pageEntry.itemIndex = new Map();
+                pageEntry.panelBody.innerHTML = '<div class="dashboard-empty">A recarregar análise da página…</div>';
+                pageEntry.iframe.src = pageEntry.config.path;
+            });
+        }
+
+        pageConfigs.forEach(createWorkspace);
+        activateWorkspace(pageConfigs[0].path);
+        applyLockState();
+
+        exportChangesButton.addEventListener('click', () => {
+            latestReportJSON = buildReportJSON();
+            reportOutput.textContent = latestReportJSON;
+            reportModal.classList.add('is-open');
+            reportModal.setAttribute('aria-hidden', 'false');
+        });
+
+        copyJsonButton.addEventListener('click', async () => {
+            const payload = latestReportJSON || buildReportJSON();
+            try {
+                await navigator.clipboard.writeText(payload);
+                copyJsonButton.textContent = 'Copiado';
+                setTimeout(() => {
+                    copyJsonButton.textContent = 'Copiar JSON';
+                }, 1300);
+            } catch (error) {
+                reportOutput.textContent = payload;
+                copyJsonButton.textContent = 'Falhou';
+                setTimeout(() => {
+                    copyJsonButton.textContent = 'Copiar JSON';
+                }, 1300);
+            }
+        });
+
+        closeReportButton.addEventListener('click', () => {
+            reportModal.classList.remove('is-open');
+            reportModal.setAttribute('aria-hidden', 'true');
+        });
+
+        reportModal.addEventListener('click', (event) => {
+            if (event.target === reportModal) {
+                reportModal.classList.remove('is-open');
+                reportModal.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        refreshAllButton.addEventListener('click', () => {
+            reloadAllPages();
+            updateGlobalChangeCount();
+        });
+
+        sendToServerButton.addEventListener('click', () => {
+            sendChangesToServer();
+        });
+
+        unlockButton.addEventListener('click', () => {
+            unlockDashboard();
+        });
+
+        lockCodeInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                unlockDashboard();
+            }
+        });
+    </script>
+</body>
+</html>

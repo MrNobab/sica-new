@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Preview | Sica Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            background: #f5f3fa;
+            min-height: 100vh;
+        }
+        .ve-global-note {
+            background: #34224D;
+            color: #fff;
+            text-align: center;
+            font-family: Inter, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            letter-spacing: 0.04em;
+        }
+        .ve-global-note span {
+            background: #c6db5b;
+            color: #1d1829;
+            border-radius: 4px;
+            padding: 2px 7px;
+            margin-left: 6px;
+            font-size: 0.7rem;
+        }
+        .ve-spacer {
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ve-global-note">
+        Componente Global — alterações serão aplicadas a todas as páginas PT
+        <span>GLOBAL</span>
+    </div>
+
+    <nav class="navbar" id="mainNavbar">
+        <div class="container navbar-inner">
+            <a href="index" class="navbar-logo" data-edit-id="global-nav-logo">Sica Creative</a>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navMenu">
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger"><span data-edit-id="global-nav-servicos">Serviços</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="index#services" data-edit-id="global-nav-link-webdesign">Web Design</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-seo">SEO</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-googleads">Google Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-metaads">Meta Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-socialmedia">Social Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="clientes" data-edit-id="global-nav-resultados">Clientes</a></li>
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger"><span data-edit-id="global-nav-sobre">Sobre</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sobre" data-edit-id="global-nav-link-agencia">A Agência</a></li>
+                        <li><a href="blog" data-edit-id="global-nav-link-blog">Blog</a></li>
+                        <li><a href="marketing-digital-clinicas-dentarias" data-edit-id="global-nav-link-especialidades">Especialidades</a></li>
+                        <li><a href="ferramentas" data-edit-id="global-nav-link-ferramentas">Ferramentas</a></li>
+                    </ul>
+                </li>
+                <li><a href="index#contact-form" data-edit-id="global-nav-contacto">Contacte-nos</a></li>
+            </ul>
+            <div class="lang-switcher" aria-label="Selecionar idioma">
+                <span class="lang-switcher__active">PT</span>
+                <span class="lang-switcher__sep" aria-hidden="true">|</span>
+                <a href="index-en" class="lang-switcher__link" data-edit-id="global-nav-lang-en">EN</a>
+            </div>
+            <a href="pt/quiz/index" class="btn btn-primary btn-sm navbar-cta-scroll" data-edit-id="global-nav-cta">Agendar Reunião</a>
+        </div>
+    </nav>
+
+    <div class="ve-spacer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

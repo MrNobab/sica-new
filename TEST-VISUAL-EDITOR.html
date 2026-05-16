@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Visual Editor - Sica Creative</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f5f3fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(52, 34, 77, 0.15);
+        }
+        
+        h1 {
+            color: #34224D;
+            margin: 0 0 10px;
+        }
+        
+        .subtitle {
+            color: #66617b;
+            margin: 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .test-element {
+            border: 2px dashed #c6db5b;
+            padding: 20px;
+            margin: 20px 0;
+            background: #fafaf8;
+            border-radius: 8px;
+        }
+        
+        .banner-text {
+            font-size: 18px;
+            color: #34224D;
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #c6db5b;
+            color: #1d1829;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 20px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(198, 219, 91, 0.3);
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .logo-image {
+            max-width: 200px;
+            width: 100%;
+        }
+        
+        .instructions {
+            background: #fef9e7;
+            padding: 16px;
+            border-left: 4px solid #c6db5b;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        
+        .instructions h3 {
+            margin: 0 0 10px;
+            color: #34224D;
+        }
+        
+        .instructions ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin: 8px 0;
+            color: #66617b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 data-edit-id="test-visual-editor-h1-001">🧪 Teste Visual Editor - Sica Creative</h1>
+        <p data-edit-id="test-visual-editor-p-001" class="subtitle">Use esta página para testar as alterações do visual editor</p>
+        
+        <div class="instructions">
+            <h3 data-edit-id="test-visual-editor-h3-001">📋 Como testar:</h3>
+            <ol>
+                <li data-edit-id="test-visual-editor-li-001">Abra o visual editor (visual-editor.html)</li>
+                <li data-edit-id="test-visual-editor-li-002">Selecione "TEST-VISUAL-EDITOR" ou manualmente adicione a página</li>
+                <li data-edit-id="test-visual-editor-li-003">Clique nos elementos abaixo para editar</li>
+                <li data-edit-id="test-visual-editor-li-004">Faça uma alteração (texto, cor ou imagem)</li>
+                <li data-edit-id="test-visual-editor-li-005">Clique em "Exportar alterações"</li>
+                <li data-edit-id="test-visual-editor-li-006">Recarregue esta página para verificar se as mudanças foram aplicadas</li>
+            </ol>
+        </div>
+
+        <!-- TESTE 1: Alterar título -->
+        <div class="test-element">
+            <h2 data-edit-id="test-visual-editor-h2-001" id="test-title">📝 Altere este título no visual editor</h2>
+            <p>Este é o elemento <strong data-edit-id="test-visual-editor-strong-001">#test-title</strong>. Tente editar o texto no visual editor.</p>
+        </div>
+
+        <!-- TESTE 2: Alterar cor de texto -->
+        <div class="test-element">
+            <p data-edit-id="test-visual-editor-p-002" class="banner-text" style="color: #34224D;">🎨 Altere a cor deste texto</p>
+            <p>Este é um elemento com classe <strong data-edit-id="test-visual-editor-strong-002">.banner-text</strong>. Tente mudar a cor.</p>
+        </div>
+
+        <!-- TESTE 3: Alterar botão -->
+        <div class="test-element">
+            <button data-edit-id="test-visual-editor-button-001" class="cta-button">🔗 Clique aqui para editar</button>
+            <p>Este é um elemento com classe <strong data-edit-id="test-visual-editor-strong-003">.cta-button</strong>. Tente mudar o texto.</p>
+        </div>
+
+        <!-- TESTE 4: Alterar imagem -->
+        <div class="test-element logo-section">
+            <img data-edit-id="test-visual-editor-img-001" id="test-logo" src="https://via.placeholder.com/200x100/34224D/FFFFFF?text=SICA+LOGO" alt="Logo Sica" class="logo-image">
+            <p>Este é um elemento <strong data-edit-id="test-visual-editor-strong-004">#test-logo</strong>. O caminho da imagem será restaurado se você resetar.</p>
+        </div>
+
+        <!-- TESTE 5: Alterar parágrafo -->
+        <div class="test-element">
+            <p data-edit-id="test-visual-editor-p-003" id="test-paragraph">✏️ Este parágrafo tem ID #test-paragraph e pode ser editado completamente.</p>
+            <p data-edit-id="test-visual-editor-p-004">Tente alterar o conteúdo deste elemento através do visual editor.</p>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #f0f0f0; border-radius: 8px;">
+            <h3 data-edit-id="test-visual-editor-h3-002">Resultado do teste:</h3>
+            <p data-edit-id="test-visual-editor-p-005" id="test-result" style="color: #66617b; margin: 0;">Aguardando alterações...</p>
+            <p data-edit-id="test-visual-editor-p-006" style="font-size: 14px; color: #999; margin: 10px 0 0;">Se vir esta mensagem alterada, as mudanças foram aplicadas com sucesso! ✅</p>
+        </div>
+    </div>
+
+    <script>
+        // Adicionar alguma validação visual
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.test-element');
+            elements.forEach((el) => {
+                el.title = 'Clique nos elementos dentro desta seção para editar';
+            });
+        });
+    </script>
+</body>
+</html>

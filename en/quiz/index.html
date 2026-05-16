@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Dental Clinic Diagnostic — Sica Creative</title>
+<meta name="description" content="Discover your dental clinic's growth potential in 2 minutes. Free diagnostic by Sica Creative.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0c0914;
+    --surface:  #13102a;
+    --surface2: #1a1634;
+    --border:   rgba(255,255,255,0.07);
+    --accent:   #c6db5b;  /* SICA lime */
+    --accent2:  #6F5AA3;  /* SICA secondary purple */
+    --brand:    #34224D;  /* SICA primary purple */
+    --text:     #eeeef4;
+    --muted:    #8880a8;
+    --white:    #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px 48px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -160px;
+    left: -160px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(52,34,77,0.55) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -80px;
+    right: -80px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(198,219,91,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 520px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── BRAND ── */
+  .brand {
+    text-align: center;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .brand-logo:hover { color: var(--text); }
+
+  .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: pulse 2.4s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.45; transform: scale(0.75); }
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+
+  .progress-bar {
+    height: 3px;
+    background: var(--surface2);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 99px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 20%;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 28px 20px; }
+  }
+
+  /* ── STEP VISIBILITY ── */
+  .step { display: none; }
+  .step.active { display: block; }
+
+  /* ── STEP TAG ── */
+  .step-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(198,219,91,0.09);
+    border: 1px solid rgba(198,219,91,0.22);
+    padding: 4px 10px;
+    border-radius: 99px;
+    margin-bottom: 18px;
+  }
+
+  /* ── QUESTION ── */
+  .step-question {
+    font-weight: 800;
+    font-size: clamp(19px, 5vw, 25px);
+    line-height: 1.25;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .step-question span { color: var(--accent); }
+
+  .step-sub {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 26px;
+    line-height: 1.55;
+  }
+
+  /* ── OPTIONS ── */
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 17px;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    text-align: left;
+    width: 100%;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+  }
+
+  .option:hover {
+    border-color: rgba(198,219,91,0.38);
+    background: rgba(198,219,91,0.05);
+    transform: translateX(3px);
+  }
+
+  .option-letter {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .option:hover .option-letter {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #000;
+  }
+
+  .option-text { flex: 1; line-height: 1.4; }
+
+  .option-arrow {
+    color: var(--muted);
+    font-size: 16px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .option:hover .option-arrow {
+    transform: translateX(3px);
+    color: var(--accent);
+  }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, rgba(111,90,163,0.18), rgba(111,90,163,0.07));
+    border: 1px solid rgba(111,90,163,0.28);
+    border-radius: 12px;
+    font-size: 12.5px;
+    color: #c4b5fd;
+    line-height: 1.6;
+    display: flex;
+    gap: 11px;
+  }
+
+  .info-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── FORM ── */
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 18px;
+  }
+
+  .field-wrap { display: flex; flex-direction: column; }
+
+  .input-field {
+    padding: 14px 16px;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .input-field::placeholder { color: var(--muted); }
+  .input-field:focus { border-color: rgba(198,219,91,0.4); }
+  .input-field.has-error { border-color: rgba(248,113,113,0.55); }
+
+  .field-error {
+    font-size: 11.5px;
+    color: #f87171;
+    margin-top: 5px;
+    padding-left: 2px;
+    line-height: 1.4;
+  }
+
+  .next-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: var(--accent2);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .next-btn:hover {
+    background: #5a4890;
+    transform: translateY(-1px);
+  }
+
+  .next-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* ── RESULT ── */
+  .result-header { text-align: center; margin-bottom: 26px; }
+
+  .result-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(198,219,91,0.1);
+    border: 1px solid rgba(198,219,91,0.28);
+    border-radius: 99px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+  }
+
+  .result-title {
+    font-weight: 800;
+    font-size: clamp(21px, 5vw, 27px);
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .result-sub {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .result-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-bottom: 22px;
+  }
+
+  .metric {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .metric-value {
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 5px;
+    letter-spacing: -0.02em;
+  }
+
+  .metric-label {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: var(--accent);
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15.5px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+
+  .cta-btn:hover {
+    background: #d4ed6a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(198,219,91,0.28);
+  }
+
+  .cta-note {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 11px;
+    line-height: 1.5;
+  }
+
+  /* ── NOT QUALIFIED ── */
+  .nq-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(111,90,163,0.18);
+    border: 1px solid rgba(111,90,163,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 20px;
+  }
+
+  .nq-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(111,90,163,0.12);
+    border: 1px solid rgba(111,90,163,0.28);
+    border-radius: 99px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #c4b5fd;
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+  }
+
+  .nq-title {
+    font-weight: 800;
+    font-size: clamp(18px, 4.5vw, 23px);
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .nq-sub {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 26px;
+  }
+
+  .nq-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: var(--accent2);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .nq-btn:hover {
+    background: #5a4890;
+    transform: translateY(-1px);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-enter { animation: fadeUp 0.32s ease forwards; }
+</style>
+</head>
+<body>
+
+<div class="container" data-edit-id="en-quiz-index-div-100">
+
+  <!-- BRAND -->
+  <div class="brand" data-edit-id="en-quiz-index-div-101">
+    <a class="brand-logo" data-edit-id="en-quiz-index-a-010" href="../../index-en.html">
+      <div class="brand-dot" data-edit-id="en-quiz-index-div-102"></div>
+      Sica Creative &nbsp;·&nbsp; Free Diagnostic
+    </a>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrap" data-edit-id="en-quiz-index-div-103">
+    <div class="progress-labels" data-edit-id="en-quiz-index-div-104">
+      <span data-edit-id="en-quiz-index-span-001" id="step-label">Question 1 of 5</span>
+      <span data-edit-id="en-quiz-index-span-002" id="step-pct">20%</span>
+    </div>
+    <div class="progress-bar" data-edit-id="en-quiz-index-div-105">
+      <div class="progress-fill" id="progress-fill" data-edit-id="en-quiz-index-div-106"></div>
+    </div>
+  </div>
+
+  <!-- CARD -->
+  <div class="card" data-edit-id="en-quiz-index-div-107">
+
+    <!-- ──────────── STEP 1 ──────────── -->
+    <div class="step active" id="step-1" data-edit-id="en-quiz-index-div-108">
+      <div class="step-tag" data-edit-id="en-quiz-index-div-001">Qualification</div>
+      <div class="step-question" data-edit-id="en-quiz-index-div-028">Is your clinic <span data-edit-id="en-quiz-index-span-003">actively growing</span> its new patient base?</div>
+      <div class="step-sub" data-edit-id="en-quiz-index-div-002">Answer honestly — this helps us understand whether our system is a good fit for you.</div>
+      <div class="options" data-edit-id="en-quiz-index-div-109">
+        <button class="option" data-edit-id="en-quiz-index-button-010" onclick="nextStep(1,'A')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-110">A</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-003">Yes — I want more new patients per month</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-111">→</div>
+        </button>
+        <button class="option" data-edit-id="en-quiz-index-button-011" onclick="nextStep(1,'B')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-112">B</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-004">My schedule is full, but I want to optimise</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-113">→</div>
+        </button>
+        <button class="option" data-edit-id="en-quiz-index-button-012" onclick="nextStep(1,'C')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-114">C</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-005">I'm just starting out / new clinic</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-115">→</div>
+        </button>
+      </div>
+      <div class="info-box" data-edit-id="en-quiz-index-div-029">
+        <div class="info-icon" data-edit-id="en-quiz-index-div-116">📈</div>
+        <div>Clinics with an active digital presence receive <strong data-edit-id="en-quiz-index-strong-001">3× more enquiries</strong> than those relying solely on referrals.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── STEP 2 ──────────── -->
+    <div class="step" id="step-2" data-edit-id="en-quiz-index-div-117">
+      <div class="step-tag" data-edit-id="en-quiz-index-div-006">Online Presence</div>
+      <div class="step-question" data-edit-id="en-quiz-index-div-030">What is your clinic's <span data-edit-id="en-quiz-index-span-004">website</span> situation?</div>
+      <div class="step-sub" data-edit-id="en-quiz-index-div-007">Your website is the first point of contact for most potential patients.</div>
+      <div class="options" data-edit-id="en-quiz-index-div-118">
+        <button class="option" data-edit-id="en-quiz-index-button-013" onclick="nextStep(2,'A')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-119">A</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-008">I have a website, but it's outdated</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-120">→</div>
+        </button>
+        <button class="option" data-edit-id="en-quiz-index-button-014" onclick="nextStep(2,'B')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-121">B</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-009">I have a website and I'm happy with it</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-122">→</div>
+        </button>
+        <button class="option" data-edit-id="en-quiz-index-button-015" onclick="nextStep(2,'C')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-123">C</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-010">I don't have a website</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-124">→</div>
+        </button>
+      </div>
+      <div class="info-box" data-edit-id="en-quiz-index-div-031">
+        <div class="info-icon" data-edit-id="en-quiz-index-div-125">🔍</div>
+        <div>74% of patients search on Google before booking an appointment. An outdated website loses those leads to your competitors.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── STEP 3 ──────────── -->
+    <div class="step" id="step-3" data-edit-id="en-quiz-index-div-126">
+      <div class="step-tag" data-edit-id="en-quiz-index-div-011">Current Marketing</div>
+      <div class="step-question" data-edit-id="en-quiz-index-div-032">What are you <span data-edit-id="en-quiz-index-span-005">currently doing</span> to attract new patients?</div>
+      <div class="step-sub" data-edit-id="en-quiz-index-div-012">Select the option that best describes your current situation.</div>
+      <div class="options" data-edit-id="en-quiz-index-div-127">
+        <button class="option" data-edit-id="en-quiz-index-button-016" onclick="nextStep(3,'A')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-128">A</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-013">Word-of-mouth / referrals only</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-129">→</div>
+        </button>
+        <button class="option" data-edit-id="en-quiz-index-button-017" onclick="nextStep(3,'B')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-130">B</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-014">Google / social media but with no clear results</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-131">→</div>
+        </button>
+        <button class="option" data-edit-id="en-quiz-index-button-018" onclick="nextStep(3,'C')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-132">C</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-015">I run paid campaigns (Google Ads / Meta)</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-133">→</div>
+        </button>
+      </div>
+      <div class="info-box" data-edit-id="en-quiz-index-div-033">
+        <div class="info-icon" data-edit-id="en-quiz-index-div-134">💡</div>
+        <div>Clinics combining local SEO + Google Ads achieve a cost per new patient <strong data-edit-id="en-quiz-index-strong-002">40–60% lower</strong> than paid advertising alone.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── STEP 4 ──────────── -->
+    <div class="step" id="step-4" data-edit-id="en-quiz-index-div-135">
+      <div class="step-tag" data-edit-id="en-quiz-index-div-016">Growth Goal</div>
+      <div class="step-question" data-edit-id="en-quiz-index-div-034">How many <span data-edit-id="en-quiz-index-span-006">new patients</span> do you want per month?</div>
+      <div class="step-sub" data-edit-id="en-quiz-index-div-017">This helps us size the right strategy for your growth objective.</div>
+      <div class="options" data-edit-id="en-quiz-index-div-136">
+        <button class="option" data-edit-id="en-quiz-index-button-019" onclick="nextStep(4,'A')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-137">A</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-018">5 to 15 new patients / month</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-138">→</div>
+        </button>
+        <button class="option" data-edit-id="en-quiz-index-button-020" onclick="nextStep(4,'B')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-139">B</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-019">15 to 30 new patients / month</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-140">→</div>
+        </button>
+        <button class="option" data-edit-id="en-quiz-index-button-021" onclick="nextStep(4,'C')">
+          <div class="option-letter" data-edit-id="en-quiz-index-div-141">C</div>
+          <div class="option-text" data-edit-id="en-quiz-index-div-020">30+ new patients / month</div>
+          <div class="option-arrow" data-edit-id="en-quiz-index-div-142">→</div>
+        </button>
+      </div>
+      <div class="info-box" data-edit-id="en-quiz-index-div-035">
+        <div class="info-icon" data-edit-id="en-quiz-index-div-143">🦷</div>
+        <div>Each implant or orthodontics patient represents <strong data-edit-id="en-quiz-index-strong-003">€1,500–€5,000</strong> in lifetime revenue for the clinic.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── STEP 5 ──────────── -->
+    <div class="step" id="step-5" data-edit-id="en-quiz-index-div-144">
+      <div class="step-tag" data-edit-id="en-quiz-index-div-021">Last step</div>
+      <div class="step-question" data-edit-id="en-quiz-index-div-036">Schedule your <span data-edit-id="en-quiz-index-span-007">free diagnostic session</span></div>
+      <div class="step-sub" data-edit-id="en-quiz-index-div-022">20 minutes. No commitment. We analyse your clinic together.</div>
+      <div class="input-group" data-edit-id="en-quiz-index-div-145">
+        <div class="field-wrap" data-edit-id="en-quiz-index-div-146">
+          <input class="input-field" type="text" id="user-name"
+                 placeholder="Your name" autocomplete="name" />
+          <span class="field-error" id="err-name"></span>
+        </div>
+        <div class="field-wrap" data-edit-id="en-quiz-index-div-147">
+          <input class="input-field" type="email" id="user-email"
+                 placeholder="Email address" autocomplete="email" />
+          <span class="field-error" id="err-email"></span>
+        </div>
+        <div class="field-wrap" data-edit-id="en-quiz-index-div-148">
+          <input class="input-field" type="text" id="user-clinic"
+                 placeholder="Clinic name" autocomplete="organization" />
+          <span class="field-error" id="err-clinic"></span>
+        </div>
+        <div class="field-wrap" data-edit-id="en-quiz-index-div-149">
+          <input class="input-field" type="url" id="user-website"
+                 placeholder="Clinic website (optional)" autocomplete="url" />
+          <span class="field-error" id="err-website"></span>
+        </div>
+      </div>
+      <button data-edit-id="en-quiz-index-button-001" class="next-btn" id="submit-btn" onclick="showResult()">Book free session →</button>
+      <div class="cta-note" data-edit-id="en-quiz-index-div-023" style="margin-top:10px;">🔒 Your data is confidential. No spam.</div>
+    </div>
+
+    <!-- ──────────── RESULT ──────────── -->
+    <div class="step" id="step-result" data-edit-id="en-quiz-index-div-150">
+      <div class="result-header" data-edit-id="en-quiz-index-div-151">
+        <div class="result-score" data-edit-id="en-quiz-index-div-024">✓ Diagnostic Complete</div>
+        <div class="result-title" data-edit-id="en-quiz-index-div-025">Your clinic has real growth potential</div>
+        <div class="result-sub" data-edit-id="en-quiz-index-div-026">With the right strategy, scaling new patients becomes predictable — no more depending on referrals or luck.</div>
+      </div>
+
+      <div class="result-metrics" data-edit-id="en-quiz-index-div-152">
+        <div class="metric" data-edit-id="en-quiz-index-div-153">
+          <div class="metric-value" data-edit-id="en-quiz-index-div-027">3×</div>
+          <div class="metric-label" data-edit-id="en-quiz-index-div-028">more enquiries with an active digital presence</div>
+        </div>
+        <div class="metric" data-edit-id="en-quiz-index-div-154">
+          <div class="metric-value" data-edit-id="en-quiz-index-div-029">€4k+</div>
+          <div class="metric-label" data-edit-id="en-quiz-index-div-030">average value per implant patient</div>
+        </div>
+        <div class="metric" data-edit-id="en-quiz-index-div-155">
+          <div class="metric-value" data-edit-id="en-quiz-index-div-031">30d</div>
+          <div class="metric-label" data-edit-id="en-quiz-index-div-032">to see the first measurable results</div>
+        </div>
+        <div class="metric" data-edit-id="en-quiz-index-div-156">
+          <div class="metric-value" data-edit-id="en-quiz-index-div-033">€0</div>
+          <div class="metric-label" data-edit-id="en-quiz-index-div-034">cost of this diagnostic session</div>
+        </div>
+      </div>
+
+      <a data-edit-id="en-quiz-index-a-001" class="cta-btn" href="https://calendly.com/SICA-LINK" target="_blank" rel="noopener">
+        Choose a time slot (20 free minutes) →
+      </a>
+      <div class="cta-note" data-edit-id="en-quiz-index-div-035">📅 Pick your preferred time slot &nbsp;·&nbsp; No commitment</div>
+    </div>
+
+    <!-- ──────────── NOT QUALIFIED ──────────── -->
+    <div class="step" id="step-notqualified" data-edit-id="en-quiz-index-div-157">
+      <div style="text-align:center; margin-bottom:24px;">
+        <div class="nq-icon" data-edit-id="en-quiz-index-div-158">⏳</div>
+        <div class="nq-badge" data-edit-id="en-quiz-index-div-036">Assessment Complete</div>
+        <div class="nq-title" data-edit-id="en-quiz-index-div-037">We don't have availability for your profile right now</div>
+        <div class="nq-sub" data-edit-id="en-quiz-index-div-038">But we can notify you when new spots open.</div>
+      </div>
+      <div class="input-group" data-edit-id="en-quiz-index-div-159">
+        <div class="field-wrap" data-edit-id="en-quiz-index-div-160">
+          <input class="input-field" type="email" id="nq-email"
+                 placeholder="Your email address" autocomplete="email" />
+          <span class="field-error" id="err-nq-email"></span>
+        </div>
+      </div>
+      <button data-edit-id="en-quiz-index-button-002" class="nq-btn" onclick="submitWaitlist()">Notify me when spots open</button>
+      <div class="cta-note" data-edit-id="en-quiz-index-div-039" style="margin-top:10px;">No spam. Unsubscribe anytime.</div>
+    </div>
+
+  </div><!-- /card -->
+
+</div><!-- /container -->
+
+<script>
+  /* ── State ── */
+  var answers = {};
+
+  var stepData = {
+    1:              { label: 'Question 1 of 5', pct: 20 },
+    2:              { label: 'Question 2 of 5', pct: 40 },
+    3:              { label: 'Question 3 of 5', pct: 60 },
+    4:              { label: 'Question 4 of 5', pct: 80 },
+    5:              { label: 'Almost there...', pct: 95 },
+    'result':       { label: 'Complete!',       pct: 100 },
+    'notqualified': { label: 'Assessment Complete', pct: 100 }
+  };
+
+  /* ── Navigate to next step ── */
+  function nextStep(current, answer) {
+    answers['step' + current] = answer;
+    showStep(current + 1);
+  }
+
+  /* ── Show a step ── */
+  function showStep(num) {
+    document.querySelectorAll('.step').forEach(function(s) {
+      s.classList.remove('active');
+    });
+
+    var target = document.getElementById('step-' + num);
+    if (target) {
+      target.classList.add('active', 'step-enter');
+      setTimeout(function() { target.classList.remove('step-enter'); }, 350);
+    }
+
+    var data = stepData[num];
+    if (!data) data = stepData['result'];
+    document.getElementById('step-label').textContent    = data.label;
+    document.getElementById('step-pct').textContent      = data.pct + '%';
+    document.getElementById('progress-fill').style.width = data.pct + '%';
+  }
+
+  /* ── Qualification check ── */
+  function isNotQualified() {
+    var s1 = answers['step1'];
+    var s4 = answers['step4'];
+    return (s1 === 'B' || s1 === 'C') && s4 === 'A';
+  }
+
+  /* ── Error helpers ── */
+  function clearErrors() {
+    document.querySelectorAll('.field-error').forEach(function(el) { el.textContent = ''; });
+    document.querySelectorAll('.input-field').forEach(function(el) { el.classList.remove('has-error'); });
+  }
+
+  function markError(fieldId, errId, msg) {
+    var field = document.getElementById(fieldId);
+    var err   = document.getElementById(errId);
+    if (field) field.classList.add('has-error');
+    if (err)   err.textContent = msg;
+  }
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  /* ── Submit step 5 ── */
+  function showResult() {
+    var name    = document.getElementById('user-name').value.trim();
+    var email   = document.getElementById('user-email').value.trim();
+    var clinic  = document.getElementById('user-clinic').value.trim();
+    var website = document.getElementById('user-website').value.trim();
+
+    clearErrors();
+
+    var hasError = false;
+    if (!name) {
+      markError('user-name', 'err-name', 'Please enter your name.');
+      hasError = true;
+    }
+    if (!email) {
+      markError('user-email', 'err-email', 'Please enter your email address.');
+      hasError = true;
+    } else if (!isValidEmail(email)) {
+      markError('user-email', 'err-email', 'Please enter a valid email address.');
+      hasError = true;
+    }
+    if (!clinic) {
+      markError('user-clinic', 'err-clinic', 'Please enter the clinic name.');
+      hasError = true;
+    }
+    if (hasError) return;
+
+    /* Website validation (optional field) */
+    if (website) {
+      var normalized = normalizeUrl(website);
+      var isValidFormat = true;
+      try { new URL(normalized); } catch(e) { isValidFormat = false; }
+
+      if (!isValidFormat) {
+        markError('user-website', 'err-website', 'Please enter a valid URL address.');
+        return;
+      }
+
+      var btn = document.getElementById('submit-btn');
+      btn.textContent = 'Checking website...';
+      btn.disabled    = true;
+
+      urlExists(normalized).then(function(exists) {
+        btn.textContent = 'Book free session →';
+        btn.disabled    = false;
+
+        if (!exists) {
+          markError('user-website', 'err-website', 'Please enter a valid URL address.');
+          return;
+        }
+        website = normalized;
+        finishSubmit(name, email, clinic, website);
+      });
+      return;
+    }
+
+    finishSubmit(name, email, clinic, website);
+  }
+
+  function normalizeUrl(raw) {
+    if (!raw) return '';
+    return /^https?:\/\//i.test(raw) ? raw : 'https://' + raw;
+  }
+
+  function urlExists(url) {
+    return new Promise(function(resolve) {
+      var controller = new AbortController();
+      var timer = setTimeout(function() {
+        controller.abort();
+        resolve(true); /* timeout → lenient, assume slow site */
+      }, 7000);
+      fetch(url, { mode: 'no-cors', signal: controller.signal })
+        .then(function() { clearTimeout(timer); resolve(true); })
+        .catch(function(e) {
+          clearTimeout(timer);
+          resolve(e.name === 'AbortError');
+        });
+    });
+  }
+
+  function finishSubmit(name, email, clinic, website) {
+    /*
+     * ── Webhook integration (uncomment and replace URL to activate) ──
+     *
+     * fetch('YOUR_WEBHOOK_URL', {
+     *   method: 'POST',
+     *   headers: { 'Content-Type': 'application/json' },
+     *   body: JSON.stringify({
+     *     name, email, clinic, website,
+     *     answers: answers,
+     *     qualified: !isNotQualified(),
+     *     source: 'quiz-dental-clinics-en',
+     *     ts: new Date().toISOString()
+     *   })
+     * }).catch(function(err) { console.error('Webhook error:', err); });
+     */
+
+    if (isNotQualified()) {
+      revealStep('notqualified');
+    } else {
+      revealStep('result');
+    }
+  }
+
+  /* ── Reveal a final screen ── */
+  function revealStep(id) {
+    document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+    var target = document.getElementById('step-' + id);
+    target.classList.add('active', 'step-enter');
+    setTimeout(function() { target.classList.remove('step-enter'); }, 350);
+
+    var data = stepData[id];
+    document.getElementById('step-label').textContent    = data.label;
+    document.getElementById('step-pct').textContent      = data.pct + '%';
+    document.getElementById('progress-fill').style.width = data.pct + '%';
+  }
+
+  /* ── Waitlist submit (not-qualified screen) ── */
+  function submitWaitlist() {
+    var email = document.getElementById('nq-email').value.trim();
+
+    document.getElementById('err-nq-email').textContent = '';
+    document.getElementById('nq-email').classList.remove('has-error');
+
+    if (!email) {
+      markError('nq-email', 'err-nq-email', 'Please enter your email address.');
+      return;
+    }
+    if (!isValidEmail(email)) {
+      markError('nq-email', 'err-nq-email', 'Please enter a valid email address.');
+      return;
+    }
+
+    var btn = document.querySelector('#step-notqualified .nq-btn');
+    btn.textContent = 'Saving...';
+    btn.disabled    = true;
+
+    fetch('/omnisend-proxy.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        step1: answers['step1'] || '',
+        step4: answers['step4'] || ''
+      })
+    })
+    .then(function(res) {
+      if (res.status !== 200 && res.status !== 201) {
+        throw new Error('HTTP ' + res.status);
+      }
+      return res.json();
+    })
+    .then(function(data) {
+      btn.textContent   = '✓ You\'re on the list. We\'ll notify you when spots open.';
+      btn.style.opacity = '0.7';
+      document.getElementById('nq-email').disabled = true;
+    })
+    .catch(function(err) {
+      btn.textContent = 'Error — please try again';
+      btn.disabled    = false;
+      console.error('Omnisend error:', err);
+    });
+  }
+</script>
+
+</body>
+</html>

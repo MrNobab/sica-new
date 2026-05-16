@@ -1,0 +1,9 @@
+﻿backups/
+logs/
+*.log
+error_log
+apply-changes-debug.log
+apply-changes-error.log
+.DS_Store
+node_modules/
+.env

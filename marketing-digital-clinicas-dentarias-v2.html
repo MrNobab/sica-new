@@ -1,0 +1,770 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Digital para Clínicas Dentárias | Sica Creative</title>
+    <meta name="description" content="Atraia pacientes qualificados para a sua clínica dentária com uma estratégia de marketing digital orientada a resultados. Google Ads, SEO e conversão.">
+    <meta name="keywords" content="marketing digital para clínicas dentárias, marketing para dentistas, publicidade clínica dentária, atrair pacientes dentista, dental marketing">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="clinicas-dentarias.css">
+
+    <style>
+    /* ═══════════════════════════════════════════════════════
+       SOLUTION SECTION V2 — Two-column accordion layout
+    ═══════════════════════════════════════════════════════ */
+
+    .cd-solution-v2 {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 48px;
+        align-items: start;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    /* Left: empty image block */
+    .cd-solution-image {
+        aspect-ratio: 4 / 5;
+        border-radius: 20px;
+        background: #6F5AA3;
+        width: 100%;
+        position: sticky;
+        top: 120px;
+    }
+
+    /* Right: accordion */
+    .cd-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .cd-accordion-item {
+        border-radius: 14px;
+        border: 1px solid rgba(52, 34, 77, 0.1);
+        overflow: hidden;
+        transition: border-color 0.25s ease;
+    }
+
+    .cd-accordion-item.is-open {
+        border-color: #34224D;
+    }
+
+    .cd-accordion-trigger {
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 22px 24px;
+        text-align: left;
+        transition: background 0.2s ease;
+        border-radius: 14px;
+    }
+
+    .cd-accordion-item.is-open .cd-accordion-trigger {
+        background: #34224D;
+        border-radius: 14px 14px 0 0;
+    }
+
+    .cd-accordion-item:not(.is-open) .cd-accordion-trigger:hover {
+        background: rgba(52, 34, 77, 0.04);
+    }
+
+    .cd-accordion-num {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #6f5aa3;
+        background: #ede9f8;
+        border-radius: 6px;
+        padding: 3px 8px;
+        flex-shrink: 0;
+        transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .cd-accordion-item.is-open .cd-accordion-num {
+        color: #c6db5b;
+        background: rgba(198, 219, 91, 0.15);
+    }
+
+    .cd-accordion-title {
+        flex: 1;
+        font-size: 0.97rem;
+        font-weight: 700;
+        color: #1a1127;
+        line-height: 1.3;
+        transition: color 0.2s ease;
+    }
+
+    .cd-accordion-item.is-open .cd-accordion-title {
+        color: #ffffff;
+    }
+
+    .cd-accordion-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: rgba(52, 34, 77, 0.07);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease, transform 0.3s ease;
+    }
+
+    .cd-accordion-item.is-open .cd-accordion-icon {
+        background: rgba(198, 219, 91, 0.2);
+        transform: rotate(45deg);
+    }
+
+    .cd-accordion-icon svg {
+        transition: stroke 0.2s ease;
+    }
+
+    .cd-accordion-icon svg path {
+        stroke: #6f5aa3;
+        transition: stroke 0.2s ease;
+    }
+
+    .cd-accordion-item.is-open .cd-accordion-icon svg path {
+        stroke: #c6db5b;
+    }
+
+    .cd-accordion-panel {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.28s ease;
+    }
+
+    .cd-accordion-item.is-open .cd-accordion-panel {
+        max-height: 200px;
+        opacity: 1;
+    }
+
+    .cd-accordion-body {
+        padding: 0 24px 22px;
+        background: #34224D;
+        border-radius: 0 0 14px 14px;
+    }
+
+    .cd-accordion-body p {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.68;
+        margin: 0;
+        padding-top: 4px;
+    }
+
+    /* Mobile stacking */
+    @media (max-width: 860px) {
+        .cd-solution-v2 {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .cd-solution-image {
+            position: static;
+            aspect-ratio: 4 / 3;
+            max-height: 280px;
+        }
+    }
+    </style>
+    <script src="/assets/js/cookie-consent.js"></script>
+</head>
+<body>
+
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-bar" id="scrollProgressBar"></span>
+    </div>
+
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a data-edit-id="cdv2-nav-logo" href="index" class="navbar-logo">Sica Creative</a>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="navbar-menu" id="navMenu">
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger">Serviços <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="index#services">Web Design</a></li>
+                        <li><a href="index#services">SEO</a></li>
+                        <li><a href="index#services">Google Ads</a></li>
+                        <li><a href="index#services">Meta Ads</a></li>
+                        <li><a href="index#services">Social Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="clientes">Clientes</a></li>
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger">Sobre <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sobre">A Agência</a></li>
+                        <li><a href="blog">Blog</a></li>
+                        <li><a href="marketing-digital-clinicas-dentarias">Especialidades</a></li>
+                        <li><a href="ferramentas">Ferramentas</a></li>
+                    </ul>
+                </li>
+                <li><a href="index#contact-form">Contacte-nos</a></li>
+            </ul>
+            <div class="lang-switcher" aria-label="Selecionar idioma">
+                <span class="lang-switcher__active">PT</span>
+                <span class="lang-switcher__sep" aria-hidden="true">|</span>
+                <a href="index-en" class="lang-switcher__link">EN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════════════ -->
+    <header class="cd-hero">
+        <div class="container cd-hero-inner">
+            <span data-edit-id="cdv2-hero-label" class="section-label">Dentistas &amp; Clínicas Dentárias</span>
+            <h1 data-edit-id="cdv2-hero-h1">Marketing Digital para<br>Clínicas Dentárias</h1>
+            <p data-edit-id="cdv2-hero-sub" class="cd-hero-sub">Atraia pacientes qualificados de forma consistente, reduza o custo de aquisição e construa uma agenda previsível — com uma estratégia orientada a resultados, não a impressões.</p>
+            <div class="cd-hero-actions">
+                <a data-edit-id="cdv2-hero-cta-primary" href="/pt/quiz/" class="btn btn-primary">Começar Diagnóstico Gratuito</a>
+                <a data-edit-id="cdv2-hero-cta-secondary" href="#cd-process" class="btn btn-secondary">Ver como trabalhamos</a>
+            </div>
+            <div class="cd-trust-row">
+                <div class="cd-trust-item">
+                    <strong data-edit-id="cdv2-trust-1-val">+50</strong>
+                    <span data-edit-id="cdv2-trust-1-label">clínicas e negocios ajudados</span>
+                </div>
+                <div class="cd-trust-divider" aria-hidden="true"></div>
+                <div class="cd-trust-item">
+                    <strong data-edit-id="cdv2-trust-2-val">4,2x</strong>
+                    <span data-edit-id="cdv2-trust-2-label">ROI médio por campanha</span>
+                </div>
+                <div class="cd-trust-divider" aria-hidden="true"></div>
+                <div class="cd-trust-item">
+                    <strong data-edit-id="cdv2-trust-3-val">30 dias</strong>
+                    <span data-edit-id="cdv2-trust-3-label">para primeiros resultados mensuráveis</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ═══════════════════════════════════════════════════════
+             PROBLEMA
+        ═══════════════════════════════════════════════════════ -->
+        <section class="section cd-problem-section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="cdv2-prob-label" class="section-label">O Problema</span>
+                    <h2 data-edit-id="cdv2-prob-h2">Porque é que muitas clínicas dentárias têm dificuldade em crescer?</h2>
+                    <p data-edit-id="cdv2-prob-intro">Ter uma boa clínica não é suficiente. Sem visibilidade e um sistema de aquisição estruturado, o crescimento fica dependente do acaso.</p>
+                </div>
+                <div class="cd-problems-grid">
+                    <div class="cd-problem-item">
+                        <div class="cd-problem-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="5.5" stroke="#34224D" stroke-width="1.6"/><path d="M13.5 13.5L17 17" stroke="#34224D" stroke-width="1.6" stroke-linecap="round"/></svg>
+                        </div>
+                        <div>
+                            <strong data-edit-id="cdv2-prob-1-title">Invisibilidade no Google</strong>
+                            <p data-edit-id="cdv2-prob-1-text">A maioria dos pacientes pesquisa "dentista perto de mim" antes de marcar. Se a sua clínica não aparece nas primeiras posições, essa procura vai para a concorrência.</p>
+                        </div>
+                    </div>
+                    <div class="cd-problem-item">
+                        <div class="cd-problem-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 5h8a2 2 0 012 2v3.5a2 2 0 01-2 2H8l-3 2v-2H4a2 2 0 01-2-2V7a2 2 0 012-2z" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                            <strong data-edit-id="cdv2-prob-2-title">Dependência de recomendações</strong>
+                            <p data-edit-id="cdv2-prob-2-text">O passa-a-palavra funciona, mas não é escalável nem previsível. Quando os referidos diminuem, a agenda esvazia — e não há sistema para compensar.</p>
+                        </div>
+                    </div>
+                    <div class="cd-problem-item">
+                        <div class="cd-problem-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="13" rx="2" stroke="#34224D" stroke-width="1.6"/><path d="M7 4V3m6 1V3M3 9h14" stroke="#34224D" stroke-width="1.6" stroke-linecap="round"/></svg>
+                        </div>
+                        <div>
+                            <strong data-edit-id="cdv2-prob-3-title">Poucas marcações online</strong>
+                            <p data-edit-id="cdv2-prob-3-text">Ter presença nas redes sociais não é o mesmo que ter um funil de aquisição. Seguidores não pagam consultas — pacientes sim.</p>
+                        </div>
+                    </div>
+                    <div class="cd-problem-item">
+                        <div class="cd-problem-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 4-5 2.5-2.5" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 5.5v3.5h-3.5" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                            <strong data-edit-id="cdv2-prob-4-title">Campanhas sem retorno claro</strong>
+                            <p data-edit-id="cdv2-prob-4-text">Investimento em publicidade sem saber o custo por paciente adquirido, nem quais as campanhas que realmente funcionam.</p>
+                        </div>
+                    </div>
+                    <div class="cd-problem-item">
+                        <div class="cd-problem-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v6l3.5 3.5" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="#34224D" stroke-width="1.6"/></svg>
+                        </div>
+                        <div>
+                            <strong data-edit-id="cdv2-prob-5-title">Concorrência crescente</strong>
+                            <p data-edit-id="cdv2-prob-5-text">Novas clínicas com boa presença digital captam pacientes que antes escolhiam por localização. A visibilidade tornou-se uma vantagem competitiva real.</p>
+                        </div>
+                    </div>
+                    <div class="cd-problem-item">
+                        <div class="cd-problem-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3l2 5.5H18l-4.5 3.5 1.5 5L10 14l-5 3 1.5-5L2 8.5h6L10 3z" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                            <strong data-edit-id="cdv2-prob-6-title">Falta de reputação digital</strong>
+                            <p data-edit-id="cdv2-prob-6-text">Avaliações escassas, website desatualizado e ausência de prova social afastam pacientes ainda antes de contactarem a clínica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             SOLUÇÃO — V2: Two-column accordion layout
+        ═══════════════════════════════════════════════════════ -->
+        <section class="section cd-solution-section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="cdv2-sol-label" class="section-label">A Solução</span>
+                    <h2 data-edit-id="cdv2-sol-h2">Como o marketing digital pode transformar a sua clínica dentária</h2>
+                    <p data-edit-id="cdv2-sol-intro">Não se trata de estar online. Trata-se de construir um sistema de aquisição que gera pacientes de forma consistente e mensurável.</p>
+                </div>
+
+                <div class="cd-solution-v2">
+
+                    <!-- Left: image block -->
+                    <img data-edit-id="cdv2-solution-img" src="" alt="Sistema de aquisição de pacientes para clínicas dentárias" class="cd-solution-image" style="object-fit:cover;">
+
+                    <!-- Right: accordion -->
+                    <div class="cd-accordion" role="list">
+
+                        <div class="cd-accordion-item is-open" role="listitem">
+                            <button class="cd-accordion-trigger" aria-expanded="true" aria-controls="acc-panel-1">
+                                <span class="cd-accordion-num">01</span>
+                                <span data-edit-id="cdv2-acc-1-title" class="cd-accordion-title">Geração de leads previsível</span>
+                                <span class="cd-accordion-icon" aria-hidden="true">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7 2v10M2 7h10" stroke="#6f5aa3" stroke-width="1.8" stroke-linecap="round"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="cd-accordion-panel" id="acc-panel-1" role="region">
+                                <div class="cd-accordion-body">
+                                    <p data-edit-id="cdv2-acc-1-body">Um fluxo constante de pedidos de marcação, independente do mês ou da época — sem depender de recomendações ou sorte.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cd-accordion-item" role="listitem">
+                            <button class="cd-accordion-trigger" aria-expanded="false" aria-controls="acc-panel-2">
+                                <span class="cd-accordion-num">02</span>
+                                <span data-edit-id="cdv2-acc-2-title" class="cd-accordion-title">Pacientes com intenção real</span>
+                                <span class="cd-accordion-icon" aria-hidden="true">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7 2v10M2 7h10" stroke="#6f5aa3" stroke-width="1.8" stroke-linecap="round"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="cd-accordion-panel" id="acc-panel-2" role="region">
+                                <div class="cd-accordion-body">
+                                    <p data-edit-id="cdv2-acc-2-body">Captamos pessoas que já estão à procura dos seus serviços, reduzindo o custo por aquisição e aumentando a taxa de conversão.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cd-accordion-item" role="listitem">
+                            <button class="cd-accordion-trigger" aria-expanded="false" aria-controls="acc-panel-3">
+                                <span class="cd-accordion-num">03</span>
+                                <span data-edit-id="cdv2-acc-3-title" class="cd-accordion-title">Performance mensurável</span>
+                                <span class="cd-accordion-icon" aria-hidden="true">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7 2v10M2 7h10" stroke="#6f5aa3" stroke-width="1.8" stroke-linecap="round"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="cd-accordion-panel" id="acc-panel-3" role="region">
+                                <div class="cd-accordion-body">
+                                    <p data-edit-id="cdv2-acc-3-body">Sabe exatamente quanto custa cada paciente adquirido, qual o retorno por canal e onde está a perder oportunidades.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cd-accordion-item" role="listitem">
+                            <button class="cd-accordion-trigger" aria-expanded="false" aria-controls="acc-panel-4">
+                                <span class="cd-accordion-num">04</span>
+                                <span data-edit-id="cdv2-acc-4-title" class="cd-accordion-title">Crescimento escalável</span>
+                                <span class="cd-accordion-icon" aria-hidden="true">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7 2v10M2 7h10" stroke="#6f5aa3" stroke-width="1.8" stroke-linecap="round"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="cd-accordion-panel" id="acc-panel-4" role="region">
+                                <div class="cd-accordion-body">
+                                    <p data-edit-id="cdv2-acc-4-body">Quando o sistema funciona, pode aumentar o investimento com confiança — e ver o crescimento a acompanhar proporcionalmente.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             SERVIÇOS (COMO SISTEMA)
+        ═══════════════════════════════════════════════════════ -->
+        <section class="section cd-system-section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="cdv2-sys-label" class="section-label">Sistema de Aquisição</span>
+                    <h2 data-edit-id="cdv2-sys-h2">Os canais que ativamos para a sua clínica</h2>
+                    <p data-edit-id="cdv2-sys-intro">Cada canal tem um papel específico no funil. Não trabalhamos por canais isolados — ativamos o sistema certo para o seu objetivo.</p>
+                </div>
+                <div class="cd-system-grid">
+                    <div class="cd-system-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 4-5 2.5-2.5" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 5.5v3.5h-3.5" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="cdv2-svc-1-title">Google Ads</h3>
+                        <p data-edit-id="cdv2-svc-1-text">Captamos pacientes com intenção de marcar consulta — no momento exato em que pesquisam pelo serviço. Resultados a partir dos primeiros dias.</p>
+                        <span data-edit-id="cdv2-svc-1-tag" class="cd-system-tag">Alta intenção</span>
+                    </div>
+                    <div class="cd-system-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="5.5" stroke="#34224D" stroke-width="1.6"/><path d="M13.5 13.5L17 17" stroke="#34224D" stroke-width="1.6" stroke-linecap="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="cdv2-svc-2-title">SEO Local e Orgânico</h3>
+                        <p data-edit-id="cdv2-svc-2-text">Posicionamos a sua clínica nas pesquisas do Google sem custo por clique. Visibilidade sustentável que cresce ao longo do tempo e reduz dependência de publicidade paga.</p>
+                        <span data-edit-id="cdv2-svc-2-tag" class="cd-system-tag">Longo prazo</span>
+                    </div>
+                    <div class="cd-system-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#34224D" stroke-width="1.6"/><path d="M2 8h16" stroke="#34224D" stroke-width="1.6"/><circle cx="5" cy="6" r="0.9" fill="#34224D"/><circle cx="8" cy="6" r="0.9" fill="#34224D"/></svg>
+                        </div>
+                        <h3 data-edit-id="cdv2-svc-3-title">Websites Focados em Conversão</h3>
+                        <p data-edit-id="cdv2-svc-3-text">Um website de clínica dentária não é uma brochura digital — é o ponto de decisão do paciente. Criamos páginas que convertem visitas em marcações.</p>
+                        <span data-edit-id="cdv2-svc-3-tag" class="cd-system-tag">Conversão</span>
+                    </div>
+                    <div class="cd-system-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 5h8a2 2 0 012 2v3.5a2 2 0 01-2 2H8l-3 2v-2H4a2 2 0 01-2-2V7a2 2 0 012-2z" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="cdv2-svc-4-title">Social Media com Estratégia</h3>
+                        <p data-edit-id="cdv2-svc-4-text">Construímos autoridade e presença digital que reforça a decisão de marcar. Conteúdo que posiciona, não apenas que entretém.</p>
+                        <span data-edit-id="cdv2-svc-4-tag" class="cd-system-tag">Autoridade</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             BENEFÍCIOS
+        ═══════════════════════════════════════════════════════ -->
+        <section class="section cd-benefits-section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="cdv2-ben-label" class="section-label">Resultados</span>
+                    <h2 data-edit-id="cdv2-ben-h2">O que pode esperar quando o sistema funciona</h2>
+                </div>
+                <div class="cd-benefits-grid">
+                    <div class="cd-benefit">
+                        <strong data-edit-id="cdv2-ben-1-title">Mais pacientes qualificados</strong>
+                        <p data-edit-id="cdv2-ben-1-text">Não apenas mais contactos — pacientes com intenção real de marcar e perfil adequado aos seus serviços.</p>
+                    </div>
+                    <div class="cd-benefit">
+                        <strong data-edit-id="cdv2-ben-2-title">Agenda mais previsível</strong>
+                        <p data-edit-id="cdv2-ben-2-text">Semanas consistentes, sem os picos e quedas que tornam a gestão da clínica difícil e stressante.</p>
+                    </div>
+                    <div class="cd-benefit">
+                        <strong data-edit-id="cdv2-ben-3-title">Custo de aquisição controlado</strong>
+                        <p data-edit-id="cdv2-ben-3-text">Sabe quanto custa cada novo paciente e pode tomar decisões de investimento com base em dados reais.</p>
+                    </div>
+                    <div class="cd-benefit">
+                        <strong data-edit-id="cdv2-ben-4-title">Crescimento sustentável</strong>
+                        <p data-edit-id="cdv2-ben-4-text">Um sistema que melhora ao longo do tempo — quanto mais dados, melhor a performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             MID-PAGE CTA
+        ═══════════════════════════════════════════════════════ -->
+        <section class="cd-midcta">
+            <div class="container cd-midcta-inner">
+                <div>
+                    <h2 data-edit-id="cdv2-midcta-h2">Descubra o que está a travar o crescimento da sua clínica.</h2>
+                    <p data-edit-id="cdv2-midcta-text">Uma análise rápida à sua presença atual pode revelar onde está a perder marcações.</p>
+                </div>
+                <a data-edit-id="cdv2-midcta-btn" href="/pt/quiz/" class="btn btn-primary">Começar Diagnóstico Gratuito</a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             PROCESSO
+        ═══════════════════════════════════════════════════════ -->
+        <section id="cd-process" class="section cd-process-section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="cdv2-proc-label" class="section-label">Como trabalhamos</span>
+                    <h2 data-edit-id="cdv2-proc-h2">Um processo claro, sem promessas vagas</h2>
+                    <p data-edit-id="cdv2-proc-intro">Cada projeto começa com diagnóstico, não com propostas genéricas.</p>
+                </div>
+                <div class="cd-steps">
+                    <div class="cd-step">
+                        <span class="cd-step-num">01</span>
+                        <h3 data-edit-id="cdv2-step-1-title">Análise</h3>
+                        <p data-edit-id="cdv2-step-1-text">Auditamos a presença atual da sua clínica — website, campanhas ativas, SEO local, concorrência e funil de marcação. Identificamos onde está a perder pacientes e margem.</p>
+                    </div>
+                    <div class="cd-step-arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#c6db5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="cd-step">
+                        <span class="cd-step-num">02</span>
+                        <h3 data-edit-id="cdv2-step-2-title">Estratégia</h3>
+                        <p data-edit-id="cdv2-step-2-text">Desenvolvemos um plano de aquisição com canais prioritários, objetivos mensuráveis e cronograma de execução. Sem ações avulsas — tudo tem um propósito claro.</p>
+                    </div>
+                    <div class="cd-step-arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#c6db5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="cd-step">
+                        <span class="cd-step-num">03</span>
+                        <h3 data-edit-id="cdv2-step-3-title">Crescimento</h3>
+                        <p data-edit-id="cdv2-step-3-text">Executamos, medimos e otimizamos continuamente. Relatórios semanais, decisões baseadas em dados e ajustes constantes para manter o custo por paciente sob controlo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             CASO DE ESTUDO
+        ═══════════════════════════════════════════════════════ -->
+        <section class="section cd-case-section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="cdv2-case-label" class="section-label">Caso de Estudo</span>
+                    <h2 data-edit-id="cdv2-case-h2">Da agenda irregular ao crescimento previsível</h2>
+                </div>
+                <div class="cd-case-card">
+                    <div class="cd-case-context">
+                        <span data-edit-id="cdv2-case-ctx-label" class="cd-case-label">Contexto</span>
+                        <p data-edit-id="cdv2-case-ctx-text">Clínica dentária com três cadeiras, localizada numa área urbana competitiva. A agenda era preenchida principalmente por recomendações, com grandes variações entre semanas. Nenhuma campanha digital activa. Website desatualizado, sem formulário de marcação online.</p>
+                    </div>
+                    <div class="cd-case-divider" aria-hidden="true"></div>
+                    <div class="cd-case-results">
+                        <span data-edit-id="cdv2-case-res-label" class="cd-case-label">Após 90 dias com a Sica Creative</span>
+                        <div class="cd-case-metrics">
+                            <div class="cd-case-metric">
+                                <strong data-edit-id="cdv2-case-m1-val">+65%</strong>
+                                <span data-edit-id="cdv2-case-m1-label">pedidos de marcação mensais</span>
+                            </div>
+                            <div class="cd-case-metric">
+                                <strong data-edit-id="cdv2-case-m2-val">-31%</strong>
+                                <span data-edit-id="cdv2-case-m2-label">custo por paciente adquirido</span>
+                            </div>
+                            <div class="cd-case-metric">
+                                <strong data-edit-id="cdv2-case-m3-val">4,1x</strong>
+                                <span data-edit-id="cdv2-case-m3-label">retorno sobre investimento em anúncios</span>
+                            </div>
+                        </div>
+                        <p data-edit-id="cdv2-case-note" class="cd-case-note">Implementação: Google Ads focado em intenção local, redesign da landing page e otimização do perfil Google Business. Relatórios semanais com ajuste de campanha.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             TESTEMUNHO
+        ═══════════════════════════════════════════════════════ -->
+        <section class="section cd-testimonial-section">
+            <div class="container">
+                <div class="cd-testimonial-card">
+                    <blockquote data-edit-id="cdv2-testimonial-quote">
+                        "As campanhas trouxeram exatamente o tipo de pacientes que eu queria. Deixei de depender de recomendações e passei a ter marcações consistentes todas as semanas. Em três meses, a agenda passou de irregular para previsível."
+                    </blockquote>
+                    <cite>
+                        <strong data-edit-id="cdv2-testimonial-name">Dr. Carlos M.</strong>
+                        <span data-edit-id="cdv2-testimonial-org">Clínica de Medicina Dentária</span>
+                    </cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             PARA QUEM É
+        ═══════════════════════════════════════════════════════ -->
+        <section class="section cd-forwhom-section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="cdv2-fw-label" class="section-label">Para quem é</span>
+                    <h2 data-edit-id="cdv2-fw-h2">Trabalhamos com clínicas prontas para crescer</h2>
+                </div>
+                <div class="cd-forwhom-grid">
+                    <div class="cd-forwhom-yes">
+                        <h3 data-edit-id="cdv2-fw-yes-title">Indicado para:</h3>
+                        <ul>
+                            <li data-edit-id="cdv2-fw-yes-1">Clínicas que já investem em marketing mas sem resultados previsíveis</li>
+                            <li data-edit-id="cdv2-fw-yes-2">Dentistas que querem reduzir dependência de recomendações</li>
+                            <li data-edit-id="cdv2-fw-yes-3">Clínicas em crescimento que precisam de mais marcações qualificadas</li>
+                            <li data-edit-id="cdv2-fw-yes-4">Gestores de clínica que querem dados claros sobre o retorno do investimento</li>
+                        </ul>
+                    </div>
+                    <div class="cd-forwhom-no">
+                        <h3 data-edit-id="cdv2-fw-no-title">Não é indicado para:</h3>
+                        <ul>
+                            <li data-edit-id="cdv2-fw-no-1">Clínicas que procuram apenas presença online sem compromisso com performance</li>
+                            <li data-edit-id="cdv2-fw-no-2">Quem espera resultados imediatos sem investimento consistente</li>
+                            <li data-edit-id="cdv2-fw-no-3">Quem não está disponível para partilhar dados de negócio e participar no processo</li>
+                        </ul>
+                        <p data-edit-id="cdv2-fw-disclaimer" class="cd-forwhom-disclaimer">Se procura apenas visibilidade, não somos a escolha certa. Trabalhamos com clínicas que querem crescimento mensurável.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             FAQ
+        ═══════════════════════════════════════════════════════ -->
+        <section class="section section-faq">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="cdv2-faq-label" class="section-label">FAQ</span>
+                    <h2 data-edit-id="cdv2-faq-h2">Perguntas frequentes sobre marketing para dentistas</h2>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button data-edit-id="cdv2-faq-1-q" class="accordion-header">Quanto custa marketing digital para uma clínica dentária?</button>
+                        <div class="accordion-content">
+                            <p data-edit-id="cdv2-faq-1-a">O investimento depende dos canais activados, da área geográfica e dos objetivos de crescimento. Tipicamente, uma estratégia combinada de Google Ads e SEO para clínicas dentárias começa a partir de 600–800€/mês de gestão, mais o orçamento de anúncios. O custo por paciente adquirido é monitorizado e optimizado ao longo do tempo.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button data-edit-id="cdv2-faq-2-q" class="accordion-header">O Google Ads funciona para dentistas?</button>
+                        <div class="accordion-content">
+                            <p data-edit-id="cdv2-faq-2-a">Sim — é um dos canais com maior retorno para clínicas dentárias porque captura pacientes com intenção de marcar consulta. Pesquisas como "dentista urgente", "implantes dentários [cidade]" ou "clínica dentária perto de mim" têm alta intenção comercial. Com a estrutura certa, é possível controlar o custo por marcação e escalar progressivamente.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button data-edit-id="cdv2-faq-3-q" class="accordion-header">Quanto tempo demora a ver resultados?</button>
+                        <div class="accordion-content">
+                            <p data-edit-id="cdv2-faq-3-a">Com campanhas pagas (Google Ads), os primeiros resultados aparecem em dias. Para SEO, o impacto significativo surge entre 3 a 6 meses, com crescimento consistente a partir daí. A combinação dos dois canais garante resultados imediatos e crescimento sustentável a longo prazo.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button data-edit-id="cdv2-faq-4-q" class="accordion-header">O SEO é importante para clínicas dentárias?</button>
+                        <div class="accordion-content">
+                            <p data-edit-id="cdv2-faq-4-a">Extremamente importante. A maioria dos pacientes pesquisa online antes de marcar — e as clínicas que aparecem nas primeiras posições têm uma vantagem competitiva real. O SEO local (Google Business Profile + conteúdo geolocalizado) é especialmente eficaz para dentistas porque captura procura com alta intenção na área de influência da clínica.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button data-edit-id="cdv2-faq-5-q" class="accordion-header">Preciso de ter um website para trabalhar convosco?</button>
+                        <div class="accordion-content">
+                            <p data-edit-id="cdv2-faq-5-a">Não é obrigatório, mas é altamente recomendado para maximizar resultados. Se a sua clínica não tem website ou o website actual não está optimizado para conversão, podemos incluir esse trabalho na estratégia. Um website focado em marcações é um dos maiores alavancadores de performance nas campanhas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FINAL CTA
+    ═══════════════════════════════════════════════════════ -->
+    <footer id="final-cta" class="footer-cta">
+        <div class="container footer-cta-inner">
+            <div>
+                <span data-edit-id="cdv2-fcta-label" class="section-label">Próximo passo</span>
+                <h2 data-edit-id="cdv2-fcta-h2">Se procura previsibilidade no crescimento da sua clínica, este é o próximo passo.</h2>
+            </div>
+            <a data-edit-id="cdv2-fcta-btn" href="/pt/quiz/" class="btn btn-primary">Começar diagnóstico gratuito</a>
+        </div>
+    </footer>
+
+    <footer class="site-footer">
+        <div class="container site-footer-inner">
+            <div class="footer-brand">
+                <div data-edit-id="cdv2-footer-logo" class="footer-logo">Sica Creative</div>
+                <p data-edit-id="cdv2-footer-tagline">Estratégia de marketing digital orientada a resultados para clínicas e negócios em crescimento.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div>
+                    <h3 data-edit-id="cdv2-footer-h3-1">Serviços</h3>
+                    <ul>
+                        <li><a data-edit-id="cdv2-footer-svc-1" href="index#services">Google Ads</a></li>
+                        <li><a data-edit-id="cdv2-footer-svc-2" href="index#services">SEO</a></li>
+                        <li><a data-edit-id="cdv2-footer-svc-3" href="index#services">CRO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-edit-id="cdv2-footer-h3-2">Empresa</h3>
+                    <ul>
+                        <li><a data-edit-id="cdv2-footer-emp-1" href="clientes">Clientes</a></li>
+                        <li><a data-edit-id="cdv2-footer-emp-2" href="sobre">Sobre</a></li>
+                        <li><a data-edit-id="cdv2-footer-emp-3" href="blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-edit-id="cdv2-footer-h3-3">Contacto</h3>
+                    <ul>
+                        <li><a data-edit-id="cdv2-footer-ct-1" href="mailto:info@sicacreative.com">info@sicacreative.com</a></li>
+                        <li><a data-edit-id="cdv2-footer-ct-2" href="index#final-cta">Agendar auditoria</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p data-edit-id="cdv2-footer-copy">© 2026 Sica Creative. Todos os direitos reservados.</p>
+            <div class="footer-policy-links">
+                <a data-edit-id="cdv2-footer-policy-1" href="#">Política de Privacidade</a>
+                <a data-edit-id="cdv2-footer-policy-2" href="#">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    (function () {
+        var items = document.querySelectorAll('.cd-accordion-item');
+
+        items.forEach(function (item) {
+            var trigger = item.querySelector('.cd-accordion-trigger');
+            var panel   = item.querySelector('.cd-accordion-panel');
+
+            trigger.addEventListener('click', function () {
+                var isOpen = item.classList.contains('is-open');
+
+                // Close all
+                items.forEach(function (i) {
+                    i.classList.remove('is-open');
+                    i.querySelector('.cd-accordion-trigger').setAttribute('aria-expanded', 'false');
+                });
+
+                // Open clicked if it was closed
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    })();
+    </script>
+    <script type="text/javascript">
+        window.omnisend = window.omnisend || [];
+        omnisend.push(["brandID", "6981e17d27460b4ce15c57f3"]);
+        omnisend.push(["track", "$pageViewed"]);
+        !function(){var e=document.createElement("script");
+        e.type="text/javascript",e.async=!0,
+        e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
+        var t=document.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(e,t)}();
+    </script>
+</body>
+</html>

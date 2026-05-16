@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Sica Creative — Insights de Marketing Digital</title>
+    <meta name="description" content="Estratégias, frameworks e casos reais para crescer com mais controlo, menos desperdício e resultados mensuráveis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    <script src="/assets/js/cookie-consent.js"></script>
+</head>
+<body>
+
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-bar" id="scrollProgressBar"></span>
+    </div>
+
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a data-edit-id="global-nav-logo" href="index" class="navbar-logo">Sica Creative</a>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navMenu">
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger"><span data-edit-id="global-nav-servicos">Serviços</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="index#services" data-edit-id="global-nav-link-webdesign">Web Design</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-seo">SEO</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-googleads">Google Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-metaads">Meta Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-socialmedia">Social Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="clientes" data-edit-id="global-nav-resultados">Clientes</a></li>
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger"><span data-edit-id="global-nav-sobre">Sobre</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sobre" data-edit-id="global-nav-link-agencia">A Agência</a></li>
+                        <li><a href="blog" data-edit-id="global-nav-link-blog">Blog</a></li>
+                        <li><a href="marketing-digital-clinicas-dentarias" data-edit-id="global-nav-link-especialidades">Especialidades</a></li>
+                        <li><a href="ferramentas" data-edit-id="global-nav-link-ferramentas">Ferramentas</a></li>
+                    </ul>
+                </li>
+                <li><a href="index#contact-form" data-edit-id="global-nav-contacto">Contacte-nos</a></li>
+                <li class="nav-lang-mobile"><span>🌐</span> <span class="lang-m-active">PT</span> <span class="lang-m-sep">/</span> <a href="blog-en" class="lang-m-link">EN</a></li>
+            </ul>
+            <div class="lang-switcher" aria-label="Selecionar idioma">
+                <span class="lang-switcher__active">PT</span>
+                <span class="lang-switcher__sep" aria-hidden="true">|</span>
+                <a href="blog-en" class="lang-switcher__link" data-edit-id="global-nav-lang-en">EN</a>
+            <a href="pt/quiz/index" class="btn btn-primary btn-sm navbar-cta-scroll">Agendar Reunião</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Hero ──────────────────────────────────────────────── -->
+    <header class="blog-hero">
+        <div class="container">
+            <p data-edit-id="blog-p-001" class="blog-hero__label">Blog</p>
+            <h1 data-edit-id="blog-h1-001" class="blog-hero__title">Insights de Performance</h1>
+            <p data-edit-id="blog-p-002" class="blog-hero__sub">Estratégias, casos reais e frameworks para crescer com mais controlo e menos desperdício.</p>
+            <form class="blog-search" role="search" id="blogSearchForm">
+                <svg class="blog-search__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <input type="search" class="blog-search__input" id="blogSearchInput" placeholder="Procurar artigos…" aria-label="Procurar artigos" autocomplete="off">
+            </form>
+        </div>
+    </header>
+
+    <!-- ── Category Filter (sticky) ──────────────────────────── -->
+    <div class="blog-filter-bar" id="blogFilterBar">
+        <div class="container">
+            <nav class="blog-cats" aria-label="Filtrar por categoria">
+                <button data-edit-id="blog-button-001" class="blog-cat is-active" data-cat="todos">Todos</button>
+                <button data-edit-id="blog-button-002" class="blog-cat" data-cat="google-ads">Google Ads</button>
+                <button data-edit-id="blog-button-003" class="blog-cat" data-cat="seo">SEO</button>
+                <button data-edit-id="blog-button-004" class="blog-cat" data-cat="cro">CRO</button>
+                <button data-edit-id="blog-button-005" class="blog-cat" data-cat="estrategia">Estratégia</button>
+                <button data-edit-id="blog-button-006" class="blog-cat" data-cat="redes-sociais">Redes Sociais</button>
+            </nav>
+        </div>
+    </div>
+
+    <main id="blogMain">
+
+        <!-- ══════════════════════════════════════════════════════
+             FEATURED — 60 / 40  (HubSpot-style)
+        ══════════════════════════════════════════════════════ -->
+        <section class="blog-featured" aria-label="Artigos em destaque">
+            <div class="container">
+                <div class="blog-featured__split">
+
+                    <!-- Primary featured article (60%) -->
+                    <article class="blog-featured__primary" data-cat="google-ads">
+                        <a href="#" class="blog-featured__primary-link">
+                            <div class="blog-featured__primary-thumb" data-edit-id="blog-featured-thumb-001">
+                                <img data-edit-id="blog-img-001" src="assets/ferramentas/google-business-thumbnail.jpg"
+                                     alt="Reduzir CPA com campanhas Google Ads" loading="eager">
+                            </div>
+                            <div class="blog-featured__primary-body">
+                                <span data-edit-id="blog-span-001" class="blog-tag blog-tag--google-ads">Google Ads</span>
+                                <h2 data-edit-id="blog-h2-001">Como reduzir o CPA em 30% sem cortar volume de leads</h2>
+                                <p data-edit-id="blog-p-003">Segmentação inteligente, criativos testados e estrutura de conta para baixar o custo de aquisição sem perder fluxo de contactos qualificados.</p>
+                                <div class="blog-meta">
+                                    <span class="blog-author"><span data-edit-id="blog-span-002" class="blog-avatar">S</span>Equipa Sica</span>
+                                    <span data-edit-id="blog-span-003" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <time>7 Abr 2026</time>
+                                    <span data-edit-id="blog-span-004" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-005">6 min leitura</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Rail of 4 mini articles (40%) -->
+                    <div class="blog-featured__rail">
+
+                        <a class="blog-featured__mini" href="#" data-cat="seo">
+                            <div class="blog-featured__mini-thumb" data-edit-id="blog-featured-thumb-002">
+                                <img data-edit-id="blog-img-002" src="assets/blog/seo-google-search-console.jpg" alt="SEO local" loading="lazy">
+                            </div>
+                            <div class="blog-featured__mini-body">
+                                <span data-edit-id="blog-span-006" class="blog-tag blog-tag--seo">SEO</span>
+                                <h3 data-edit-id="blog-h3-001">SEO local para captar clientes perto de si</h3>
+                                <div class="blog-meta">
+                                    <time>28 Mar 2026</time>
+                                    <span data-edit-id="blog-span-007" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-008">5 min</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="blog-featured__mini" href="#" data-cat="cro">
+                            <div class="blog-featured__mini-thumb blog-featured__mini-thumb--cro" data-edit-id="blog-featured-thumb-003"></div>
+                            <div class="blog-featured__mini-body">
+                                <span data-edit-id="blog-span-009" class="blog-tag blog-tag--cro">CRO</span>
+                                <h3 data-edit-id="blog-h3-002">Landing pages que vendem mais com o mesmo tráfego</h3>
+                                <div class="blog-meta">
+                                    <time>20 Mar 2026</time>
+                                    <span data-edit-id="blog-span-010" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-011">4 min</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="blog-featured__mini" href="#" data-cat="estrategia">
+                            <div class="blog-featured__mini-thumb blog-featured__mini-thumb--estrategia" data-edit-id="blog-featured-thumb-004"></div>
+                            <div class="blog-featured__mini-body">
+                                <span data-edit-id="blog-span-012" class="blog-tag blog-tag--estrategia">Estratégia</span>
+                                <h3 data-edit-id="blog-h3-003">Como construir um motor de aquisição previsível</h3>
+                                <div class="blog-meta">
+                                    <time>14 Mar 2026</time>
+                                    <span data-edit-id="blog-span-013" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-014">7 min</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="blog-featured__mini" href="#" data-cat="redes-sociais">
+                            <div class="blog-featured__mini-thumb blog-featured__mini-thumb--social" data-edit-id="blog-featured-thumb-005"></div>
+                            <div class="blog-featured__mini-body">
+                                <span data-edit-id="blog-span-015" class="blog-tag blog-tag--redes-sociais">Redes Sociais</span>
+                                <h3 data-edit-id="blog-h3-004">Instagram como canal de geração de leads para negócios locais</h3>
+                                <div class="blog-meta">
+                                    <time>28 Fev 2026</time>
+                                    <span data-edit-id="blog-span-016" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-017">5 min</span>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div><!-- /rail -->
+                </div><!-- /split -->
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+             TOPIC SECTION: Google Ads
+        ══════════════════════════════════════════════════════ -->
+        <section class="blog-topic" data-section="google-ads">
+            <div class="container">
+                <div class="blog-topic__header">
+                    <h2 data-edit-id="blog-h2-002" class="blog-topic__name">Google Ads</h2>
+                    <a href="#" class="blog-topic__more">
+                        Ver todos os artigos
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="blog-grid">
+
+                    <article class="blog-card" data-cat="google-ads">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb" data-edit-id="blog-card-thumb-001">
+                                <img data-edit-id="blog-img-003" src="assets/ferramentas/google-business-thumbnail.jpg" alt="Google Ads para clínicas" loading="lazy">
+                            </div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-018" class="blog-tag blog-tag--google-ads">Google Ads</span>
+                                <h3 data-edit-id="blog-h3-005">Estrutura de conta Google Ads para clínicas</h3>
+                                <p data-edit-id="blog-p-004">Campanhas, grupos de anúncios e palavras-chave para maximizar ROAS no setor de saúde.</p>
+                                <div class="blog-meta">
+                                    <time>7 Mar 2026</time>
+                                    <span data-edit-id="blog-span-019" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-020">8 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card" data-cat="google-ads">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--gads2" data-edit-id="blog-card-thumb-004"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-021" class="blog-tag blog-tag--google-ads">Google Ads</span>
+                                <h3 data-edit-id="blog-h3-006">Smart Bidding vs Manual: quando usar cada estratégia</h3>
+                                <p data-edit-id="blog-p-005">Decidir entre automação e controlo pode determinar o custo e o volume dos seus leads.</p>
+                                <div class="blog-meta">
+                                    <time>25 Fev 2026</time>
+                                    <span data-edit-id="blog-span-022" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-023">6 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card" data-cat="google-ads">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--gads3" data-edit-id="blog-card-thumb-005"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-024" class="blog-tag blog-tag--google-ads">Google Ads</span>
+                                <h3 data-edit-id="blog-h3-007">Como escrever anúncios que convertem (com exemplos reais)</h3>
+                                <p data-edit-id="blog-p-006">Gatilhos e testes A/B para copy de anúncio com impacto direto na taxa de clique.</p>
+                                <div class="blog-meta">
+                                    <time>12 Fev 2026</time>
+                                    <span data-edit-id="blog-span-025" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-026">5 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+             TOPIC SECTION: SEO
+        ══════════════════════════════════════════════════════ -->
+        <section class="blog-topic" data-section="seo">
+            <div class="container">
+                <div class="blog-topic__header">
+                    <h2 data-edit-id="blog-h2-003" class="blog-topic__name">SEO</h2>
+                    <a href="#" class="blog-topic__more">
+                        Ver todos os artigos
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="blog-grid">
+
+                    <article class="blog-card" data-cat="seo">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb" data-edit-id="blog-card-thumb-002">
+                                <img data-edit-id="blog-img-004" src="assets/blog/seo-google-search-console.jpg" alt="SEO técnico" loading="lazy">
+                            </div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-027" class="blog-tag blog-tag--seo">SEO</span>
+                                <h3 data-edit-id="blog-h3-008">Auditoria SEO técnica: o que verificar primeiro</h3>
+                                <p data-edit-id="blog-p-007">Checklist prática para identificar erros que custam leads todos os dias.</p>
+                                <div class="blog-meta">
+                                    <time>21 Fev 2026</time>
+                                    <span data-edit-id="blog-span-028" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-029">6 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card" data-cat="seo">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--seo2" data-edit-id="blog-card-thumb-006"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-030" class="blog-tag blog-tag--seo">SEO</span>
+                                <h3 data-edit-id="blog-h3-009">Core Web Vitals: o que são e porque afetam o seu ranking</h3>
+                                <p data-edit-id="blog-p-008">Google usa velocidade e estabilidade visual como fator de ranking. Sabe como otimizar.</p>
+                                <div class="blog-meta">
+                                    <time>14 Fev 2026</time>
+                                    <span data-edit-id="blog-span-031" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-032">5 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card" data-cat="seo">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--seo3" data-edit-id="blog-card-thumb-007"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-033" class="blog-tag blog-tag--seo">SEO</span>
+                                <h3 data-edit-id="blog-h3-010">Linkbuilding para negócios locais: táticas que funcionam</h3>
+                                <p data-edit-id="blog-p-009">Como conseguir backlinks relevantes sem recorrer a práticas de risco.</p>
+                                <div class="blog-meta">
+                                    <time>5 Fev 2026</time>
+                                    <span data-edit-id="blog-span-034" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-035">6 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+             TOPIC SECTION: CRO
+        ══════════════════════════════════════════════════════ -->
+        <section class="blog-topic" data-section="cro">
+            <div class="container">
+                <div class="blog-topic__header">
+                    <h2 data-edit-id="blog-h2-004" class="blog-topic__name">CRO</h2>
+                    <a href="#" class="blog-topic__more">
+                        Ver todos os artigos
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="blog-grid">
+
+                    <article class="blog-card" data-cat="cro">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb" data-edit-id="blog-card-thumb-003">
+                                <img data-edit-id="blog-img-005" src="assets/ferramentas/wordpress-speed-booster-thumbnail.jpg" alt="Otimização de conversão" loading="lazy">
+                            </div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-036" class="blog-tag blog-tag--cro">CRO</span>
+                                <h3 data-edit-id="blog-h3-011">Como aumentar conversão sem aumentar o orçamento</h3>
+                                <p data-edit-id="blog-p-010">Pequenas mudanças no funil que multiplicam contactos com o mesmo tráfego.</p>
+                                <div class="blog-meta">
+                                    <time>18 Mar 2026</time>
+                                    <span data-edit-id="blog-span-037" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-038">5 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card" data-cat="cro">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--cro2" data-edit-id="blog-card-thumb-008"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-039" class="blog-tag blog-tag--cro">CRO</span>
+                                <h3 data-edit-id="blog-h3-012">A/B testing: o que testar primeiro e como ler os resultados</h3>
+                                <p data-edit-id="blog-p-011">Priorize testes com maior impacto e interprete dados sem cair em armadilhas.</p>
+                                <div class="blog-meta">
+                                    <time>8 Mar 2026</time>
+                                    <span data-edit-id="blog-span-040" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-041">6 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card" data-cat="cro">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--cro3" data-edit-id="blog-card-thumb-009"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-042" class="blog-tag blog-tag--cro">CRO</span>
+                                <h3 data-edit-id="blog-h3-013">Copy que converte: estrutura de página para captação de leads</h3>
+                                <p data-edit-id="blog-p-012">O fluxo de mensagem certo que move o visitante da dúvida à ação.</p>
+                                <div class="blog-meta">
+                                    <time>27 Fev 2026</time>
+                                    <span data-edit-id="blog-span-043" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-044">5 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+             TOPIC SECTION: Estratégia
+        ══════════════════════════════════════════════════════ -->
+        <section class="blog-topic" data-section="estrategia">
+            <div class="container">
+                <div class="blog-topic__header">
+                    <h2 data-edit-id="blog-h2-005" class="blog-topic__name">Estratégia</h2>
+                    <a href="#" class="blog-topic__more">
+                        Ver todos os artigos
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="blog-grid">
+
+                    <article class="blog-card" data-cat="estrategia">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--est1" data-edit-id="blog-card-thumb-010"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-045" class="blog-tag blog-tag--estrategia">Estratégia</span>
+                                <h3 data-edit-id="blog-h3-014">Como construir um motor de aquisição previsível</h3>
+                                <p data-edit-id="blog-p-013">Framework para transformar ações isoladas num sistema de crescimento com controlo.</p>
+                                <div class="blog-meta">
+                                    <time>14 Mar 2026</time>
+                                    <span data-edit-id="blog-span-046" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-047">7 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card" data-cat="estrategia">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--est2" data-edit-id="blog-card-thumb-011"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-048" class="blog-tag blog-tag--estrategia">Estratégia</span>
+                                <h3 data-edit-id="blog-h3-015">Orçamento de marketing: como alocar por canal e objetivo</h3>
+                                <p data-edit-id="blog-p-014">Critérios para distribuir investimento entre canais pagos, orgânicos e retenção.</p>
+                                <div class="blog-meta">
+                                    <time>3 Mar 2026</time>
+                                    <span data-edit-id="blog-span-049" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-050">6 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card" data-cat="estrategia">
+                        <a href="#" class="blog-card__link">
+                            <div class="blog-card__thumb blog-card__thumb--est3" data-edit-id="blog-card-thumb-012"></div>
+                            <div class="blog-card__body">
+                                <span data-edit-id="blog-span-051" class="blog-tag blog-tag--estrategia">Estratégia</span>
+                                <h3 data-edit-id="blog-h3-016">Posicionamento de marca para negócios locais: sair da commoditização</h3>
+                                <p data-edit-id="blog-p-015">Como comunicar diferenciação real que justifica preço premium e gera preferência.</p>
+                                <div class="blog-meta">
+                                    <time>18 Fev 2026</time>
+                                    <span data-edit-id="blog-span-052" class="blog-meta-dot" aria-hidden="true">·</span>
+                                    <span data-edit-id="blog-span-053">8 min</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════
+             NEWSLETTER — dark
+        ══════════════════════════════════════════════════════ -->
+        <section class="blog-newsletter">
+            <div class="container">
+                <div class="blog-newsletter__inner">
+                    <div class="blog-newsletter__copy">
+                        <h3 data-edit-id="blog-h3-017">Receba insights semanais</h3>
+                        <p data-edit-id="blog-p-016">Frameworks e estratégias direto para o seu email. Sem spam — só o que realmente funciona.</p>
+                    </div>
+                    <form class="blog-newsletter__form" id="newsletterForm" novalidate>
+                        <input type="email" name="email" placeholder="O seu email profissional" required aria-label="Email para newsletter">
+                        <button data-edit-id="blog-button-007" type="submit" class="btn btn-primary">Subscrever</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">Sica Creative</div>
+                <p data-edit-id="global-footer-tagline">Uma agência digital com presença clara, comunicação moderna e execução orientada a resultados.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div>
+                    <h3 data-edit-id="blog-h3-018">Serviços</h3>
+                    <ul>
+                        <li><a data-edit-id="blog-a-010" href="index#services">Google Ads</a></li>
+                        <li><a data-edit-id="blog-a-011" href="index#services">SEO</a></li>
+                        <li><a data-edit-id="blog-a-012" href="index#services">CRO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-edit-id="blog-h3-019">Empresa</h3>
+                    <ul>
+                        <li><a data-edit-id="blog-a-013" href="clientes">Clientes</a></li>
+                        <li><a data-edit-id="blog-a-014" href="ferramentas">Ferramentas</a></li>
+                        <li><a data-edit-id="blog-a-015" href="blog">Blog</a></li>
+                        <li><a data-edit-id="blog-a-016" href="index#final-cta">Contacte-nos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-edit-id="blog-h3-020">Contacto</h3>
+                    <ul>
+                        <li><a data-edit-id="global-footer-email" href="mailto:info@sicacreative.com">info@sicacreative.com</a></li>
+                        <li><a data-edit-id="global-footer-phone" href="tel:+351912345678">+351 912 345 678</a></li>
+                        <li><a data-edit-id="blog-a-019" href="index#final-cta">Agendar auditoria</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p data-edit-id="global-footer-copyright">© 2026 Sica Creative. Todos os direitos reservados.</p>
+            <div class="footer-policy-links">
+                <a data-edit-id="blog-a-020" href="#">Política de Privacidade</a>
+                <a data-edit-id="blog-a-021" href="#">Termos de Uso</a>
+                <a data-edit-id="blog-a-022" href="politica-cookies">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="blog.js"></script>
+    <script type="text/javascript">
+        window.omnisend = window.omnisend || [];
+        omnisend.push(["brandID", "6981e17d27460b4ce15c57f3"]);
+        omnisend.push(["track", "$pageViewed"]);
+        !function(){var e=document.createElement("script");
+        e.type="text/javascript",e.async=!0,
+        e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
+        var t=document.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(e,t)}();
+    </script>
+</body>
+</html>
