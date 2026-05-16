@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Gratuito para Clínicas Dentárias — Sica Creative</title>
+<meta name="description" content="Descobre em 2 minutos o potencial de crescimento da tua clínica dentária. Diagnóstico gratuito pela Sica Creative.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0c0914;
+    --surface:  #13102a; /* deep purple-tinted surface */
+    --surface2: #1a1634;
+    --border:   rgba(255,255,255,0.07);
+    --accent:   #c6db5b;  /* SICA lime */
+    --accent2:  #6F5AA3;  /* SICA secondary purple */
+    --brand:    #34224D;  /* SICA primary purple */
+    --text:     #eeeef4;
+    --muted:    #8880a8;
+    --white:    #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px 48px;
+    overflow-x: hidden;
+  }
+
+  /* Ambient glows */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -160px;
+    left: -160px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(52,34,77,0.55) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -80px;
+    right: -80px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(198,219,91,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 520px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── BRAND ── */
+  .brand {
+    text-align: center;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .brand-logo:hover { color: var(--text); }
+
+  .brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: pulse 2.4s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.45; transform: scale(0.75); }
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+
+  .progress-bar {
+    height: 3px;
+    background: var(--surface2);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 99px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 20%;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 28px 20px; }
+  }
+
+  /* ── STEP VISIBILITY ── */
+  .step { display: none; }
+  .step.active { display: block; }
+
+  /* ── STEP TAG ── */
+  .step-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(198,219,91,0.09);
+    border: 1px solid rgba(198,219,91,0.22);
+    padding: 4px 10px;
+    border-radius: 99px;
+    margin-bottom: 18px;
+  }
+
+  /* ── QUESTION ── */
+  .step-question {
+    font-weight: 800;
+    font-size: clamp(19px, 5vw, 25px);
+    line-height: 1.25;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .step-question span { color: var(--accent); }
+
+  .step-sub {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 26px;
+    line-height: 1.55;
+  }
+
+  /* ── OPTIONS ── */
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 17px;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    text-align: left;
+    width: 100%;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+  }
+
+  .option:hover {
+    border-color: rgba(198,219,91,0.38);
+    background: rgba(198,219,91,0.05);
+    transform: translateX(3px);
+  }
+
+  .option-letter {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .option:hover .option-letter {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #000;
+  }
+
+  .option-text {
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .option-arrow {
+    color: var(--muted);
+    font-size: 16px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .option:hover .option-arrow {
+    transform: translateX(3px);
+    color: var(--accent);
+  }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, rgba(111,90,163,0.18), rgba(111,90,163,0.07));
+    border: 1px solid rgba(111,90,163,0.28);
+    border-radius: 12px;
+    font-size: 12.5px;
+    color: #c4b5fd;
+    line-height: 1.6;
+    display: flex;
+    gap: 11px;
+  }
+
+  .info-icon {
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── NAME FORM ── */
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 18px;
+  }
+
+  .input-field {
+    padding: 14px 16px;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .input-field::placeholder { color: var(--muted); }
+
+  .input-field:focus {
+    border-color: rgba(198,219,91,0.4);
+  }
+
+  .next-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: var(--accent2);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .next-btn:hover {
+    background: #5a4890;
+    transform: translateY(-1px);
+  }
+
+  /* ── RESULT ── */
+  .result-header {
+    text-align: center;
+    margin-bottom: 26px;
+  }
+
+  .result-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(198,219,91,0.1);
+    border: 1px solid rgba(198,219,91,0.28);
+    border-radius: 99px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+  }
+
+  .result-title {
+    font-weight: 800;
+    font-size: clamp(21px, 5vw, 27px);
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .result-sub {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .result-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-bottom: 22px;
+  }
+
+  .metric {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .metric-value {
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 5px;
+    letter-spacing: -0.02em;
+  }
+
+  .metric-label {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: var(--accent);
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15.5px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+
+  .cta-btn:hover {
+    background: #d4ed6a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(198,219,91,0.28);
+  }
+
+  .cta-note {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 11px;
+    line-height: 1.5;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-enter {
+    animation: fadeUp 0.32s ease forwards;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- BRAND -->
+  <div class="brand">
+    <a class="brand-logo" href="../../index.html">
+      <div class="brand-dot"></div>
+      Sica Creative &nbsp;·&nbsp; Diagnóstico Gratuito
+    </a>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrap">
+    <div class="progress-labels">
+      <span id="step-label">Pergunta 1 de 5</span>
+      <span id="step-pct">20%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+
+    <!-- ──────────── STEP 1 ──────────── -->
+    <div class="step active" id="step-1">
+      <div class="step-tag">Qualificação</div>
+      <div class="step-question">A tua clínica está a <span>crescer ativamente</span> em novos pacientes?</div>
+      <div class="step-sub">Responde com honestidade — ajuda-nos a perceber se o nosso sistema é adequado para ti.</div>
+      <div class="options">
+        <button class="option" onclick="nextStep(1,'A')">
+          <div class="option-letter">A</div>
+          <div class="option-text">Sim — quero mais pacientes novos por mês</div>
+          <div class="option-arrow">→</div>
+        </button>
+        <button class="option" onclick="nextStep(1,'B')">
+          <div class="option-letter">B</div>
+          <div class="option-text">A agenda está cheia, mas quero otimizar</div>
+          <div class="option-arrow">→</div>
+        </button>
+        <button class="option" onclick="nextStep(1,'C')">
+          <div class="option-letter">C</div>
+          <div class="option-text">Estou a começar / clínica recente</div>
+          <div class="option-arrow">→</div>
+        </button>
+      </div>
+      <div class="info-box">
+        <div class="info-icon">📈</div>
+        <div>Clínicas com presença digital ativa recebem <strong>3× mais contactos</strong> do que as que dependem apenas de referências.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── STEP 2 ──────────── -->
+    <div class="step" id="step-2">
+      <div class="step-tag">Presença Online</div>
+      <div class="step-question">Como está o <span>website</span> da tua clínica?</div>
+      <div class="step-sub">O website é o primeiro contacto que a maioria dos pacientes tem com a tua clínica.</div>
+      <div class="options">
+        <button class="option" onclick="nextStep(2,'A')">
+          <div class="option-letter">A</div>
+          <div class="option-text">Tenho website, mas está desatualizado</div>
+          <div class="option-arrow">→</div>
+        </button>
+        <button class="option" onclick="nextStep(2,'B')">
+          <div class="option-letter">B</div>
+          <div class="option-text">Tenho website e estou satisfeito</div>
+          <div class="option-arrow">→</div>
+        </button>
+        <button class="option" onclick="nextStep(2,'C')">
+          <div class="option-letter">C</div>
+          <div class="option-text">Não tenho website</div>
+          <div class="option-arrow">→</div>
+        </button>
+      </div>
+      <div class="info-box">
+        <div class="info-icon">🔍</div>
+        <div>74% dos pacientes pesquisam no Google antes de marcar consulta. Um website desatualizado perde esses contactos para a concorrência.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── STEP 3 ──────────── -->
+    <div class="step" id="step-3">
+      <div class="step-tag">Marketing Atual</div>
+      <div class="step-question">O que estás a fazer <span>atualmente</span> para atrair pacientes?</div>
+      <div class="step-sub">Seleciona a opção que melhor descreve a tua situação atual.</div>
+      <div class="options">
+        <button class="option" onclick="nextStep(3,'A')">
+          <div class="option-letter">A</div>
+          <div class="option-text">Só word-of-mouth / referências</div>
+          <div class="option-arrow">→</div>
+        </button>
+        <button class="option" onclick="nextStep(3,'B')">
+          <div class="option-letter">B</div>
+          <div class="option-text">Google / redes sociais mas sem resultados claros</div>
+          <div class="option-arrow">→</div>
+        </button>
+        <button class="option" onclick="nextStep(3,'C')">
+          <div class="option-letter">C</div>
+          <div class="option-text">Tenho campanhas pagas (Google Ads / Meta)</div>
+          <div class="option-arrow">→</div>
+        </button>
+      </div>
+      <div class="info-box">
+        <div class="info-icon">💡</div>
+        <div>Clínicas que combinam SEO local + Google Ads têm custo por novo paciente <strong>40–60% mais baixo</strong> vs. apenas publicidade paga.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── STEP 4 ──────────── -->
+    <div class="step" id="step-4">
+      <div class="step-tag">Objetivo</div>
+      <div class="step-question">Quantos <span>pacientes novos</span> pretendes por mês?</div>
+      <div class="step-sub">Ajuda-nos a dimensionar a estratégia certa para o teu objetivo de crescimento.</div>
+      <div class="options">
+        <button class="option" onclick="nextStep(4,'A')">
+          <div class="option-letter">A</div>
+          <div class="option-text">5 a 15 pacientes novos / mês</div>
+          <div class="option-arrow">→</div>
+        </button>
+        <button class="option" onclick="nextStep(4,'B')">
+          <div class="option-letter">B</div>
+          <div class="option-text">15 a 30 pacientes novos / mês</div>
+          <div class="option-arrow">→</div>
+        </button>
+        <button class="option" onclick="nextStep(4,'C')">
+          <div class="option-letter">C</div>
+          <div class="option-text">+30 pacientes novos / mês</div>
+          <div class="option-arrow">→</div>
+        </button>
+      </div>
+      <div class="info-box">
+        <div class="info-icon">🦷</div>
+        <div>Cada paciente de implante ou ortodontia representa <strong>€1.500–€5.000</strong> em receita vitalícia para a clínica.</div>
+      </div>
+    </div>
+
+    <!-- ──────────── STEP 5 ──────────── -->
+    <div class="step" id="step-5">
+      <div class="step-tag">Último passo</div>
+      <div class="step-question">Onde enviamos o teu <span>diagnóstico</span>?</div>
+      <div class="step-sub">Preenche os dados abaixo para receberes os resultados e agendares a tua chamada gratuita.</div>
+      <div class="input-group">
+        <input class="input-field" type="text" id="user-name"
+               placeholder="Nome da clínica ou teu nome" autocomplete="name" />
+        <input class="input-field" type="tel" id="user-phone"
+               placeholder="Telemóvel (ex: 910 000 000)" autocomplete="tel" />
+      </div>
+      <button class="next-btn" onclick="showResult()">Ver o meu diagnóstico →</button>
+      <div class="cta-note" style="margin-top:10px;">🔒 Os teus dados são confidenciais. Sem spam, garantido.</div>
+    </div>
+
+    <!-- ──────────── RESULT ──────────── -->
+    <div class="step" id="step-result">
+      <div class="result-header">
+        <div class="result-score">✓ Diagnóstico Concluído</div>
+        <div class="result-title">A tua clínica tem potencial para crescer</div>
+        <div class="result-sub">Com a estratégia certa, é possível escalar novos pacientes de forma previsível — sem depender de referências ou sorte.</div>
+      </div>
+
+      <div class="result-metrics">
+        <div class="metric">
+          <div class="metric-value">3×</div>
+          <div class="metric-label">mais contactos com presença digital ativa</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">€4k+</div>
+          <div class="metric-label">valor médio por paciente de implante</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">30d</div>
+          <div class="metric-label">para ver os primeiros resultados mensuráveis</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">0€</div>
+          <div class="metric-label">custo desta chamada de diagnóstico</div>
+        </div>
+      </div>
+
+      <a class="cta-btn" href="https://calendly.com/SICA-LINK" target="_blank" rel="noopener">
+        Agendar Chamada Gratuita (15 min) →
+      </a>
+      <div class="cta-note">📅 Escolhe o horário que preferes &nbsp;·&nbsp; Sem compromisso</div>
+    </div>
+
+  </div><!-- /card -->
+
+</div><!-- /container -->
+
+<script>
+  /* ── State ── */
+  var answers = {};
+
+  var stepData = {
+    1:        { label: 'Pergunta 1 de 5', pct: 20 },
+    2:        { label: 'Pergunta 2 de 5', pct: 40 },
+    3:        { label: 'Pergunta 3 de 5', pct: 60 },
+    4:        { label: 'Pergunta 4 de 5', pct: 80 },
+    5:        { label: 'Quase lá...',       pct: 95 },
+    'result': { label: 'Concluído!',        pct: 100 }
+  };
+
+  /* ── Navigate to next step ── */
+  function nextStep(current, answer) {
+    answers['step' + current] = answer;
+    showStep(current + 1);
+  }
+
+  /* ── Show a step by number or 'result' ── */
+  function showStep(num) {
+    document.querySelectorAll('.step').forEach(function(s) {
+      s.classList.remove('active');
+    });
+
+    var target = document.getElementById('step-' + num);
+    if (target) {
+      target.classList.add('active', 'step-enter');
+      setTimeout(function() { target.classList.remove('step-enter'); }, 350);
+    }
+
+    var data = stepData[num] || stepData['result'];
+    document.getElementById('step-label').textContent  = data.label;
+    document.getElementById('step-pct').textContent    = data.pct + '%';
+    document.getElementById('progress-fill').style.width = data.pct + '%';
+  }
+
+  /* ── Validate step 5 and show result ── */
+  function showResult() {
+    var name  = document.getElementById('user-name').value.trim();
+    var phone = document.getElementById('user-phone').value.trim();
+
+    if (!name || !phone) {
+      alert('Por favor preenche o nome e o telemóvel para continuares.');
+      return;
+    }
+
+    /*
+     * ── Webhook integration (uncomment and replace URL to activate) ──
+     *
+     * fetch('YOUR_WEBHOOK_URL', {
+     *   method: 'POST',
+     *   headers: { 'Content-Type': 'application/json' },
+     *   body: JSON.stringify({
+     *     name:    name,
+     *     phone:   phone,
+     *     answers: answers,
+     *     source:  'quiz-clinicas-dentarias-pt',
+     *     ts:      new Date().toISOString()
+     *   })
+     * }).catch(function(err) { console.error('Webhook error:', err); });
+     */
+
+    /* Show result */
+    document.querySelectorAll('.step').forEach(function(s) {
+      s.classList.remove('active');
+    });
+
+    var result = document.getElementById('step-result');
+    result.classList.add('active', 'step-enter');
+    setTimeout(function() { result.classList.remove('step-enter'); }, 350);
+
+    var data = stepData['result'];
+    document.getElementById('step-label').textContent  = data.label;
+    document.getElementById('step-pct').textContent    = data.pct + '%';
+    document.getElementById('progress-fill').style.width = data.pct + '%';
+  }
+</script>
+
+</body>
+</html>

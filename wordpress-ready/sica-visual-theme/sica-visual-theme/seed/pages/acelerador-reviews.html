@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acelerador de Reviews Google (NFC + QR) | Sica Creative</title>
+    <meta name="description" content="Placa NFC + QR personalizada para recolher reviews Google em menos de 10 segundos. Ideal para clínicas e negócios locais.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/assets/js/cookie-consent.js"></script>
+</head>
+<body>
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-bar" id="scrollProgressBar"></span>
+    </div>
+
+    <div class="promo-bar">
+        <div class="container promo-bar-inner">
+            <div class="promo-bar-wrapper">
+                <div class="promo-bar-icons">
+                    <a href="https://instagram.com/sicacreative" target="_blank" rel="noopener noreferrer" class="promo-link promo-link--instagram" title="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.5"/>
+                            <circle cx="12" cy="12" r="3" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.5"/>
+                            <circle cx="17.5" cy="6.5" r="1" fill="rgba(255, 255, 255, 0.85)"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/company/sicacreative" target="_blank" rel="noopener noreferrer" class="promo-link promo-link--linkedin" title="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="2" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.5"/>
+                            <path d="M5.5 9v8.5M5.5 5.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.2" stroke-linecap="round"/>
+                            <path d="M9.5 9v8.5c0 0.5 0.5 1 1 1h2v-5c0-1 0.5-2 1.5-2 1 0 1.5 0.5 1.5 2v5h2v-5.5c0-2-0.5-3.5-2-3.5-1 0-1.5 0.5-2 1v-1" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="index-en" class="promo-link promo-link--flag" title="Switch to English">
+                        <svg width="18" height="18" viewBox="0 0 60 30" fill="none" aria-hidden="true">
+                            <rect width="60" height="30" fill="#012169"/>
+                            <path d="M0 0L60 30M60 0L0 30" stroke="white" stroke-width="6"/>
+                            <path d="M0 0L60 30M60 0L0 30" stroke="#C8102E" stroke-width="4" stroke-dasharray="0.1,100"/>
+                            <path d="M30 0v30M0 15h60" stroke="white" stroke-width="10"/>
+                            <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/>
+                        </svg>
+                    </a>
+                </div>
+                <a data-edit-id="acelerador-reviews-a-001" href="mailto:info@sicacreative.com" class="promo-email">info@sicacreative.com</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a data-edit-id="global-nav-logo" href="index" class="navbar-logo">Sica Creative</a>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navMenu">
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger"><span data-edit-id="global-nav-servicos">Serviços</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="index#services" data-edit-id="global-nav-link-webdesign">Web Design</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-seo">SEO</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-googleads">Google Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-metaads">Meta Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-socialmedia">Social Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="clientes" data-edit-id="global-nav-resultados">Clientes</a></li>
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger"><span data-edit-id="global-nav-sobre">Sobre</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sobre" data-edit-id="global-nav-link-agencia">A Agência</a></li>
+                        <li><a href="blog" data-edit-id="global-nav-link-blog">Blog</a></li>
+                        <li><a href="marketing-digital-clinicas-dentarias" data-edit-id="global-nav-link-especialidades">Especialidades</a></li>
+                        <li><a href="ferramentas" data-edit-id="global-nav-link-ferramentas">Ferramentas</a></li>
+                    </ul>
+                </li>
+                <li><a href="index#contact-form" data-edit-id="global-nav-contacto">Contacte-nos</a></li>
+                <li class="nav-lang-mobile"><span>🌐</span> <span class="lang-m-active">PT</span> <span class="lang-m-sep">/</span> <a href="index-en" class="lang-m-link">EN</a></li>
+            </ul>
+            <div class="lang-switcher" aria-label="Selecionar idioma">
+                <span class="lang-switcher__active">PT</span>
+                <span class="lang-switcher__sep" aria-hidden="true">|</span>
+                <a href="index-en" class="lang-switcher__link" data-edit-id="global-nav-lang-en">EN</a>
+            <a href="pt/quiz/index" class="btn btn-primary btn-sm navbar-cta-scroll">Agendar Reunião</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- PRODUCT HERO -->
+        <section class="product-hero">
+            <div class="container product-hero-inner">
+
+                <!-- LEFT: Image -->
+                <div class="product-image-wrap">
+                    <div class="product-image-frame">
+                        <img data-edit-id="acelerador-reviews-img-001" src="assets/ferramentas/placa-nfc-thumbnail.jpg" alt="Placa NFC e QR Code para reviews Google numa clínica" loading="eager">
+                    </div>
+                    <div class="product-badge-physical">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z" stroke="#34224d" stroke-width="1.8"/><path d="M16 3v4M8 3v4M16 17v4M8 17v4" stroke="#34224d" stroke-width="1.8" stroke-linecap="round"/></svg>
+                        Produto Físico
+                    </div>
+                </div>
+
+                <!-- RIGHT: Details -->
+                <div class="product-details">
+                    <div class="product-breadcrumb">
+                        <a data-edit-id="acelerador-reviews-a-010" href="ferramentas">Ferramentas</a>
+                        <span data-edit-id="acelerador-reviews-span-001" aria-hidden="true">›</span>
+                        <span data-edit-id="acelerador-reviews-span-002">Acelerador de Reviews Google</span>
+                    </div>
+
+                    <h1 class="product-title" data-edit-id="acelerador-reviews-h1-001">Acelerador de Reviews Google <span data-edit-id="acelerador-reviews-span-003">(NFC + QR)</span></h1>
+                    <p data-edit-id="acelerador-reviews-p-001" class="product-tagline">Os seus clientes avaliam a sua clínica em menos de 10 segundos — sem procurar, sem digitar, sem fricção.</p>
+
+                    <div class="product-price-block">
+                        <strong data-edit-id="acelerador-reviews-strong-001" class="product-price">49,90€</strong>
+                        <span data-edit-id="acelerador-reviews-span-004" class="product-price-note">IVA incluído · Envio em 3–5 dias úteis</span>
+                    </div>
+
+                    <!-- Order fields -->
+                    <div class="product-order-fields">
+                        <div class="product-field-group">
+                            <label for="company-name">Nome da empresa <span data-edit-id="acelerador-reviews-span-005" class="required-mark">*</span></label>
+                            <input type="text" id="company-name" name="company_name" required>
+                        </div>
+                        <div class="product-field-group">
+                            <label for="company-logo">Logotipo da empresa <span data-edit-id="acelerador-reviews-span-006" class="required-mark">*</span></label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="company-logo" name="company_logo" accept=".png,.jpg,.jpeg,.svg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <!-- Substitua o href pelo link de pagamento Stripe ou Ifthenpay -->
+                    <a data-edit-id="acelerador-reviews-a-011" href="#LINK-DE-PAGAMENTO" class="btn btn-primary btn-full product-cta" target="_blank" rel="noopener noreferrer">
+                        Encomendar agora
+                    </a>
+
+                    <!-- Trust badges -->
+                    <ul class="product-trust">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7l-11 11-5-5" stroke="#6f5aa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Personalizado com o seu logo
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7l-11 11-5-5" stroke="#6f5aa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Chip NFC pré-configurado
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7l-11 11-5-5" stroke="#6f5aa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Compatível com iOS e Android
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7l-11 11-5-5" stroke="#6f5aa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Pronto a colocar no balcão
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="product-steps section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="acelerador-reviews-span-007" class="section-label">Processo</span>
+                    <h2 data-edit-id="acelerador-reviews-h2-001">Como funciona</h2>
+                    <p data-edit-id="acelerador-reviews-p-002">Do pedido à mesa de receção em 3 passos simples.</p>
+                </div>
+                <div class="product-steps-grid">
+                    <div class="product-step">
+                        <div class="product-step-num">01</div>
+                        <h3 data-edit-id="acelerador-reviews-h3-001">Encomenda com os seus dados</h3>
+                        <p data-edit-id="acelerador-reviews-p-003">No checkout fornece o nome da empresa e faz upload do logótipo. Nenhum conhecimento técnico necessário.</p>
+                    </div>
+                    <div class="product-step">
+                        <div class="product-step-num">02</div>
+                        <h3 data-edit-id="acelerador-reviews-h3-002">Configuramos e personalizamos</h3>
+                        <p data-edit-id="acelerador-reviews-p-004">A Sica Creative gera o link direto para as suas reviews, programa o chip NFC e imprime a placa com a sua identidade.</p>
+                    </div>
+                    <div class="product-step">
+                        <div class="product-step-num">03</div>
+                        <h3 data-edit-id="acelerador-reviews-h3-003">Recebe e coloca</h3>
+                        <p data-edit-id="acelerador-reviews-p-005">A placa chega pronta. Coloca-a no balcão de receção e começa a receber avaliações nesse mesmo dia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECS -->
+        <section class="product-specs-section">
+            <div class="container product-specs-inner">
+                <div class="product-specs-content">
+                    <span data-edit-id="acelerador-reviews-span-008" class="section-label">Especificações</span>
+                    <h2 data-edit-id="acelerador-reviews-h2-002">Feita para durar</h2>
+                    <p data-edit-id="acelerador-reviews-p-006">Materiais premium e tecnologia NFC de alta velocidade para um resultado profissional que representa a sua marca.</p>
+                </div>
+                <div class="product-specs-table">
+                    <dl class="specs-list">
+                        <div class="spec-row">
+                            <dt>Formato</dt>
+                            <dd>A6 · 105 × 148 mm</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Material</dt>
+                            <dd>Acrílico rígido com acabamento premium</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Chip NFC</dt>
+                            <dd>NTAG215 (alta velocidade)</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>QR Code</dt>
+                            <dd>Alta resolução · sempre visível</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Compatibilidade</dt>
+                            <dd>iOS (iPhone) e Android</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Personalização</dt>
+                            <dd>Logo + nome da empresa impressos</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Envio</dt>
+                            <dd>3–5 dias úteis · Portugal Continental</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT WE NEED FROM YOU -->
+        <section class="product-requirements section">
+            <div class="container">
+                <div class="section-header">
+                    <span data-edit-id="acelerador-reviews-span-009" class="section-label">O que precisamos de si</span>
+                    <h2 data-edit-id="acelerador-reviews-h2-003">Para personalizar a sua placa</h2>
+                    <p data-edit-id="acelerador-reviews-p-007">Após o pagamento, partilha connosco estes dois elementos e tratamos do resto.</p>
+                </div>
+                <div class="requirements-grid">
+                    <div class="requirement-card">
+                        <div class="requirement-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#6f5aa3" stroke-width="1.8"/><path d="M3 9l4-4 4 4 4-4 4 4" stroke="#6f5aa3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="14" r="2" stroke="#6f5aa3" stroke-width="1.8"/></svg>
+                        </div>
+                        <h3 data-edit-id="acelerador-reviews-h3-004">Logótipo da empresa</h3>
+                        <p data-edit-id="acelerador-reviews-p-008">Ficheiro em formato PNG, JPG ou SVG. Quanto maior a resolução, melhor o resultado final na placa.</p>
+                    </div>
+                    <div class="requirement-card">
+                        <div class="requirement-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12" stroke="#6f5aa3" stroke-width="1.8" stroke-linecap="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="acelerador-reviews-h3-005">Nome da empresa</h3>
+                        <p data-edit-id="acelerador-reviews-p-009">O nome que aparece na placa e que é usado para gerar o link direto para as suas avaliações no Google.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="tools-transition">
+            <div class="container tools-transition-inner">
+                <span data-edit-id="acelerador-reviews-span-010" class="section-label" style="color: rgba(255,255,255,0.6);">Pronto para começar?</span>
+                <h2 data-edit-id="acelerador-reviews-h2-004" style="color: #ffffff;">Mais reviews. Mais confiança. Mais clientes.</h2>
+                <p data-edit-id="acelerador-reviews-p-010" style="color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 36px;">Uma placa. Um toque. Uma avaliação 5 estrelas. É assim simples.</p>
+                <!-- Substitua o href pelo link de pagamento -->
+                <a data-edit-id="acelerador-reviews-a-012" href="#LINK-DE-PAGAMENTO" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Encomendar por 49,90€</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">Sica Creative</div>
+                <p data-edit-id="acelerador-reviews-p-011">Uma agência digital com presença clara, comunicação moderna e execução orientada a resultados.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div>
+                    <h3 data-edit-id="acelerador-reviews-h3-006">Serviços</h3>
+                    <ul>
+                        <li><a data-edit-id="acelerador-reviews-a-013" href="index#services">Google Ads</a></li>
+                        <li><a data-edit-id="acelerador-reviews-a-014" href="index#services">SEO</a></li>
+                        <li><a data-edit-id="acelerador-reviews-a-015" href="index#services">CRO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-edit-id="acelerador-reviews-h3-007">Empresa</h3>
+                    <ul>
+                        <li><a data-edit-id="acelerador-reviews-a-016" href="clientes">Clientes</a></li>
+                        <li><a data-edit-id="acelerador-reviews-a-017" href="ferramentas">Ferramentas</a></li>
+                        <li><a data-edit-id="acelerador-reviews-a-018" href="index#final-cta">Contacte-nos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-edit-id="acelerador-reviews-h3-008">Contato</h3>
+                    <ul>
+                        <li><a data-edit-id="acelerador-reviews-a-019" href="mailto:info@sicacreative.com">info@sicacreative.com</a></li>
+                        <li><a data-edit-id="acelerador-reviews-a-020" href="tel:+351912345678">+351 912 345 678</a></li>
+                        <li><a data-edit-id="acelerador-reviews-a-021" href="index#final-cta">Agendar auditoria</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p data-edit-id="acelerador-reviews-p-012">© 2026 Sica Creative. Todos os direitos reservados.</p>
+            <div class="footer-policy-links">
+                <a data-edit-id="acelerador-reviews-a-022" href="#">Política de Privacidade</a>
+                <a data-edit-id="acelerador-reviews-a-023" href="#">Termos de Uso</a>
+                <a data-edit-id="acelerador-reviews-a-024" href="politica-cookies">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        window.omnisend = window.omnisend || [];
+        omnisend.push(["brandID", "6981e17d27460b4ce15c57f3"]);
+        omnisend.push(["track", "$pageViewed"]);
+        !function(){var e=document.createElement("script");
+        e.type="text/javascript",e.async=!0,
+        e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
+        var t=document.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(e,t)}();
+    </script>
+</body>
+</html>

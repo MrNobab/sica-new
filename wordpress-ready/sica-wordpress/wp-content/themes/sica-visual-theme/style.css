@@ -1,0 +1,15 @@
+/*
+Theme Name: Sica Visual Theme
+Theme URI: https://sicacreative.com
+Author: Sica Creative
+Description: WordPress theme package that imports the static Sica site as editable WordPress Pages and replaces Gutenberg page editing with the Sica Visual Editor.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.9
+Requires PHP: 8.0
+Text Domain: sica-visual-theme
+*/
+
+body {
+    margin: 0;
+}

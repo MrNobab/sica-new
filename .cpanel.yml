@@ -1,5 +1,0 @@
-﻿---
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/sicacreative1/s.testing3210.com/
-    - /bin/rsync -av --exclude='.git' --exclude='.cpanel.yml' ./ $DEPLOYPATH

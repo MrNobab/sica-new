@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Preview | Sica Creative</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: #f5f3fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-box {
+            background: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 24px 64px rgba(52,34,77,0.18);
+            padding: 36px 32px 28px;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            font-family: Inter, system-ui, sans-serif;
+        }
+        .popup-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            color: #6F5AA3;
+            padding: 4px;
+            opacity: .7;
+        }
+        .popup-badge {
+            display: inline-block;
+            background: #c6db5b;
+            color: #34224D;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 4px 12px;
+            margin-bottom: 16px;
+        }
+        .popup-title {
+            margin: 0 0 12px;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #34224D;
+        }
+        .popup-desc {
+            margin: 0 0 24px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #5a5a72;
+        }
+        .popup-field {
+            display: block;
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #e2e2ec;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #34224D;
+            font-family: inherit;
+            outline: none;
+            background: #fff;
+        }
+        .popup-field + .popup-field { margin-top: 10px; }
+        .popup-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 14px;
+            cursor: pointer;
+        }
+        .popup-consent input {
+            margin-top: 2px;
+            flex-shrink: 0;
+            accent-color: #6F5AA3;
+            width: 15px;
+            height: 15px;
+        }
+        .popup-consent-label {
+            font-size: 13px;
+            color: #5a5a72;
+            line-height: 1.5;
+        }
+        .popup-submit {
+            margin-top: 18px;
+            width: 100%;
+            padding: 14px 20px;
+            background: #c6db5b;
+            color: #34224D;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform .15s, box-shadow .15s;
+        }
+        .popup-submit:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(198,219,91,.45);
+        }
+        .popup-legal {
+            margin: 14px 0 0;
+            font-size: 11px;
+            color: #9898a8;
+            line-height: 1.5;
+        }
+        .popup-legal a { color: #6F5AA3; }
+    </style>
+</head>
+<body>
+    <div class="popup-box">
+        <button class="popup-close" aria-label="Fechar">&#x2715;</button>
+
+        <span class="popup-badge" data-edit-id="popup-badge">Recurso Gratuito</span>
+
+        <h2 class="popup-title" data-edit-id="popup-title">Receba o guia de marketing digital para PMEs</h2>
+
+        <p class="popup-desc" data-edit-id="popup-desc">Estratégias práticas para gerar mais leads sem aumentar o investimento. Direto para o seu email.</p>
+
+        <form novalidate>
+            <input class="popup-field" type="text" placeholder="O seu nome" disabled>
+            <input class="popup-field" type="email" placeholder="O seu email" disabled>
+
+            <label class="popup-consent">
+                <input type="checkbox" disabled>
+                <span class="popup-consent-label" data-edit-id="popup-consent-label">Aceito receber comunicações de marketing da SICA Creative. Posso cancelar a qualquer momento.</span>
+            </label>
+
+            <button class="popup-submit" type="button" data-edit-id="popup-submit-text">Quero receber o guia →</button>
+        </form>
+
+        <p class="popup-legal" data-edit-id="popup-legal">Ao submeter, aceita a nossa <a href="/politica-cookies" target="_blank" rel="noopener">política de privacidade</a>.</p>
+    </div>
+</body>
+</html>

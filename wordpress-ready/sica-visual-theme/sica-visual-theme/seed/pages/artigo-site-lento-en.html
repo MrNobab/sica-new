@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is Your Website Slow? Here's What's Happening (and How to Fix It) | Sica Creative</title>
+    <meta name="description" content="A slow website is not just frustrating — it's money walking out the door. Find out where the problems are, what causes them and how to fix them technically.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="artigo.css">
+    <script src="/assets/js/cookie-consent.js"></script>
+</head>
+<body>
+
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-bar" id="scrollProgressBar"></span>
+    </div>
+
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a data-edit-id="asl-en-nav-logo" href="index-en.html" class="navbar-logo">Sica Creative</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="navbar-menu" id="navMenu">
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger">Services <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="index-en.html#services">Web Design</a></li>
+                        <li><a href="index-en.html#services">SEO</a></li>
+                        <li><a href="index-en.html#services">Google Ads</a></li>
+                        <li><a href="index-en.html#services">Meta Ads</a></li>
+                        <li><a href="index-en.html#services">Social Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="clientes-en.html">Clients</a></li>
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger">About <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sobre-en.html">The Agency</a></li>
+                        <li><a href="blog-en.html">Blog</a></li>
+                        <li><a href="marketing-digital-clinicas-dentarias.html">Specialities</a></li>
+                        <li><a href="ferramentas.html">Tools</a></li>
+                    </ul>
+                </li>
+                <li><a href="index-en.html#contact-form">Contact</a></li>
+                <li class="nav-lang-mobile"><span>🌐</span> <a href="artigo-site-lento.html" class="lang-m-link">PT</a> <span class="lang-m-sep">/</span> <span class="lang-m-active">EN</span></li>
+            </ul>
+            <div class="lang-switcher" aria-label="Select language">
+                <a href="artigo-site-lento.html" class="lang-switcher__link" data-edit-id="asl-en-lang-pt">PT</a>
+                <span class="lang-switcher__sep" aria-hidden="true">|</span>
+                <span class="lang-switcher__active">EN</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="art-header">
+        <div class="art-header__inner">
+
+            <nav class="art-breadcrumb" aria-label="Breadcrumb">
+                <a data-edit-id="asl-en-bc-blog" href="blog-en.html">Blog</a>
+                <span aria-hidden="true">›</span>
+                <a data-edit-id="asl-en-bc-cat" href="blog-en.html">Web Design</a>
+                <span aria-hidden="true">›</span>
+                <span data-edit-id="asl-en-bc-title">Is Your Website Slow?</span>
+            </nav>
+
+            <span data-edit-id="asl-en-tag" class="blog-tag blog-tag--web-design">Web Design · Performance</span>
+
+            <h1 data-edit-id="asl-en-h1">Is Your Website Slow? Here's What's Happening (and How to Fix It)</h1>
+
+            <p data-edit-id="asl-en-sub" class="art-header__sub">A slow website is not just frustrating — it's money walking out the door. Find out where the problems are, what causes them and how to fix them technically.</p>
+
+            <div class="art-meta">
+                <div class="art-meta__author">
+                    <span class="blog-avatar">S</span>
+                    <div>
+                        <strong data-edit-id="asl-en-author-name">Sica Creative Team</strong>
+                        <span data-edit-id="asl-en-author-org">Sica Creative</span>
+                    </div>
+                </div>
+                <div class="art-meta__info">
+                    <time data-edit-id="asl-en-date" datetime="2025-04-01">April 2025</time>
+                    <span class="blog-meta-dot" aria-hidden="true">·</span>
+                    <span data-edit-id="asl-en-read-time">5 min read</span>
+                </div>
+                <div class="art-share" aria-label="Share article">
+                    <button class="art-share__btn" aria-label="Share on LinkedIn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </button>
+                    <button class="art-share__btn" aria-label="Share on Twitter/X">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </button>
+                    <button class="art-share__btn" id="copyLinkBtn" aria-label="Copy link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- FEATURED IMAGE -->
+    <div class="art-cover">
+        <div class="art-cover__img">
+            <img data-edit-id="asl-en-cover-img" src="" alt="PageSpeed Insights dashboard — green zone vs. red zone" style="width:100%;height:100%;object-fit:cover;display:block;min-height:360px;background:linear-gradient(135deg,#34224D 0%,#6F5AA3 100%);">
+        </div>
+    </div>
+
+    <!-- ARTICLE BODY + SIDEBAR -->
+    <div class="art-layout">
+
+        <main class="art-body" id="artBody">
+
+            <p data-edit-id="asl-en-lead" class="art-lead">A slow website is not an aesthetic issue — it is a business problem. Every extra second of load time translates into more abandonment, a worse Google ranking and a higher cost per click in paid campaigns. In this article we show what is causing the slowness, what happens if you don't fix it and how the right technical intervention resolves the problem in 48 hours.</p>
+
+            <!-- Section 1 -->
+            <h2 data-edit-id="asl-en-h2-1" id="sec-1">1. What is Google PageSpeed and why it matters</h2>
+            <p data-edit-id="asl-en-p-1-1">Most people assume a slow website is a design problem — too many images, animations or heavy fonts. In reality, the true culprits are invisible to the user.</p>
+            <p data-edit-id="asl-en-p-1-2">Google PageSpeed Insights is Google's official tool for measuring the speed and technical quality of a website. The score runs from 0 to 100 and divides into three performance zones:</p>
+
+            <ul>
+                <li data-edit-id="asl-en-li-zones-1"><strong>Red (0–49)</strong> — poor performance, with direct impact on SEO and user experience</li>
+                <li data-edit-id="asl-en-li-zones-2"><strong>Orange (50–89)</strong> — average performance, with identified but non-critical issues</li>
+                <li data-edit-id="asl-en-li-zones-3"><strong>Green (90–100)</strong> — excellent performance, within Google's standards</li>
+            </ul>
+
+            <p data-edit-id="asl-en-p-1-3">Most business websites are in the orange or red zone — frequently below 50 on mobile. This is not a technical detail: Google uses <strong>Core Web Vitals</strong> (the metrics that make up PageSpeed) as a direct criterion for organic ranking.</p>
+
+            <div class="art-tip">
+                <div class="art-tip__icon" aria-hidden="true">💡</div>
+                <div>
+                    <strong data-edit-id="asl-en-tip1-title">How to check your site right now</strong>
+                    <p data-edit-id="asl-en-tip1-body">Go to <strong>pagespeed.web.dev</strong>, enter your address and run the test on both desktop and mobile. For a more detailed analysis, you can also use <strong>gtmetrix.com</strong> — it presents a visual report with the load time of each element.</p>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <h2 data-edit-id="asl-en-h2-2" id="sec-2">2. The 3 consequences of a slow website</h2>
+
+            <h3 data-edit-id="asl-en-h3-2-1">Lower Google ranking</h3>
+            <p data-edit-id="asl-en-p-2-1">Core Web Vitals — LCP (loading), FID (interactivity) and CLS (visual stability) — have been direct ranking criteria in Google's algorithm since 2021. A technically slow website competes at a disadvantage, regardless of the quality of the content or keywords targeted.</p>
+
+            <blockquote class="art-quote">
+                <p data-edit-id="asl-en-quote-1">A slow website, even with great content and keywords, loses position to technically faster competitors.</p>
+            </blockquote>
+
+            <h3 data-edit-id="asl-en-h3-2-2">More mobile abandonment</h3>
+            <p data-edit-id="asl-en-p-2-2">Over 60% of local searches are made on mobile, often on 4G networks with variable signal. If the website takes more than 3 seconds to load, most users close the tab and move to the next result. The potential client is gone — without ever seeing the offer.</p>
+
+            <h3 data-edit-id="asl-en-h3-2-3">Higher CPC in Google Ads</h3>
+            <p data-edit-id="asl-en-p-2-3">In Google Ads, the cost per click is determined by the <strong>Quality Score</strong> — a metric that includes the landing page experience. A slow website lowers the Quality Score, which drives up the CPC. The result: paying more for each visit, with the same — or worse — probability of conversion.</p>
+
+            <div class="art-metrics">
+                <div class="art-metric">
+                    <strong data-edit-id="asl-en-metric-1-val">53%</strong>
+                    <span data-edit-id="asl-en-metric-1-label">of users abandon sites with more than 3 seconds of load time</span>
+                </div>
+                <div class="art-metric">
+                    <strong data-edit-id="asl-en-metric-2-val">−30%</strong>
+                    <span data-edit-id="asl-en-metric-2-label">average CPC reduction after landing page optimisation</span>
+                </div>
+                <div class="art-metric">
+                    <strong data-edit-id="asl-en-metric-3-val">90+</strong>
+                    <span data-edit-id="asl-en-metric-3-label">PageSpeed score guaranteed after full technical intervention</span>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <h2 data-edit-id="asl-en-h2-3" id="sec-3">3. What is making your website slow</h2>
+            <p data-edit-id="asl-en-p-3-intro">In most websites we analyse, the problem is not a single factor — it is the accumulation of several technical inefficiencies that, together, destroy performance. These are the most common causes:</p>
+
+            <ol>
+                <li data-edit-id="asl-en-cause-1"><strong>Heavy unoptimised images</strong> — photos loaded directly from the camera, several MB each, without compression or conversion to modern formats</li>
+                <li data-edit-id="asl-en-cause-2"><strong>Poorly configured or non-existent cache</strong> — the server rebuilds the page on every visit instead of serving a stored version, multiplying response time</li>
+                <li data-edit-id="asl-en-cause-3"><strong>Database full of "junk"</strong> — drafts, auto-revisions, spam comments and obsolete content accumulate and slow down queries</li>
+                <li data-edit-id="asl-en-cause-4"><strong>Excessive CSS and JavaScript code</strong> — unnecessary or non-minified files loaded on every page, even where they are not used</li>
+                <li data-edit-id="asl-en-cause-5"><strong>Render-blocking scripts</strong> — the browser waits for scripts to load before showing any content to the user, dramatically increasing time to first view</li>
+                <li data-edit-id="asl-en-cause-6"><strong>No preload strategy</strong> — critical files (fonts, main CSS, hero image) arrive too late in the browser, delaying what the user sees first</li>
+                <li data-edit-id="asl-en-cause-7"><strong>No CDN</strong> — all content served from a single server, increasing latency for geographically distant users</li>
+            </ol>
+
+            <div class="art-tip">
+                <div class="art-tip__icon" aria-hidden="true">⚠️</div>
+                <div>
+                    <strong data-edit-id="asl-en-tip2-title">Common mistake</strong>
+                    <p data-edit-id="asl-en-tip2-body">Installing a cache plugin and assuming the problem is solved. A badly configured plugin may have no effect at all — or worse, create conflicts with other plugins. Real optimisation requires technical configuration, not just installation.</p>
+                </div>
+            </div>
+
+            <figure class="art-figure">
+                <img data-edit-id="asl-en-fig1-img" src="" alt="Infographic: anatomy of a slow website" style="width:100%;border-radius:12px;min-height:220px;background:#F3F4F6;display:block;object-fit:cover;">
+                <figcaption data-edit-id="asl-en-fig1-caption">The main layers of technical inefficiency that affect PageSpeed</figcaption>
+            </figure>
+
+            <!-- Section 4 -->
+            <h2 data-edit-id="asl-en-h2-4" id="sec-4">4. What a full technical optimisation means</h2>
+            <p data-edit-id="asl-en-p-4-intro">An effective resolution does not involve installing a plugin and leaving it to run. It involves a layered intervention that attacks each source of slowness in a coordinated way:</p>
+
+            <ul>
+                <li data-edit-id="asl-en-fix-1"><strong>Image conversion to WebP</strong> — up to 30% lighter than JPEG and PNG with the same perceived visual quality</li>
+                <li data-edit-id="asl-en-fix-2"><strong>Advanced cache and minification</strong> — HTML, CSS and JavaScript compressed and served from stored versions</li>
+                <li data-edit-id="asl-en-fix-3"><strong>Database cleanup</strong> — removal of revisions, drafts, obsolete content data and deactivated plugin entries</li>
+                <li data-edit-id="asl-en-fix-4"><strong>Smart lazy loading</strong> — images and videos load only when the user scrolls to them, reducing the initial page weight</li>
+                <li data-edit-id="asl-en-fix-5"><strong>Script deferring</strong> — scripts load after the main content, not before, eliminating render blocking that prevents the user from seeing the page</li>
+                <li data-edit-id="asl-en-fix-6"><strong>Preload strategy</strong> — fonts, critical CSS and the main image are prioritised and loaded in advance, so that what the user sees first appears as fast as possible</li>
+                <li data-edit-id="asl-en-fix-7"><strong>Cloudflare configuration</strong> — global CDN that distributes content across servers worldwide, with additional protection and reduced load on the origin server</li>
+            </ul>
+
+            <blockquote class="art-quote">
+                <p data-edit-id="asl-en-quote-2">The result of these combined interventions is a PageSpeed score above 90 — with immediate impact on SEO, user experience and paid campaign performance.</p>
+            </blockquote>
+
+            <figure class="art-figure">
+                <img data-edit-id="asl-en-fig2-img" src="" alt="Before/after — score 38 vs. 94 in PageSpeed Insights" style="width:100%;border-radius:12px;min-height:220px;background:#F3F4F6;display:block;object-fit:cover;">
+                <figcaption data-edit-id="asl-en-fig2-caption">Real result after full technical optimisation — from red zone to green zone</figcaption>
+            </figure>
+
+            <!-- Section 5 -->
+            <h2 data-edit-id="asl-en-h2-5" id="sec-5">5. How long it takes and what to expect</h2>
+            <p data-edit-id="asl-en-p-5-1">The full technical intervention is implemented in <strong>48 hours</strong>, with no downtime — the site stays online throughout the process. There are no visual changes: the result is invisible to the visitor but immediately measurable in PageSpeed.</p>
+            <p data-edit-id="asl-en-p-5-2">After optimisation, the concrete effects clients report include:</p>
+
+            <ul>
+                <li data-edit-id="asl-en-result-1">Lower CPC in Google Ads — improved Quality Score reduces cost per click directly</li>
+                <li data-edit-id="asl-en-result-2">More visitors who stay — lower bounce rate, more time on page</li>
+                <li data-edit-id="asl-en-result-3">Better organic ranking — Core Web Vitals within Google's criteria</li>
+            </ul>
+
+            <div class="art-tip">
+                <div class="art-tip__icon" aria-hidden="true">✅</div>
+                <div>
+                    <strong data-edit-id="asl-en-tip3-title">Results guaranteed</strong>
+                    <p data-edit-id="asl-en-tip3-body">If the score doesn't reach the green zone (90+), the investment is fully refunded. No questions asked.</p>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <h2 data-edit-id="asl-en-h2-6" id="sec-6">Speed is not a technical detail — it's a competitive advantage</h2>
+            <p data-edit-id="asl-en-p-concl-1">Website speed affects three critical variables simultaneously: how much you pay per customer via Google Ads, where you appear in organic Google and how many visitors stay long enough to convert. Three growth levers tied to the same technical root.</p>
+            <p data-edit-id="asl-en-p-concl-2">The good news is that the problem is fixable, fast and with a results guarantee. Start by checking now at <strong>pagespeed.web.dev</strong>. If the result is orange or red, the fix is 48 hours away.</p>
+            <p data-edit-id="asl-en-p-concl-3">If you want to understand exactly where your website is losing money, <a href="/contact/">request a free speed analysis</a>. We show you the complete diagnosis with no commitment.</p>
+
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="art-sidebar" aria-label="Table of contents and related content">
+            <div class="art-sidebar__sticky">
+
+                <div class="art-toc" id="artToc">
+                    <h3 data-edit-id="asl-en-toc-title" class="art-toc__title">In this article</h3>
+                    <nav aria-label="Article table of contents">
+                        <ol class="art-toc__list">
+                            <li><a data-edit-id="asl-en-toc-1" href="#sec-1" class="art-toc__link is-active">1. What is Google PageSpeed</a></li>
+                            <li><a data-edit-id="asl-en-toc-2" href="#sec-2" class="art-toc__link">2. The 3 consequences of a slow site</a></li>
+                            <li><a data-edit-id="asl-en-toc-3" href="#sec-3" class="art-toc__link">3. What is making it slow</a></li>
+                            <li><a data-edit-id="asl-en-toc-4" href="#sec-4" class="art-toc__link">4. What a full optimisation means</a></li>
+                            <li><a data-edit-id="asl-en-toc-5" href="#sec-5" class="art-toc__link">5. How long it takes</a></li>
+                            <li><a data-edit-id="asl-en-toc-6" href="#sec-6" class="art-toc__link">Conclusion</a></li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="art-sidebar-cta">
+                    <p data-edit-id="asl-en-sidebar-cta-text">Is your site in the red zone? We do the full technical optimisation in 48h. Score 90+ guaranteed or your money back.</p>
+                    <a data-edit-id="asl-en-sidebar-cta-btn" href="https://sicacreative.com/product/wordpress-speed-booster-95-otimizacao-tecnica-completa/" class="btn btn-primary btn-full" target="_blank" rel="noopener noreferrer">See Speed Booster →</a>
+                </div>
+
+            </div>
+        </aside>
+
+    </div><!-- /art-layout -->
+
+    <!-- AUTHOR BIO -->
+    <div class="art-author-section">
+        <div class="art-author-inner">
+            <div class="art-author-avatar">S</div>
+            <div class="art-author-info">
+                <strong data-edit-id="asl-en-bio-name">Sica Creative Team</strong>
+                <p data-edit-id="asl-en-bio-text">Digital performance specialists for clinics and local businesses. We work with companies that want to grow with predictability — not promises.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAGS -->
+    <div class="art-tags-section">
+        <div class="art-tags-inner">
+            <span data-edit-id="asl-en-tags-label" class="art-tags__label">Tags:</span>
+            <div class="art-tags__list">
+                <span data-edit-id="asl-en-tag-1" class="blog-tag blog-tag--web-design">Web Design</span>
+                <span data-edit-id="asl-en-tag-2" class="blog-tag blog-tag--seo">SEO</span>
+                <span data-edit-id="asl-en-tag-3" class="blog-tag blog-tag--google-ads">Google Ads</span>
+                <span data-edit-id="asl-en-tag-4" class="blog-tag blog-tag--estrategia">Performance</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <section class="art-related">
+        <div class="art-related__inner">
+            <h2 data-edit-id="asl-en-related-title">Related articles</h2>
+            <div class="blog-grid art-related__grid">
+
+                <article class="blog-card" data-cat="google-ads">
+                    <a href="artigo-en.html" class="blog-card__link">
+                        <div class="blog-card__thumb blog-card__thumb--gads2"></div>
+                        <div class="blog-card__body">
+                            <span class="blog-tag blog-tag--google-ads">Google Ads</span>
+                            <h3 data-edit-id="asl-en-related-1-title">How to reduce CPC in Google Ads without cutting budget</h3>
+                            <div class="blog-meta">
+                                <time data-edit-id="asl-en-related-1-date">April 2025</time>
+                                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                                <span data-edit-id="asl-en-related-1-time">6 min</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-cat="seo">
+                    <a href="#" class="blog-card__link">
+                        <div class="blog-card__thumb blog-card__thumb--seo1"></div>
+                        <div class="blog-card__body">
+                            <span class="blog-tag blog-tag--seo">SEO</span>
+                            <h3 data-edit-id="asl-en-related-2-title">Local SEO for dental clinics in Lisbon</h3>
+                            <div class="blog-meta">
+                                <time data-edit-id="asl-en-related-2-date">April 2025</time>
+                                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                                <span data-edit-id="asl-en-related-2-time">5 min</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-cat="seo">
+                    <a href="#" class="blog-card__link">
+                        <div class="blog-card__thumb blog-card__thumb--seo2"></div>
+                        <div class="blog-card__body">
+                            <span class="blog-tag blog-tag--seo">SEO</span>
+                            <h3 data-edit-id="asl-en-related-3-title">SEO audit: when and why it matters</h3>
+                            <div class="blog-meta">
+                                <time data-edit-id="asl-en-related-3-date">Coming soon</time>
+                                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                                <span data-edit-id="asl-en-related-3-time">—</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="blog-newsletter">
+        <div class="container">
+            <div class="blog-newsletter__inner">
+                <div class="blog-newsletter__copy">
+                    <h3 data-edit-id="asl-en-nl-title">Get weekly insights</h3>
+                    <p data-edit-id="asl-en-nl-text">Frameworks and strategies straight to your inbox. No spam — only what really works.</p>
+                </div>
+                <form class="blog-newsletter__form" id="newsletterForm" novalidate>
+                    <input type="email" name="email" placeholder="Your professional email" required aria-label="Newsletter email">
+                    <button data-edit-id="asl-en-nl-btn" type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="art-final-cta">
+        <div class="container">
+            <div class="art-final-cta__inner">
+                <div class="art-final-cta__copy">
+                    <h2 data-edit-id="asl-en-fcta-title">Is your website losing clients every day?</h2>
+                    <p data-edit-id="asl-en-fcta-text">We do a free speed analysis and show you exactly what is costing you money.</p>
+                </div>
+                <a data-edit-id="asl-en-fcta-btn" href="/contact/" class="btn btn-primary">Request a Free Analysis</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="final-cta" class="footer-cta">
+        <div class="container footer-cta-inner">
+            <div>
+                <span data-edit-id="asl-en-footer-cta-label" class="section-label">Time to act</span>
+                <h2 data-edit-id="asl-en-footer-cta-h2">If you want commercial predictability, this is the next step. Request the free audit and see where you can grow now.</h2>
+            </div>
+            <a data-edit-id="asl-en-footer-cta-btn" href="mailto:info@sicacreative.com" class="btn btn-primary">Get a Free Audit</a>
+        </div>
+    </footer>
+
+    <footer class="site-footer">
+        <div class="container site-footer-inner">
+            <div class="footer-brand">
+                <div data-edit-id="asl-en-footer-logo" class="footer-logo">Sica Creative</div>
+                <p data-edit-id="asl-en-footer-tagline">A digital agency with clear presence, modern communication and results-driven execution.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div>
+                    <h3 data-edit-id="asl-en-footer-h3-1">Services</h3>
+                    <ul>
+                        <li><a data-edit-id="asl-en-footer-svc-1" href="index-en.html#services">Google Ads</a></li>
+                        <li><a data-edit-id="asl-en-footer-svc-2" href="index-en.html#services">SEO</a></li>
+                        <li><a data-edit-id="asl-en-footer-svc-3" href="index-en.html#services">CRO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-edit-id="asl-en-footer-h3-2">Company</h3>
+                    <ul>
+                        <li><a data-edit-id="asl-en-footer-emp-1" href="clientes-en.html">Clients</a></li>
+                        <li><a data-edit-id="asl-en-footer-emp-2" href="ferramentas.html">Tools</a></li>
+                        <li><a data-edit-id="asl-en-footer-emp-3" href="blog-en.html">Blog</a></li>
+                        <li><a data-edit-id="asl-en-footer-emp-4" href="index-en.html#final-cta">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-edit-id="asl-en-footer-h3-3">Contact</h3>
+                    <ul>
+                        <li><a data-edit-id="asl-en-footer-ct-1" href="mailto:info@sicacreative.com">info@sicacreative.com</a></li>
+                        <li><a data-edit-id="asl-en-footer-ct-2" href="tel:+351912345678">+351 912 345 678</a></li>
+                        <li><a data-edit-id="asl-en-footer-ct-3" href="index-en.html#final-cta">Schedule an audit</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p data-edit-id="asl-en-footer-copy">© 2026 Sica Creative. All rights reserved.</p>
+            <div class="footer-policy-links">
+                <a data-edit-id="asl-en-footer-policy-1" href="#">Privacy Policy</a>
+                <a data-edit-id="asl-en-footer-policy-2" href="#">Terms of Use</a>
+                <a data-edit-id="asl-en-footer-policy-3" href="politica-cookies.html">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="artigo.js"></script>
+    <script src="/popup-newsletter-en.js"></script>
+    <script type="text/javascript">
+        window.omnisend = window.omnisend || [];
+        omnisend.push(["brandID", "6981e17d27460b4ce15c57f3"]);
+        omnisend.push(["track", "$pageViewed"]);
+        !function(){var e=document.createElement("script");
+        e.type="text/javascript",e.async=!0,
+        e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
+        var t=document.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(e,t)}();
+    </script>
+</body>
+</html>

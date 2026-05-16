@@ -1,0 +1,640 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sica Creative | Agência de Marketing Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/assets/js/cookie-consent.js"></script>
+</head>
+<body>
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-bar" id="scrollProgressBar"></span>
+    </div>
+
+    <nav class="navbar" id="mainNavbar">
+        <div class="container navbar-inner">
+            <a href="index" class="navbar-logo" data-edit-id="global-nav-logo">Sica Creative</a>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navMenu">
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger"><span data-edit-id="global-nav-servicos">Serviços</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="index#services" data-edit-id="global-nav-link-webdesign">Web Design</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-seo">SEO</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-googleads">Google Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-metaads">Meta Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-socialmedia">Social Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="clientes" data-edit-id="global-nav-resultados">Clientes</a></li>
+                <li class="has-dropdown">
+                    <button class="dropdown-trigger"><span data-edit-id="global-nav-sobre">Sobre</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sobre" data-edit-id="global-nav-link-agencia">A Agência</a></li>
+                        <li><a href="blog" data-edit-id="global-nav-link-blog">Blog</a></li>
+                        <li><a href="marketing-digital-clinicas-dentarias" data-edit-id="global-nav-link-especialidades">Especialidades</a></li>
+                        <li><a href="ferramentas" data-edit-id="global-nav-link-ferramentas">Ferramentas</a></li>
+                    </ul>
+                </li>
+                <li><a href="index#contact-form" data-edit-id="global-nav-contacto">Contacte-nos</a></li>
+                <li class="lang-switcher" aria-label="Selecionar idioma">
+                    <span class="lang-switcher__active">PT</span>
+                    <span class="lang-switcher__sep" aria-hidden="true">|</span>
+                    <a href="index-en" class="lang-switcher__link" data-edit-id="global-nav-lang-en">EN</a>
+                </li>
+                <li class="nav-lang-mobile"><span>🌐</span> <span class="lang-m-active">PT</span> <span class="lang-m-sep">/</span> <a href="index-en" class="lang-m-link">EN</a></li>
+            </ul>
+            <a href="pt/quiz/index" class="btn btn-primary btn-sm navbar-cta-scroll" data-edit-id="global-nav-cta">Agendar Reunião</a>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-copy">
+                <span class="eyebrow" data-edit-id="home-hero-eyebrow">Agência de Marketing Digital</span>
+                <h1 data-edit-id="home-hero-h1">Mais faturação. Menos incerteza.</h1>
+                <p data-edit-id="home-hero-p">Transformamos investimento em marketing num fluxo estável de contactos qualificados para que possa crescer com previsibilidade todos os meses.</p>
+                <div class="hero-actions">
+                    <a href="pt/quiz/index" class="btn btn-primary" data-edit-id="home-hero-cta-primary">Agendar Reunião</a>
+                    <a href="clientes" class="btn btn-secondary" data-edit-id="home-hero-cta-secondary">Ver Resultados Reais</a>
+                </div>
+                <div class="hero-trust" aria-label="Indicadores de confiança">
+                    <span data-edit-id="home-hero-trust-1"><i aria-hidden="true">✓</i>+50 empresas ajudadas</span>
+                    <span data-edit-id="home-hero-trust-2"><i aria-hidden="true">↗</i>ROI médio 4,2x</span>
+                    <span data-edit-id="home-hero-trust-3"><i aria-hidden="true">◷</i>Relatórios semanais</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="visual-topbar">
+                        <span class="visual-tag" data-edit-id="home-dash-title">Painel Sica Growth</span>
+                        <span class="visual-live" data-edit-id="home-dash-live">Resultados em tempo real</span>
+                    </div>
+                    <div class="visual-screen">
+                        <div class="visual-chart-card">
+                            <div class="visual-chart-header">
+                                <p>Crescimento de Leads (30 dias)</p>
+                                <strong class="countup" data-target="42" data-prefix="+" data-suffix="%">+42%</strong>
+                            </div>
+                            <div class="visual-chart-grid" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <svg class="visual-chart" viewBox="0 0 360 170" role="img" aria-label="Gráfico de crescimento de leads">
+                                <defs>
+                                    <linearGradient id="chartStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#b7d356" />
+                                        <stop offset="100%" stop-color="#6f5aa3" />
+                                    </linearGradient>
+                                </defs>
+                                <polyline points="0,145 38,130 76,122 114,110 152,96 190,86 228,70 266,64 304,49 342,32" />
+                            </svg>
+                            <div class="visual-metrics">
+                                <article class="visual-metric-card">
+                                    <strong class="countup" data-target="42" data-prefix="+" data-suffix="%">+42%</strong>
+                                    <span>Leads</span>
+                                </article>
+                                <article class="visual-metric-card">
+                                    <strong class="countup" data-target="-18" data-suffix="%">-18%</strong>
+                                    <span>Custo de Aquisição</span>
+                                </article>
+                                <article class="visual-metric-card">
+                                    <strong class="countup" data-target="3.8" data-suffix="x" data-decimals="1">3,8x</strong>
+                                    <span>ROI médio</span>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="visual-kpis">
+                            <article class="visual-kpi">
+                                <span>Leads esta semana</span>
+                                <strong class="countup" data-target="186">186</strong>
+                            </article>
+                            <article class="visual-kpi">
+                                <span>Custo por lead</span>
+                                <strong class="countup" data-target="12.8" data-prefix="€" data-decimals="2">€12,80</strong>
+                            </article>
+                            <article class="visual-kpi">
+                                <span>Taxa de conversão</span>
+                                <strong class="countup" data-target="13.4" data-suffix="%" data-decimals="1">13,4%</strong>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="problem-awareness" class="section section-problem">
+            <div class="container">
+                <div class="problem-card">
+                    <span class="section-label" data-edit-id="home-problem-label">O Problema</span>
+                    <h2 data-edit-id="home-problem-h2">Está ocupado todos os dias<br>mas o negócio não cresce?</h2>
+                    <p class="problem-intro" data-edit-id="home-problem-intro">Se a agenda está cheia mas a faturação não escala com previsibilidade, o problema não é esforço. É falta de sistema.</p>
+                    <div class="problem-points">
+                        <div class="problem-point">
+                            <div class="problem-point-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M2 10 C4 6,6 12,8 8 C10 4,12 7,14 5" stroke="#6F5AA3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div>
+                                <strong data-edit-id="home-problem-1-title">Leads irregulares</strong>
+                                <p data-edit-id="home-problem-1-p">Meses bons seguidos de semanas fracas, sem previsibilidade sobre o volume de contactos qualificados.</p>
+                            </div>
+                        </div>
+                        <div class="problem-point">
+                            <div class="problem-point-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#6F5AA3" stroke-width="1.8"/><path d="M8 5v3.5M8 11h.01" stroke="#6F5AA3" stroke-width="1.8" stroke-linecap="round"/></svg>
+                            </div>
+                            <div>
+                                <strong data-edit-id="home-problem-2-title">Muita ação, pouco resultado</strong>
+                                <p data-edit-id="home-problem-2-p">Campanhas avulsas, investimento disperso e decisões por intuição em vez de dados acionáveis.</p>
+                            </div>
+                        </div>
+                        <div class="problem-point">
+                            <div class="problem-point-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><rect x="2" y="9" width="2.5" height="5" rx="1" fill="#6F5AA3"/><rect x="6.5" y="6" width="2.5" height="8" rx="1" fill="#6F5AA3" opacity="0.55"/><rect x="11" y="3" width="2.5" height="11" rx="1" fill="#6F5AA3" opacity="0.3"/></svg>
+                            </div>
+                            <div>
+                                <strong data-edit-id="home-problem-3-title">Crescimento sem controlo</strong>
+                                <p data-edit-id="home-problem-3-p">Não sabe o que funciona, quanto custa cada cliente, nem onde está a perder margem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="section section-copy">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" data-edit-id="home-comp-label">Clareza Estratégica</span>
+                    <h2 data-edit-id="home-comp-h2">Marketing tradicional vs método orientado a performance</h2>
+                    <p data-edit-id="home-comp-p">A diferença entre executar ações isoladas e construir um motor de aquisição com controlo, previsibilidade e escala.</p>
+                </div>
+                <div class="comparison-cards">
+                    <div class="comparison-card comparison-card--dark">
+                        <h3 data-edit-id="home-comp-dark-h3">Marketing Tradicional</h3>
+                        <ul>
+                            <li data-edit-id="home-comp-dark-li-1">Leads irregulares e agenda instável</li>
+                            <li data-edit-id="home-comp-dark-li-2">Foco em métricas de vaidade</li>
+                            <li data-edit-id="home-comp-dark-li-3">Decisões sem dados acionáveis</li>
+                            <li data-edit-id="home-comp-dark-li-4">Investimento sem retorno previsível</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card comparison-card--light">
+                        <h3 data-edit-id="home-comp-light-h3">Método Sica</h3>
+                        <ul>
+                            <li data-edit-id="home-comp-light-li-1">Fluxo contínuo de contactos qualificados</li>
+                            <li data-edit-id="home-comp-light-li-2">Foco em faturação e margem</li>
+                            <li data-edit-id="home-comp-light-li-3">Performance monitorizada em tempo real</li>
+                            <li data-edit-id="home-comp-light-li-4">ROI claro e escalável</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies" class="section section-case-studies">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" data-edit-id="home-cs-label">Case Studies</span>
+                    <h2 data-edit-id="home-cs-h2">Prova real de performance, não promessas</h2>
+                    <p data-edit-id="home-cs-p">Projetos onde ligámos investimento a crescimento mensurável com impacto direto na faturação.</p>
+                </div>
+                <div class="studies-grid">
+                    <article class="study-card">
+                        <h3 data-edit-id="home-cs-1-h3">+75% de leads qualificados</h3>
+                        <p data-edit-id="home-cs-1-p">Estrutura paga para clínica premium com aumento de marcações e queda contínua do custo por lead.</p>
+                    </article>
+                    <article class="study-card">
+                        <h3 data-edit-id="home-cs-2-h3">+120% de tráfego orgânico</h3>
+                        <p data-edit-id="home-cs-2-p">Plano SEO orientado a intenção comercial que duplicou visibilidade e consolidou procura recorrente.</p>
+                    </article>
+                    <article class="study-card">
+                        <h3 data-edit-id="home-cs-3-h3">2x conversões no funil</h3>
+                        <p data-edit-id="home-cs-3-p">Reengenharia de landing pages e criativos para multiplicar pedidos de orçamento com o mesmo tráfego.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section section-testimonials">
+            <div class="container testimonials-header-grid">
+                <div>
+                    <span class="section-label" data-edit-id="home-test-label">Testemunhos</span>
+                    <h2 data-edit-id="home-test-h2">Há um motivo pelo qual os clientes falam tão bem de nós.</h2>
+                </div>
+                <div class="testimonials-cta">
+                    <p data-edit-id="home-test-p">Milhares de empresas já conseguiram mais leads, autoridade e crescimento com a estratégia certa.</p>
+                    <a href="#final-cta" class="btn btn-primary btn-sm">Ver Oferta</a>
+                </div>
+            </div>
+
+            <div class="testimonials-carousel-wrapper">
+                <div class="testimonials-carousel" id="testimonialsCarousel">
+                    <article class="testimonial-card testimonial-card--featured">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">T</div>
+                            <strong data-edit-id="home-test-1-name">Teresa, clínica estética</strong>
+                        </div>
+                        <p>"O trabalho da equipa foi muito rápido e transparente. As nossas conversões subiram logo no primeiro mês."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">R</div>
+                            <strong data-edit-id="home-test-2-name">Rita, consultório médico</strong>
+                        </div>
+                        <p>"Agora temos um funil previsível e um fluxo constante de pedidos. A gestão das campanhas ficou muito mais simples."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">B</div>
+                            <strong data-edit-id="home-test-3-name">Bruno, wellness</strong>
+                        </div>
+                        <p>"As recomendações foram claras e o resultado foi imediato. Vimos mais pacientes entrar e mais faturação realizada."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">M</div>
+                            <strong data-edit-id="home-test-4-name">Mariana, salão</strong>
+                        </div>
+                        <p>"A presença digital passou a ser um canal de vendas real. Hoje temos clientes a marcar diretamente a partir dos anúncios."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <strong data-edit-id="home-test-5-name">Carlos, dentista</strong>
+                        </div>
+                        <p>"O SEO local trouxe pacientes de toda a cidade. Em 3 meses, tínhamos agenda cheia e pacientes recorrentes."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">A</div>
+                            <strong data-edit-id="home-test-6-name">Ana, fisioterapeuta</strong>
+                        </div>
+                        <p>"As campanhas no Google Ads trouxeram exactamente o tipo de pacientes que eu queria. Qualidade sobre quantidade."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <strong data-edit-id="home-test-7-name">Pedro, psicólogo</strong>
+                        </div>
+                        <p>"Construíram autoridade online para mim. Agora sou referência na minha área e tenho pacientes de toda a região."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">L</div>
+                            <strong data-edit-id="home-test-8-name">Luísa, clínica veterinária</strong>
+                        </div>
+                        <p>"O funil de vendas que criaram converteu visitantes em clientes fiéis. O ROI foi impressionante desde o primeiro mês."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <strong data-edit-id="home-test-9-name">João, academia</strong>
+                        </div>
+                        <p>"As redes sociais trouxeram alunos todos os dias. A estratégia de conteúdo funcionou perfeitamente para o nosso público."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">S</div>
+                            <strong data-edit-id="home-test-10-name">Sofia, nutricionista</strong>
+                        </div>
+                        <p>"Posicionaram-me como especialista. Agora tenho consultas marcadas com semanas de antecedência através do site."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <strong data-edit-id="home-test-11-name">Manuel, farmácia</strong>
+                        </div>
+                        <p>"O Google Ads trouxe clientes que realmente precisavam dos nossos serviços. O investimento voltou em menos de 30 dias."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">C</div>
+                            <strong data-edit-id="home-test-12-name">Catarina, cabeleireiro</strong>
+                        </div>
+                        <p>"As campanhas locais no Facebook trouxeram clientes do bairro todo. A agenda encheu-se em semanas."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <strong data-edit-id="home-test-13-name">Rodrigo, clínica de reabilitação</strong>
+                        </div>
+                        <p>"A estratégia SEO posicionou-nos como líderes na área. Pacientes vêm de toda a região procurar os nossos serviços."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">I</div>
+                            <strong data-edit-id="home-test-14-name">Inês, terapeuta ocupacional</strong>
+                        </div>
+                        <p>"Construíram uma presença online profissional que transmitia confiança. Os pacientes sentem-se seguros a contactar-nos."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <strong data-edit-id="home-test-15-name">Tiago, centro de diagnóstico</strong>
+                        </div>
+                        <p>"As campanhas pagas trouxeram exactamente o perfil de cliente que procurávamos. ROI excepcional desde o início."</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">P</div>
+                            <strong data-edit-id="home-test-16-name">Patrícia, spa</strong>
+                        </div>
+                        <p>"O Instagram tornou-se o nosso maior canal de captação. Clientes marcam tratamentos diariamente através das stories."</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="section section-process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" data-edit-id="home-proc-label">A nossa abordagem</span>
+                    <h2 data-edit-id="home-proc-h2">A nossa abordagem</h2>
+                    <p data-edit-id="home-proc-p">Um processo claro para transformar investimento em aquisição previsível e crescimento sustentado.</p>
+                </div>
+
+                <div class="process-system" id="processSystem">
+                    <div class="process-rail" aria-hidden="true">
+                        <span class="process-rail-track"></span>
+                        <span class="process-rail-progress" id="processRailProgress"></span>
+                        <span class="process-rail-dot" id="processRailDot"></span>
+                    </div>
+
+                    <div class="process-flow">
+                        <article class="process-item is-active" data-step="analise">
+                            <span class="process-step-index">01</span>
+                            <h3 data-edit-id="home-proc-1-h3">Análise</h3>
+                            <p data-edit-id="home-proc-1-p">Auditamos canais, oferta e funil para identificar onde está a perder margem e oportunidades de escala.</p>
+                        </article>
+
+                        <article class="process-item" data-step="estrategia">
+                            <span class="process-step-index">02</span>
+                            <h3 data-edit-id="home-proc-2-h3">Estratégia</h3>
+                            <p data-edit-id="home-proc-2-p">Definimos um plano de aquisição com objetivos mensuráveis, prioridades claras e execução orientada a resultado.</p>
+                        </article>
+
+                        <article class="process-item" data-step="crescimento">
+                            <span class="process-step-index">03</span>
+                            <h3 data-edit-id="home-proc-3-h3">Crescimento</h3>
+                            <p data-edit-id="home-proc-3-p">Otimização contínua para aumentar faturação com previsibilidade, mantendo controlo de custo e qualidade de lead.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section section-services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" data-edit-id="home-svc-label">Serviços</span>
+                    <h2 data-edit-id="home-svc-h2">Canais que ativamos para crescer</h2>
+                    <p data-edit-id="home-svc-p">Os canais certos no momento certo, para transformar procura em contactos e contactos em faturação previsível.</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card service-card--core">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 4-5 2.5-2.5" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 5.5v3.5h-3.5" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="home-svc-1-h3">Google Ads</h3>
+                        <p data-edit-id="home-svc-1-p">Captamos procura qualificada com retorno mensurável por cada euro investido.</p>
+                    </article>
+                    <article class="service-card service-card--core">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="5.5" stroke="#34224D" stroke-width="1.6"/><path d="M13.5 13.5L17 17" stroke="#34224D" stroke-width="1.6" stroke-linecap="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="home-svc-2-h3">SEO</h3>
+                        <p data-edit-id="home-svc-2-p">Visibilidade orgânica sustentável para crescer sem depender de publicidade paga.</p>
+                    </article>
+                    <article class="service-card service-card--core">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 4h14L12 11v5l-4-2v-3L3 4z" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="home-svc-3-h3">Consultoria de CRO</h3>
+                        <p data-edit-id="home-svc-3-p">Mais conversões com o mesmo tráfego, através de otimização contínua de páginas e funis.</p>
+                    </article>
+                    <article class="service-card service-card--secondary">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#34224D" stroke-width="1.6"/><path d="M2 8h16" stroke="#34224D" stroke-width="1.6"/><circle cx="5" cy="6" r="0.9" fill="#34224D"/><circle cx="8" cy="6" r="0.9" fill="#34224D"/></svg>
+                        </div>
+                        <h3 data-edit-id="home-svc-4-h3">Web Design</h3>
+                        <p data-edit-id="home-svc-4-p">Websites focados em conversão e geração de contactos qualificados.</p>
+                    </article>
+                    <article class="service-card service-card--secondary">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 5h8a2 2 0 012 2v3.5a2 2 0 01-2 2H8l-3 2v-2H4a2 2 0 01-2-2V7a2 2 0 012-2z" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="home-svc-5-h3">Social Media</h3>
+                        <p data-edit-id="home-svc-5-p">Presença e conteúdo estratégico para construir autoridade e gerar procura recorrente.</p>
+                    </article>
+                    <article class="service-card service-card--secondary">
+                        <div class="service-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2.5l2 5.5h5.5l-4.5 3.5 1.5 5.5L10 14l-4.5 3.5 1.5-5.5L2.5 8H8l2-5.5z" stroke="#34224D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 data-edit-id="home-svc-6-h3">Branding</h3>
+                        <p data-edit-id="home-svc-6-p">Identidade visual que comunica valor e posiciona a sua marca antes de falar.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="section section-blog">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" data-edit-id="home-blog-label">Insights de Performance</span>
+                    <h2 data-edit-id="home-blog-h2">Decisões melhores criam crescimento mais rápido</h2>
+                    <p data-edit-id="home-blog-p">Conteúdos práticos para aumentar eficiência de aquisição, melhorar conversão e escalar com consistência.</p>
+                </div>
+                <div class="blog-grid">
+                    <a class="blog-card" href="artigos-de-blog/reduzir-cpa-google-ads">
+                        <div class="blog-thumb">
+                            <img data-edit-id="home-blog-img-001" src="assets/ferramentas/google-business-thumbnail.jpg" alt="Dashboard Google Ads com métricas de CPA" loading="lazy">
+                        </div>
+                        <span class="blog-tag blog-tag--google-ads" style="margin-bottom:12px;display:inline-block;">Google Ads</span>
+                        <h3 data-edit-id="home-blog-1-h3">Como reduzir o CPA em 30% sem cortar volume de leads</h3>
+                        <p data-edit-id="home-blog-1-p">Segmentação inteligente, criativos testados e estrutura de conta para baixar o custo de aquisição sem sacrificar o fluxo de contactos qualificados.</p>
+                        <span class="blog-read-more">Ler artigo →</span>
+                    </a>
+                    <a class="blog-card" href="artigos-de-blog/seo-local-clinicas">
+                        <div class="blog-thumb">
+                            <img data-edit-id="home-blog-img-002" src="assets/ferramentas/google-business-thumbnail.jpg" alt="Ficha Google Business Profile de uma clínica com avaliações e mapa local" loading="lazy">
+                        </div>
+                        <span class="blog-tag blog-tag--seo" style="margin-bottom:12px;display:inline-block;">SEO · Saúde</span>
+                        <h3 data-edit-id="home-blog-2-h3">SEO Local para Clínicas: Como Aparecer no Google Quando os Pacientes Pesquisam</h3>
+                        <p data-edit-id="home-blog-2-p">A ferramenta de marketing digital com melhor retorno para clínicas — e ainda assim a mais subaproveitada no setor da saúde.</p>
+                        <span class="blog-read-more">Ler artigo →</span>
+                    </a>
+                    <a class="blog-card" href="artigos-de-blog/site-lento-como-melhorar">
+                        <div class="blog-thumb">
+                            <img data-edit-id="home-blog-img-003" src="assets/ferramentas/wordpress-speed-booster-thumbnail.jpg" alt="Dashboard de performance com métricas de velocidade de carregamento" loading="lazy">
+                        </div>
+                        <span class="blog-tag blog-tag--seo" style="margin-bottom:12px;display:inline-block;">SEO</span>
+                        <h3 data-edit-id="home-blog-3-h3">O Seu Site Está Lento? Isto É o Que Acontece (e Como Resolver)</h3>
+                        <p data-edit-id="home-blog-3-p">Cada segundo extra de carregamento custa conversões. Saiba como diagnosticar e corrigir os problemas de velocidade mais comuns.</p>
+                        <span class="blog-read-more">Ler artigo →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section section-faq">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" data-edit-id="home-faq-label">FAQ</span>
+                    <h2 data-edit-id="home-faq-h2">Perguntas frequentes</h2>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-edit-id="home-faq-1-q">Quanto tempo leva para aparecer resultados?</button>
+                        <div class="accordion-content">
+                            <p>Em campanhas de tráfego pago os resultados começam a aparecer em dias. Para SEO, esperamos ganhos significativos em 3 a 6 meses.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-edit-id="home-faq-2-q">Posso começar sem imagens ou marca pronta?</button>
+                        <div class="accordion-content">
+                            <p>Sim. A estratégia e o plano de mídia podem ser entregues com texto e posicionamento. Imagens podem ser adicionadas depois sem impactar o lançamento.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-edit-id="home-faq-3-q">Qual o investimento mínimo para começar?</button>
+                        <div class="accordion-content">
+                            <p>O investimento inicial depende do setor, mas nossas campanhas começam a partir de um orçamento mensal enxuto, ajustado ao objetivo de crescimento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-form" class="section section-contact-form">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" data-edit-id="home-contact-label">Contacte-nos</span>
+                    <h2 data-edit-id="home-contact-h2">Fale connosco</h2>
+                    <p data-edit-id="home-contact-p">Partilhe os seus objetivos e receba um plano claro de crescimento nas próximas 24 horas.</p>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojyylgl" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group form-group--full">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="final-cta" class="footer-cta">
+        <div class="container footer-cta-inner">
+            <div>
+                <span class="section-label" data-edit-id="home-footer-label">Hora de agir</span>
+                <h2 data-edit-id="home-footer-h2">Se quer previsibilidade comercial, este é o próximo passo. Solicite a auditoria gratuita e veja onde pode crescer já.</h2>
+            </div>
+            <a href="pt/quiz/index" class="btn btn-primary" data-edit-id="home-footer-cta">Agendar Reunião</a>
+        </div>
+    </footer>
+
+    <footer class="site-footer">
+        <div class="container site-footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">Sica Creative</div>
+                <p data-edit-id="global-footer-tagline">Uma agência digital com presença clara, comunicação moderna e execução orientada a resultados.</p>
+            </div>
+
+            <div class="footer-links-grid">
+                <div>
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="index#services" data-edit-id="global-nav-link-googleads">Google Ads</a></li>
+                        <li><a href="index#services" data-edit-id="global-nav-link-seo">SEO</a></li>
+                        <li><a href="#services">CRO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="clientes" data-edit-id="global-nav-resultados">Clientes</a></li>
+                        <li><a href="ferramentas" data-edit-id="global-nav-link-ferramentas">Ferramentas</a></li>
+                        <li><a href="index#contact-form" data-edit-id="global-nav-contacto">Contacte-nos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><a data-edit-id="global-footer-email" href="mailto:info@sicacreative.com">info@sicacreative.com</a></li>
+                        <li><a data-edit-id="global-footer-phone" href="tel:+351912345678">+351 912 345 678</a></li>
+                        <li><a href="#final-cta">Agendar auditoria</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p data-edit-id="global-footer-copyright">© 2026 Sica Creative. Todos os direitos reservados.</p>
+            <div class="footer-policy-links">
+                <a href="politica-privacidade">Política de Privacidade</a>
+                <a href="termos-condicoes">Termos de Uso</a>
+                <a href="politica-cookies">Cookies</a>
+                <a href="resolucao-litigios">Resolução de Litígios</a>
+                <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener">Livro de Reclamações</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Scroll-aware navbar CTA — index.html only
+        (function () {
+            var navbar = document.getElementById('mainNavbar');
+            var hero   = document.querySelector('.hero-section');
+            if (!navbar || !hero) return;
+
+            function update() {
+                navbar.classList.toggle('header--scrolled', hero.getBoundingClientRect().bottom <= 0);
+            }
+
+            update();
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+        })();
+    </script>
+    <script src="/popup-newsletter.js"></script>
+    <script type="text/javascript">
+        window.omnisend = window.omnisend || [];
+        omnisend.push(["brandID", "6981e17d27460b4ce15c57f3"]);
+        omnisend.push(["track", "$pageViewed"]);
+        !function(){var e=document.createElement("script");
+        e.type="text/javascript",e.async=!0,
+        e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
+        var t=document.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(e,t)}();
+    </script>
+</body>
+</html>

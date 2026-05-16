@@ -1,0 +1,14 @@
+SICA WordPress Visual Package
+
+1. Upload this package's ZIP to your hosting account and extract it into the web root.
+2. Visit the domain and complete the normal WordPress installer.
+3. Log in to wp-admin.
+4. Go to Appearance > Themes and activate "Sica Visual Theme".
+5. The theme imports the bundled HTML files as WordPress Pages and sets the imported Home page as the front page.
+6. Go to Pages and click Edit on any imported page. WordPress will open the Sica Visual Editor instead of Gutenberg.
+
+Notes:
+- No custom plugin is required.
+- WordPress Media Library is used for new image uploads.
+- Existing bundled assets live inside wp-content/themes/sica-visual-theme/static.
+- The importer runs once and does not overwrite later visual-editor changes.
